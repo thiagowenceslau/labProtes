@@ -1,0 +1,80 @@
+<ion-view cache-view="false" view-title="Pedido" hide-back-button="true"> 
+  <ion-nav-buttons side="right"> 
+    <button class="button button-stable" ng-hide="Pedido.inserting || Pedido.editing" ng-click="Pedido.startInserting()"> <i class="icon ion-plus-round"></i> </button> 
+    <button class="button button-stable" ng-show="Pedido.inserting || Pedido.editing" ng-click="Pedido.post()"> <i class="icon ion-checkmark"></i> </button> 
+  </ion-nav-buttons> 
+  <ion-nav-buttons side="left"> 
+    <button class="button button-icon button-clear ion-navicon" ng-hide="Pedido.inserting || Pedido.editing" menu-toggle="left"> </button> 
+    <button class="button button-stable" ng-show="Pedido.inserting || Pedido.editing" ng-click="Pedido.cancel()"> <i class="icon ion-android-arrow-back"></i> </button> 
+  </ion-nav-buttons> 
+  <ion-content> 
+    <div ng-hide="Pedido.inserting || Pedido.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class=""> 
+      <label class="item item-input" id="cloud-search1"> <i class="icon ion-search placeholder-icon"></i> <input type="text" ng-model="vars.search" cronapp-filter="paciente;" cronapp-filter-operator="" cronapp-filter-autopost="true" crn-datasource="Pedido" value="" placeholder="{{'template.crud.search' | translate}}"> </label> 
+    </div> 
+    <div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-906854"> 
+      <datasource name="Pedido" entity="api/cronapi/query/s4se2bfekrxh/" keys="id" rows-per-page="10" delete-message="Deseja remover?" class=""></datasource> 
+    </div> 
+    <div crn-datasource="Pedido" class="" ng-hide="Pedido.editing || Pedido.inserting"> 
+      <ion-list can-swipe="listCanSwipe"> 
+        <ion-item ng-repeat="rowData in datasource.data" class="item" ng-click="datasource.startEditing(rowData)"> 
+          <div class="row"> 
+            <div class="col" title="Cliente">
+                <span class="input-label">Cliente:</span>
+              {{rowData.cliente.nome}}
+            </div> 
+            <div class="col" title="Paciente">
+                <span class="input-label">Paciente:</span>
+              {{rowData.paciente}}
+            </div>
+            <div class="col" title="Código">
+                <span class="input-label">Código:</span>
+              {{rowData.codigoPaciente}}
+            </div>
+            <div class="col" title="Situação">
+                <span class="input-label">Situação:</span>
+                {{rowData.situacaoPedido}}</div> 
+          </div> 
+          <ion-option-button class="button-positive" ng-click="datasource.startEditing(rowData)"> 
+            <i class="icon ion-edit"></i> 
+          </ion-option-button> 
+          <ion-option-button class="button-assertive" ng-click="datasource.remove(rowData)">
+             &nbsp; 
+            <i class="icon ion-trash-a"></i> 
+          </ion-option-button> 
+        </ion-item> 
+      </ion-list> 
+    </div> 
+    <div ng-show="Pedido.editing || Pedido.inserting"> 
+      <form crn-datasource="Pedido"> 
+        <fieldset ng-disabled="!Pedido.editing &amp;&amp; !Pedido.inserting"> 
+          <div class="list"> 
+            <!-- paciente begin --> 
+            <label for="textinput-paciente" class="item item-input item-stacked-label"> <span class="input-label">Paciente</span> <input type="text" placeholder="Paciente" ng-model="Pedido.active.paciente" id="textinput-paciente" name="textinput-paciente" required=""> </label> 
+            <!-- codigoPaciente begin --> 
+            <label for="textinput-codigoPaciente" class="item item-input item-stacked-label"> <span class="input-label">Identificação</span> <input type="text" placeholder="Identificação" ng-model="Pedido.active.codigoPaciente" id="textinput-codigoPaciente" name="textinput-codigoPaciente"> </label> 
+            <!-- sexo begin --> 
+            <label for="textinput-sexo" class="item item-input item-stacked-label"> <span class="input-label">Sexo</span> <label class="item item-input item-select component-holder" data-component="crn-select" id="crn-select-419039">
+                <div class="input-label">
+                  Selecione
+                </div><select ng-model="Pedido.active.sexo"><option selected="">Masculino</option><option>Feminino</option></select></label></label> 
+            <!-- dataNascimentoPaciente begin --> 
+            <label for="textinput-dataNascimentoPaciente" class="item item-input item-stacked-label"> <span class="input-label">Data Nascimento</span> <input type="date" placeholder="Data Nascimento" ng-model="Pedido.active.dataNascimentoPaciente" id="textinput-dataNascimentoPaciente" name="textinput-dataNascimentoPaciente"> </label> 
+            <!-- idadePaciente begin --> 
+            <label for="textinput-idadePaciente" class="item item-input item-stacked-label"> <span class="input-label">Idade</span> <input type="number" ng-model="Pedido.active.idadePaciente" class="" id="textinput-idadePaciente" name="textinput-idadePaciente" placeholder="Idade"> </label> 
+            <!-- dataEntregaSolicitada begin --> 
+            <label for="textinput-dataEntregaSolicitada" class="item item-input item-stacked-label"> <span class="input-label">Entrega</span> <input type="date" placeholder="Entrega" ng-model="Pedido.active.dataEntregaSolicitada" id="textinput-dataEntregaSolicitada" name="textinput-dataEntregaSolicitada"> </label> 
+            <!-- situacaoPedido begin --> 
+            <label for="textinput-situacaoPedido" class="item item-input item-stacked-label"> <span class="input-label">Situação</span> <input type="text" placeholder="Situação" ng-model="Pedido.active.situacaoPedido" id="textinput-situacaoPedido" name="textinput-situacaoPedido"> </label> 
+            <!-- ativo begin --> 
+             
+            <!-- dataEnvio begin --> 
+            <label for="textinput-dataEnvio" class="item item-input item-stacked-label"> <span class="input-label">Data Envio</span> <input type="date" placeholder="Data Envio" ng-model="Pedido.active.dataEnvio" id="textinput-dataEnvio" name="textinput-dataEnvio"> </label> 
+            <!-- cliente begin --> 
+             
+             
+          </div> 
+        </fieldset> 
+      </form> 
+    </div> 
+  </ion-content> 
+</ion-view>

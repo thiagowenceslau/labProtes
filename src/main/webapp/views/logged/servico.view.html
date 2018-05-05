@@ -1,0 +1,503 @@
+<h3>Serviço</h3>
+
+<!-- div row para pesquisa -->
+<!--<div class="row">-->
+
+    <div ng-hide="Servico.inserting || Servico.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class="">
+        <div class="form-group">
+            <label for="textinput-filter" class="">{{"template.crud.search" | translate}}</label>
+            <input type="text" ng-model="vars.search" cronapp-filter="descricao;" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" crn-datasource="Servico" class="form-control" value="" placeholder="{{'template.crud.search' | translate}}">
+        </div>
+    </div>
+
+<div data-component="crn-button" id="crn-button-564202" class="">
+    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="Servico.startInserting()" ng-hide="Servico.inserting || Servico.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+</div>
+<!-- fim div row para pesquisa -->
+<!--</div>-->
+
+<datasource filter="" name="Servico" entity="api/cronapi/crud/app.entity.Servico" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<div class="component-holder" data-component="crn-grid" id="crn-grid-Servico">
+    <div crn-datasource="Servico" class="" ng-hide="Servico.editing || Servico.inserting">
+        <table class="table  table-bordered table-hover table-striped">
+            <thead>
+            <tr class="table-header">
+                <th class="active">
+                    <div class="">Grupo </div>
+                </th><th class="">
+                    <div class="">Descrição</div>
+                </th>
+                <th class="">
+                    <div class="">Seção</div>
+                </th>
+                
+                
+                
+                <th class="">
+                    <div class="">{{"template.crud.actions" | translate}}</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-content" ng-repeat="rowData in datasource.data">
+                <td class="active">
+                    <div class="">
+                            {{rowData.grupoServicos.nome}}
+                    </div>
+                </td><td class="">
+                    <div class="">
+                                {{rowData.descricao  }}
+                    </div>
+                </td>
+                <td class="">
+                    <div class="">
+                            {{rowData.secao.descricao}}
+                    </div>
+                </td>
+                
+                
+                
+                <td class="">
+                    <div class="">
+                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="table-footer-controls">
+            <button class="btn btn-default btn-block btn-clicked" data-component="crn-button" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button>
+        </div>
+    </div>
+</div>
+<div data-component="crn-form" id="crn-form-form-Servico">
+    <div class="form" ng-show="Servico.editing || Servico.inserting">
+        <form crn-datasource="Servico" class="">
+            <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting">
+                <button class="btn btn-primary" data-component="crn-button" ng-click="datasource.startInserting()"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                <button class="btn btn-success" data-component="crn-button" ng-click="datasource.startEditing()"><i class="glyphicon glyphicon-edit"></i></button>
+                <button class="btn btn-primary" data-component="crn-button" ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                <button class="btn btn-primary" data-component="crn-button" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                <button class="btn btn-primary" data-component="crn-button" ng-click="datasource.remove()"><i class="glyphicon glyphicon-trash"></i></button>
+            </div>
+            <div class="active-bar" ng-hide="!datasource.editing &amp;&amp; !datasource.inserting">
+                <button class="btn btn-success" data-component="crn-button" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
+                <button class="btn btn-danger" data-component="crn-button" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
+            </div>
+            <br>
+            <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting" class="genClass1338">
+
+                <div data-component="crn-textinput" id="crn-textinput-descricao" class="col-lg-12  col-md-12" style="width: 78%; height: 94px; margin-left: 10px;">
+                    <div class="form-group">
+                        <label for="textinput-descricao" class="">Descrição</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="text" ng-model="Servico.active.descricao" class="form-control" id="textinput-descricao" placeholder="Descrição" mask="" mask-placeholder="" ng-required="true">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-diasUteis" class="col-lg-12  col-md-12" style="width: 20%; height: 94px;">
+                    <div class="form-group">
+                        <label for="textinput-diasUteis" class="">Dias Úteis</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="integer" ng-model="Servico.active.diasUteis" class="form-control" id="textinput-diasUteis" placeholder="Dias Úteis" mask="" mask-placeholder="" ng-required="true">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+                    
+
+                <datasource name="Gruposervicos" entity="api/cronapi/crud/app.entity.GrupoServicos" keys="id" class="" dependent-by="{{Servico}}"></datasource><div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-grupoServicos" class="col-md-12 col-lg-12" style="width: 48%; height: 94px; margin-left:10px;">
+                    <div class="form-group">
+                        <label for="combobox-dynamic-grupoServicos" class="">Grupo de Serviços</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <ui-select ng-model="Servico.active.grupoServicos" crn-datasource="Gruposervicos" class="crn-select" id="combobox-dynamic-grupoServicos" ng-required="true" theme="bootstrap">
+                                    <ui-select-match class="" placeholder="Items">
+                                        {{$select.selected.nome}}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                                        <div class="" data-container="true">
+                                            {{rowData.nome}}
+                                        </div>
+                                    </ui-select-choices>
+                                </ui-select>
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+                    
+
+                <datasource name="Secao" entity="api/cronapi/crud/app.entity.Secao" keys="id" class="" dependent-by="{{Servico}}"></datasource><div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-secao" class="col-md-12 col-lg-12" style="width: 48%; height: 94px; margin-left:29px;">
+                    <div class="form-group">
+                        <label for="combobox-dynamic-secao" class="">Seção</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <ui-select ng-model="Servico.active.secao" crn-datasource="Secao" class="crn-select" id="combobox-dynamic-secao" ng-required="true" theme="bootstrap">
+                                    <ui-select-match class="" placeholder="Items">
+                                        {{$select.selected.descricao}}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                                        <div class="" data-container="true">
+                                            {{rowData.descricao}}
+                                        </div>
+                                    </ui-select-choices>
+                                </ui-select>
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+                </fieldset>
+                <fieldset style="margin:25px;" class="genClass9455"><legend class="col-md-12">Lista de Preços</legend>
+                <table>
+              <tbody><tr><td>  <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-755748" style="width: 36px; height: 34px;">1</p><div data-component="crn-textinput" id="crn-textinput-preco1" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco1" class="form-control col-md-1" id="textinput-preco1" placeholder="R$ preço 1" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td>
+<td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-1063054" style="width: 36px; height: 34px;margin-left:100px;">2</p><div data-component="crn-textinput" id="crn-textinput-preco2" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco2" class="form-control col-md-1" id="textinput-preco2" placeholder="R$ preço 2" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td>
+<td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-1079267" style="width: 36px; height: 34px;margin-left:100px;">3</p><div data-component="crn-textinput" id="crn-textinput-preco3" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco3" class="form-control col-md-1" id="textinput-preco3" placeholder="R$ preço 3" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td>
+<td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-569731" style="width: 36px; height: 34px;margin-left:100px;">4</p><div data-component="crn-textinput" id="crn-textinput-preco4" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco4" class="form-control col-md-1" id="textinput-preco4" placeholder="R$ preço 4" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td></tr>
+<tr><td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-674269" style="width: 36px; height: 34px;">5</p><div data-component="crn-textinput" id="crn-textinput-preco5" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco5" class="form-control col-md-1" id="textinput-preco5" placeholder="R$ preço 5" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td>
+<td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-176294" style="width: 36px; height: 34px;margin-left:100px;">6</p><div data-component="crn-textinput" id="crn-textinput-preco6" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco6" class="form-control col-md-1" id="textinput-preco6" placeholder="R$ preço 6" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td>
+<td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-184572" style="width: 36px; height: 34px;margin-left:100px;">7</p><div data-component="crn-textinput" id="crn-textinput-preco7" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco7" class="form-control col-md-1" id="textinput-preco7" placeholder="R$ preço 7" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td>
+<td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-160320" style="width: 36px; height: 34px;margin-left:100px;">8</p><div data-component="crn-textinput" id="crn-textinput-preco8" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco8" class="form-control col-md-1" id="textinput-preco8" placeholder="R$ preço 8" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td></tr>
+<tr><td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-806345" style="width: 36px; height: 34px;">9</p><div data-component="crn-textinput" id="crn-textinput-preco9" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco9" class="form-control col-md-1" id="textinput-preco9" placeholder="R$ preço 9" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td>
+<td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-782188" style="width: 36px; height: 34px;margin-left:100px;">10</p><div data-component="crn-textinput" id="crn-textinput-preco10" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco10" class="form-control col-md-1" id="textinput-preco10" placeholder="R$ preço 10" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td>
+<td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-713885" style="width: 36px; height: 34px;margin-left:100px;">11</p><div data-component="crn-textinput" id="crn-textinput-preco11" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco11" class="form-control col-md-1" id="textinput-preco11" placeholder="R$ preço 11" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+</td>
+<td>
+                <p class="text-left component-holder col-lg-12 col-md-1" xattr-position="text-left" data-component="crn-text" id="crn-text-72765" style="width: 36px; height: 34px;margin-left:100px;">12</p><div data-component="crn-textinput" id="crn-textinput-preco12" class="col-lg-3 col-md-1" style="width: 200px; height: 34px;">
+                    <div class="form-group">
+                        
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="number" ng-model="Servico.active.preco12" class="form-control col-md-1" id="textinput-preco12" placeholder="R$ preço 12" mask="" mask-placeholder="" ng-required="false" style="width: 100%; height: 34px;">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+               </td></tr>
+               </tbody></table>
+               </fieldset>
+                
+                
+                <!-- NtoN  -->
+                <!-- NtoN  end-->
+            
+        </form>
+        <form>
+            <fieldset>
+                <!-- OneToN -->
+                <!--query filter 1toN -->
+                <!-- query filter 1toN end-->
+                <datasource filter="" name="EtapaComissaoGrid" enabled="{{Servico.editing || Servico.inserting}}" entity="api/cronapi/crud/app.entity.Servico/{{Servico.active.id}}/relation:servico:EtapaComissao" keys="id" rows-per-page="100" lazy="true" auto-post="true" dependent-lazy-post="Servico" dependent-lazy-post-field="servico"></datasource>
+                <div data-component="crn-button" class="col-md-12">
+                    <button class="btn btn-primary" onclick="$('#modalEtapaComissaoGrid').modal('show');" data-component="crn-button" ng-click="EtapaComissaoGrid.startInserting();" style="margin-left:10px;"><i class="fa fa-plus"></i> <span class="">{{"Add" | translate}} Etapa Comissão</span> </button>
+                </div>
+                <!--search 1toN-->
+                <!-- seach 1toN end-->
+                <div data-component="crn-textinput" id="crn-textinput-descricao" class="col-md-1" style="width: 90%; height: 145px;">
+                    <div class="form-group">
+                        <label for="textinput-descricao" class="col-md-12">EtapaComissao</label>
+                        <div class="component-holder col-md-1" data-component="crn-grid" id="crn-grid-EtapaComissaoGrid" style="width: 964px; height: 120px;">
+                            <div crn-datasource="EtapaComissaoGrid">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                    <tr class="table-header">
+                                                <th class="active">
+                                                    <div class="">
+                                                        Etapa
+                                                    </div>
+                                                </th>
+                                                <th class="">
+                                                    <div class="">
+                                                        Secao
+                                                    </div>
+                                                </th>
+                                                <th class="">
+                                                    <div class="">
+                                                        Tipo
+                                                    </div>
+                                                </th>
+                                                <th class="">
+                                                    <div class="">
+                                                        Valor
+                                                    </div>
+                                                </th>
+                                                
+                                                
+                                                <th class="">
+                                                    <div class="">
+                                                        Qtde.
+                                                    </div>
+                                                </th>
+                                                <th class="">
+                                                    <div class="">
+                                                        Período
+                                                    </div>
+                                                </th>
+                                        <th class="">
+                                            <div class="">
+                                                {{"template.crud.actions" | translate}}
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="table-content" ng-repeat="rowData in datasource.data">
+                                                <td class="active">
+                                                    <div>
+                                                            {{rowData.etapa.descricao }}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                            {{rowData.secao.descricao }}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                            {{rowData.tipo }}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                            {{rowData.valor }}
+                                                    </div>
+                                                </td>
+                                                
+                                                
+                                                <td>
+                                                    <div>
+                                                            {{rowData.quantidade }}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                            {{rowData.periodo }}
+                                                    </div>
+                                                </td>
+                                        <td>
+                                            <div>
+                                                <button class="btn btn-default btn-sm" data-component="crn-button" ng-click="datasource.startEditing(rowData)" onclick="$('#modalEtapaComissaoGrid').modal('show');"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-default btn-sm" data-component="crn-button" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="table-footer-controls">
+                                    <button class="btn btn-default btn-block btn-clicked" data-component="crn-button" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- OneToOne  end -->
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+<!-- OneToOne modal -->
+<div class="modal fade" id="modalEtapaComissaoGrid">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{'Home.view.Close' | translate}}"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Etapas Comissão</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group list-group-sm row">
+<!-- else of !model.hasCronappFramework() -->
+                             <!-- end if !model.hasCronappFramework() -->
+
+<!-- else of !model.hasCronappFramework() -->
+                                        <datasource name="EtapaGridForUiSelect" entity="api/cronapi/crud/app.entity.Etapa" keys="id" rows-per-page="100" lazy="true" enabled="{{Servico.editing || Servico.inserting}}"></datasource>
+                                        <div data-component="crn-combobox-dynamic" id="crn-combobox-EtapaComissaoGrid.active.etapa" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="form-group">
+                                                <label for="combobox-etapa" class="">Etapa</label>
+                                                <ui-select ng-model="EtapaComissaoGrid.active.etapa" crn-datasource="EtapaGridForUiSelect" class="crn-select" id="combobox-etapa" ng-required="true" ng-disabled="disabled" theme="bootstrap">
+                                                    <ui-select-match placeholder="Items" class="">
+                                                        {{$select.selected.descricao}}
+                                                    </ui-select-match>
+                                                    <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                                                        <div class="">
+                                                            {{rowData.descricao}}
+                                                        </div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                            </div>
+                                        </div>
+                             <!-- end if !model.hasCronappFramework() -->
+
+<!-- else of !model.hasCronappFramework() -->
+                                        <datasource name="SecaoGridForUiSelect" entity="api/cronapi/crud/app.entity.Secao" keys="id" rows-per-page="100" lazy="true" enabled="{{Servico.editing || Servico.inserting}}"></datasource>
+                                        <div data-component="crn-combobox-dynamic" id="crn-combobox-EtapaComissaoGrid.active.secao" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="form-group">
+                                                <label for="combobox-secao" class="">Seção</label>
+                                                <ui-select ng-model="EtapaComissaoGrid.active.secao" crn-datasource="SecaoGridForUiSelect" class="crn-select" id="combobox-secao" ng-required="true" ng-disabled="disabled" theme="bootstrap">
+                                                    <ui-select-match placeholder="Items" class="">
+                                                        {{$select.selected.descricao}}
+                                                    </ui-select-match>
+                                                    <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                                                        <div class="">
+                                                            {{rowData.descricao}}
+                                                        </div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                            </div>
+                                        </div><div class="component-holder ng-binding ng-scope col-xs-12 col-sm-12 col-lg-12 col-md-1" data-component="crn-combobox" id="crn-combobox-328962" style="width: 290px; height: 94px;"><div class="form-group"><label for="">Tipo de Comissão</label><ui-select crn-datasource="[{'key':'$','value':'Valor R$'},{'key':'%','value':'Percentual %'}]" ng-model="EtapaComissaoGrid.active.tipo" ng-required="true" ng-disabled="disabled" class="crn-select"><ui-select-match placeholder="Items" class="" requerido="true">{{$select.selected.value}}</ui-select-match><ui-select-choices repeat="rowData.key as rowData in datasource.data | filter: $select.search" class=""><div class="">{{rowData.value}}</div></ui-select-choices></ui-select></div></div><div data-component="crn-textinput" id="crn-textinput-Valor" class="col-xs-12 col-sm-12 col-lg-12 col-md-1" style="width: 290px; height:94px;">
+                                        <div class="form-group">
+                                            <label for="textinput-Valor">Valor</label>
+                                                <input type="number" ng-model="EtapaComissaoGrid.active.valor" class="form-control" id="textinput-Valor" placeholder="Valor" mask="" mask-placeholder="" ng-required="true">
+                                        </div>
+                                    </div><div class="component-holder ng-binding ng-scope col-xs-12 col-sm-12 col-lg-12 col-md-1" data-component="crn-combobox" id="crn-combobox-213039" style="width: 290px; height: 94px;"><div class="form-group"><label for="">Tipo de Calculo</label><ui-select crn-datasource="[{'key':'Pedido','value':'Pedido'},{'key':'Fixo','value':'Fixo'}]" ng-model="vars.tipoCalc" ng-required="false" ng-disabled="disabled" class="crn-select"><ui-select-match placeholder="Items" class="">{{$select.selected.value}}</ui-select-match><ui-select-choices repeat="rowData.key as rowData in datasource.data | filter: $select.search" class=""><div class="">{{rowData.value}}</div></ui-select-choices></ui-select></div></div><div data-component="crn-textinput" id="crn-textinput-Quantidade" class="col-xs-12 col-sm-12 col-md-1 col-lg-1" style="width: 110px; height: 94px;">
+                                        <div class="form-group">
+                                            <label for="textinput-Quantidade">Qtde.</label>
+                                                <input type="integer" ng-model="EtapaComissaoGrid.active.quantidade" class="form-control" id="textinput-Quantidade" placeholder="Qtde." mask="" mask-placeholder="" ng-required="false">
+                                        </div>
+                                    </div><div data-component="crn-textinput" id="crn-textinput-Periodo" class="col-xs-12 col-sm-12 col-md-1 col-lg-1" style="width: 110px; height:94px;">
+                                        <div class="form-group">
+                                            <label for="textinput-Periodo">Período</label>
+                                                <input type="integer" ng-model="EtapaComissaoGrid.active.periodo" class="form-control" id="textinput-Periodo" placeholder="Período" mask="" mask-placeholder="" ng-required="false">
+                                        </div>
+                                    </div>
+                             <!-- end if !model.hasCronappFramework() -->
+
+<!-- else of !model.hasCronappFramework() -->
+
+                                    <div data-component="crn-textinput" id="crn-textinput-tipo" class="col-xs-12 col-sm-12 col-lg-12 col-md-6">
+                                        
+                                    </div>
+                             <!-- end if !model.hasCronappFramework() -->
+
+<!-- else of !model.hasCronappFramework() -->
+
+                                    
+                             <!-- end if !model.hasCronappFramework() -->
+
+<!-- else of !model.hasCronappFramework() -->
+
+                                    
+                             <!-- end if !model.hasCronappFramework() -->
+
+<!-- else of !model.hasCronappFramework() -->
+                             <!-- end if !model.hasCronappFramework() -->
+
+<!-- else of !model.hasCronappFramework() -->
+
+                                    
+                             <!-- end if !model.hasCronappFramework() -->
+
+<!-- else of !model.hasCronappFramework() -->
+
+                                    
+                             <!-- end if !model.hasCronappFramework() -->
+
+<!-- else of !model.hasCronappFramework() -->
+
+                                    
+                             <!-- end if !model.hasCronappFramework() -->
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-component="crn-button" ng-click="EtapaComissaoGrid.post();" onclick="(!EtapaComissaoGrid.missingRequiredField()?$('#modalEtapaComissaoGrid').modal('hide'):void(0))">{{'Save' | translate}}</button>
+                    <button type="button" class="btn btn-default" data-component="crn-button" data-dismiss="modal">{{'Home.view.Close' | translate}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- OneToOne modal end-->

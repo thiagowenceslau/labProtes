@@ -1,0 +1,79 @@
+<ion-view cache-view="false" view-title="{{'Login.view.Login' | translate}}"> 
+  <ion-content> 
+    <div class="bar bar-header bar-stable" data-container="true"> 
+      <h1 class="title">{{'Login.view.Login' | translate}}</h1> 
+    </div> 
+    <div class="list" data-container="true" style="padding-top: 60px;"> 
+      <div class="col text-center"> 
+        <img src="img/logo.png"> 
+      </div> 
+    </div> 
+    <form class="form-validation" autocomplete="off" name="form" ng-submit="login()" role="form"> 
+      <div class="list list-inset" data-container="true"> 
+        <label class="item item-input"> <i class="icon ion-person placeholder-icon"></i> <input type="text" class="form-control" ng-model="user.username" id="username" placeholder="{{'Login.view.Username' | translate}}"> </label> 
+        <label class="item item-input"> <i class="icon ion-asterisk placeholder-icon"></i> <input type="password" class="form-control" ng-model="user.password" id="password" placeholder="{{'Login.view.Password' | translate}}"> </label> 
+        <label class="item"> <button type="submit" class="button button-block button-positive" ng-disabled="form.$invalid || vm.dataLoading" id="btnLogin">{{"Login.view.Login" | translate}}</button> </label> 
+        <label class="item"> 
+          <div ng-show="message.error" class="help-block">
+             {{message.error}} 
+          </div> </label> 
+      </div>
+      
+    </form> 
+    <button class="button component-holder button-clear button-balanced button-block" type="submit" ng-click="blockly.js.ModalCliente.abrir()" data-component="crn-button" id="crn-button-956368" xattr-type="button-clear" xattr-size="" xattr-theme="button-balanced" xattr-fullsize="button-block" oninvalid="true"><i class="ion ion-android-add"></i> <span ng-click="blockly.js.ModalCliente.abrir()" imediate="true">Não possui conta? Crie a sua</span></button> 
+  </ion-content> 
+</ion-view> 
+
+
+        
+<div class="modal fade genClass1037" id="modal21257"> 
+
+  <div class="modal-dialog"> 
+    <div class="modal-content"> 
+    <ion-scroll zooming="true" direction="y" style="width:auto;height:500px">
+      <div class="component-holder modal-header"> 
+        <div class="list-group list-group-sm row"> 
+          <div data-container="true" data-replace="true"></div> 
+          <h2 xattr-position="text-center" class="text-center component-holder" data-component="crn-label" id="crn-label-807863">Crie sua Conta</h2>
+        </div> 
+      </div> 
+      <div class="modal-body"> 
+        <div class="list-group list-group-sm row col"> 
+          <div data-container="true" data-replace="true"></div> 
+          <ion-item class="item dark component-holder" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-807763">
+            <label class="item item-input component-holder" data-component="crn-input" id="crn-input-nome"><input id="textinput-nome" type="text" placeholder="Nome Completo" ng-model="vars.txtNome" mask=""></label>
+          </ion-item>
+          <ion-item class="item dark component-holder" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-807763">
+            <label class="item item-input component-holder" data-component="crn-input" id="crn-input-email"><input id="textinput-email" type="text" placeholder="Seu Email" ng-model="vars.txtEmail" mask=""></label>
+          </ion-item>
+          <ion-item class="item dark component-holder" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-807763">
+            <label class="item item-input component-holder" data-component="crn-input" id="crn-input-cpf"><input id="textinput-cpf" type="text" placeholder="CPF" ng-model="vars.txtCpf" mask="999.999.999-99;0"></label>
+          </ion-item>
+          <ion-item class="item dark component-holder" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-807763">
+            <label class="item item-input component-holder" data-component="crn-input" id="crn-input-cro"><input id="textinput-cro" type="text" placeholder="CRO" ng-model="vars.txtCro" mask=""></label>
+          </ion-item>
+          <ion-item class="item dark component-holder" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-807763">
+            Data de Nascimento:
+            <label class="item item-input component-holder" data-component="crn-input" id="crn-input-dtNasc"><input id="textinput-dtNasc" type="date" placeholder="" ng-model="vars.dtNasc" mask=""></label>
+          </ion-item>
+          <ion-item class="item dark component-holder" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-807763">
+            <label class="item item-input component-holder" data-component="crn-input" id="crn-input-senha"><input id="textinput-senha" type="password" placeholder="Senha" ng-model="vars.txtSenha" mask=""></label>
+          </ion-item>
+          <ion-item class="item dark component-holder" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-807763">
+            <label class="item item-input component-holder" data-component="crn-input" id="crn-input-confirma"><input id="textinput-confirma" type="password" placeholder="Confirme a Senha" ng-model="vars.txtConfirma" mask=""></label>
+          </ion-item>
+        </div> 
+      </div> 
+      <div class="modal-footer"> 
+        <div class="list-group list-group-sm row"> 
+          <div data-container="true" data-replace="true"></div> 
+          <button class="button component-holder button-block button-assertive" type="submit" ng-click="blockly.js.ModalCliente.fechar()" data-component="crn-button" id="crn-button-1010293" xattr-fullsize="button-block" xattr-theme="button-assertive"><i class="ion ion-arrow-left-c"></i> <span>Voltar</span></button><button class="button component-holder button-block button-positive" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.ClienteEntidade:insereUsuario', null, null)" data-component="crn-button" id="crn-button-780793" xattr-fullsize="button-block" xattr-theme="button-positive"><i class="ion ion-android-done-all"></i> <span>Cadastrar</span></button>
+        </div> 
+      
+      </div> 
+    </ion-scroll>
+    </div> 
+  </div> 
+  
+</div>
+

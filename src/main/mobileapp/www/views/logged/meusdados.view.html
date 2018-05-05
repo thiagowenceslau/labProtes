@@ -1,0 +1,101 @@
+<ion-view view-title="Meus Dados"> 
+    <ion-nav-buttons side="right"> 
+    <button class="button button-stable" ng-show="true" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.AtualizarCliente:atualizarCliente', null, null)"> <i class="icon ion-checkmark"></i> </button>
+  </ion-nav-buttons>
+	<ion-content data-content="true" data-replace="false">
+	    <div class="component-holder ng-binding ng-scope" data-component="crn-datasource" id="crn-datasource-218708"><datasource name="Cliente" entity="api/cronapi/query/urk45a5xisf7/" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource></div>
+	<div data-replace="false" data-component="crn-container" class="component-holder" id="crn-container-170025">
+	<!-- nome begin -->
+            <label for="textinput-nome" class="item item-input item-stacked-label">
+            <span class="input-label">Nome</span>
+            <input type="text" placeholder="Nome" ng-model="Cliente.active.nome" id="textinput-nome" name="textinput-nome" required="required">
+            </label>
+            <!-- crO begin -->
+            <label for="textinput-crO" class="item item-input item-stacked-label">
+            <span class="input-label">CRO</span>
+            <input type="text" placeholder="CRO" ng-model="Cliente.active.crO" id="textinput-crO" name="textinput-crO" required="required">
+            </label>
+            <!-- especialidade begin -->
+            <label for="textinput-especialidade" class="item item-input item-stacked-label">
+            <span class="input-label">Especialidade</span>
+            <input type="text" placeholder="Especialidade" ng-model="Cliente.active.especialidade" id="textinput-especialidade" name="textinput-especialidade">
+            </label>
+            <!-- rg begin -->
+            <label for="textinput-rg" class="item item-input item-stacked-label">
+            <span class="input-label">RG</span>
+            <input type="text" placeholder="RG" ng-model="Cliente.active.rg" id="textinput-rg" name="textinput-rg">
+            </label>
+            <!-- cpF begin -->
+            <label for="textinput-cpF" class="item item-input item-stacked-label">
+            <span class="input-label">CPF</span>
+            <input type="text" placeholder="CPF" ng-model="Cliente.active.cpF" id="textinput-cpF" name="textinput-cpF">
+            </label>
+            <!-- telefone1 begin -->
+            <label for="textinput-telefone1" class="item item-input item-stacked-label">
+            <span class="input-label">Telefone Principal</span>
+            <input type="text" placeholder="Telefone Principal" ng-model="Cliente.active.telefone1" id="textinput-telefone1" name="textinput-telefone1" mask="(99) 99999-9999;0">
+            </label>
+            <!-- telefone2 begin -->
+            <label for="textinput-telefone2" class="item item-input item-stacked-label">
+            <span class="input-label">Telefone Opcional</span>
+            <input type="text" placeholder="Telefone Opcional" ng-model="Cliente.active.telefone2" id="textinput-telefone2" name="textinput-telefone2" mask="(99) 99999-9999;0">
+            </label><label for="textinput-telefone2" class="item item-input item-stacked-label">
+            <span class="input-label">Email</span>
+            <input type="text" placeholder="Email" ng-model="Cliente.active.user.email" id="textinput-email" name="textinput-email">
+            </label>
+            <!-- ceP begin -->
+            <label for="textinput-ceP" class="item item-input item-stacked-label">
+            <span class="input-label">CEP</span>
+            <input type="text" placeholder="CEP" ng-model="Cliente.active.ceP" id="textinput-ceP" name="textinput-ceP">
+            </label>
+            <!-- endereco begin -->
+            <label for="textinput-endereco" class="item item-input item-stacked-label">
+            <span class="input-label">Endereço</span>
+            <input type="text" placeholder="Endereço" ng-model="Cliente.active.endereco" id="textinput-endereco" name="textinput-endereco">
+            </label>
+            <!-- bairro begin -->
+            <label for="textinput-bairro" class="item item-input item-stacked-label">
+            <span class="input-label">Bairro</span>
+            <input type="text" placeholder="Bairro" ng-model="Cliente.active.bairro" id="textinput-bairro" name="textinput-bairro">
+            </label>
+            <!-- cidade begin -->
+            <label for="textinput-cidade" class="item item-input item-stacked-label">
+            <span class="input-label">Cidade</span>
+            <input type="text" placeholder="Cidade" ng-model="Cliente.active.cidade" id="textinput-cidade" name="textinput-cidade">
+            </label>
+            <!-- estado begin -->
+            <label for="textinput-estado" class="item item-input item-stacked-label">
+            <span class="input-label">Estado</span>
+            <input type="text" placeholder="Estado" ng-model="Cliente.active.estado" id="textinput-estado" name="textinput-estado">
+            </label>
+            <!-- dataNascimento begin -->
+            <label for="textinput-dataNascimento" class="item item-input item-stacked-label">
+              <span class="input-label">Data de Nascimento</span>
+              <input type="date" placeholder="Data de Nascimento" ng-model="Cliente.active.dataNascimento | mask:'date'" id="textinput-dataNascimento" name="textinput-dataNascimento">
+            </label>
+            <!-- user begin -->
+            
+            
+            <!-- razaoSocial begin -->
+            <label for="textinput-razaoSocial" class="item item-input item-stacked-label">
+            <span class="input-label">Razão Social</span>
+            <input type="text" placeholder="Razão Social" ng-model="Cliente.active.razaoSocial" id="textinput-razaoSocial" name="textinput-razaoSocial">
+            </label>
+            <!-- cnPJ begin -->
+            <label for="textinput-cnPJ" class="item item-input item-stacked-label">
+            <span class="input-label">CNPJ</span>
+            <input type="text" placeholder="CNPJ" ng-model="Cliente.active.cnPJ" id="textinput-cnPJ" name="textinput-cnPJ" mask="99.999.999/9999-99;0">
+            </label>
+            <!-- inscricaoEstadual begin -->
+            <label for="textinput-inscricaoEstadual" class="item item-input item-stacked-label">
+            <span class="input-label">Inscrição Estadual</span>
+            <input type="text" placeholder="Inscrição Estadual" ng-model="Cliente.active.inscricaoEstadual" id="textinput-inscricaoEstadual" name="textinput-inscricaoEstadual">
+            </label>
+            <!-- inscricaoMunicipal begin -->
+            <label for="textinput-inscricaoMunicipal" class="item item-input item-stacked-label">
+            <span class="input-label">Inscrição Municipal</span>
+            <input type="text" placeholder="Inscrição Municipal" ng-model="Cliente.active.inscricaoMunicipal" id="textinput-inscricaoMunicipal" name="textinput-inscricaoMunicipal">
+            </label>
+	</div>
+	</ion-content>
+</ion-view>
