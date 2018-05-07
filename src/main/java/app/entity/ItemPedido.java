@@ -58,9 +58,9 @@ public class ItemPedido implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "tipoMaterial", nullable = true, unique = false, length=30, insertable=true, updatable=true)
+  @Column(name = "grupo", nullable = true, unique = false, length=30, insertable=true, updatable=true)
   
-  private java.lang.String tipoMaterial;
+  private java.lang.String grupo;
 
   /**
   * @generated
@@ -158,22 +158,22 @@ public class ItemPedido implements Serializable {
   }
 
   /**
-   * Obtém tipoMaterial
-   * return tipoMaterial
+   * Obtém grupo
+   * return grupo
    * @generated
    */
   
-  public java.lang.String getTipoMaterial(){
-    return this.tipoMaterial;
+  public java.lang.String getGrupo(){
+    return this.grupo;
   }
 
   /**
-   * Define tipoMaterial
-   * @param tipoMaterial tipoMaterial
+   * Define grupo
+   * @param grupo grupo
    * @generated
    */
-  public ItemPedido setTipoMaterial(java.lang.String tipoMaterial){
-    this.tipoMaterial = tipoMaterial;
+  public ItemPedido setGrupo(java.lang.String grupo){
+    this.grupo = grupo;
     return this;
   }
 

@@ -10,15 +10,15 @@ import cronapi.rest.security.CronappSecurity;
 
 
 /**
- * Classe que representa a tabela MODODESIGN
+ * Classe que representa a tabela GRUPOPEDIDO
  * @generated
  */
 @Entity
-@Table(name = "\"MODODESIGN\"")
+@Table(name = "\"GRUPOPEDIDO\"")
 @XmlRootElement
 @CronappSecurity
-@JsonFilter("app.entity.ModoDesign")
-public class ModoDesign implements Serializable {
+@JsonFilter("app.entity.GrupoPedido")
+public class GrupoPedido implements Serializable {
 
   /**
    * UID da classe, necessário na serialização
@@ -43,13 +43,6 @@ public class ModoDesign implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "idGrupo", nullable = true, unique = false, insertable=true, updatable=true)
-  
-  private java.lang.String idGrupo;
-
-  /**
-  * @generated
-  */
   @Column(name = "ativo", nullable = true, unique = false, length=3, insertable=true, updatable=true)
   
   private java.lang.String ativo;
@@ -65,15 +58,22 @@ public class ModoDesign implements Serializable {
   * @generated
   */
   @ManyToOne
-  @JoinColumn(name="fk_tipoMaterial", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+  @JoinColumn(name="fk_tipoTrabalho", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
   
-  private TipoMaterial tipoMaterial;
+  private TipoTrabalho tipoTrabalho;
+
+  /**
+  * @generated
+  */
+  @Column(name = "idGrupo", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.String idGrupo;
 
   /**
    * Construtor
    * @generated
    */
-  public ModoDesign(){
+  public GrupoPedido(){
   }
 
 
@@ -92,7 +92,7 @@ public class ModoDesign implements Serializable {
    * @param id id
    * @generated
    */
-  public ModoDesign setId(java.lang.String id){
+  public GrupoPedido setId(java.lang.String id){
     this.id = id;
     return this;
   }
@@ -112,28 +112,8 @@ public class ModoDesign implements Serializable {
    * @param nome nome
    * @generated
    */
-  public ModoDesign setNome(java.lang.String nome){
+  public GrupoPedido setNome(java.lang.String nome){
     this.nome = nome;
-    return this;
-  }
-
-  /**
-   * Obtém idGrupo
-   * return idGrupo
-   * @generated
-   */
-  
-  public java.lang.String getIdGrupo(){
-    return this.idGrupo;
-  }
-
-  /**
-   * Define idGrupo
-   * @param idGrupo idGrupo
-   * @generated
-   */
-  public ModoDesign setIdGrupo(java.lang.String idGrupo){
-    this.idGrupo = idGrupo;
     return this;
   }
 
@@ -152,7 +132,7 @@ public class ModoDesign implements Serializable {
    * @param ativo ativo
    * @generated
    */
-  public ModoDesign setAtivo(java.lang.String ativo){
+  public GrupoPedido setAtivo(java.lang.String ativo){
     this.ativo = ativo;
     return this;
   }
@@ -172,28 +152,48 @@ public class ModoDesign implements Serializable {
    * @param excluir excluir
    * @generated
    */
-  public ModoDesign setExcluir(java.lang.Boolean excluir){
+  public GrupoPedido setExcluir(java.lang.Boolean excluir){
     this.excluir = excluir;
     return this;
   }
 
   /**
-   * Obtém tipoMaterial
-   * return tipoMaterial
+   * Obtém tipoTrabalho
+   * return tipoTrabalho
    * @generated
    */
   
-  public TipoMaterial getTipoMaterial(){
-    return this.tipoMaterial;
+  public TipoTrabalho getTipoTrabalho(){
+    return this.tipoTrabalho;
   }
 
   /**
-   * Define tipoMaterial
-   * @param tipoMaterial tipoMaterial
+   * Define tipoTrabalho
+   * @param tipoTrabalho tipoTrabalho
    * @generated
    */
-  public ModoDesign setTipoMaterial(TipoMaterial tipoMaterial){
-    this.tipoMaterial = tipoMaterial;
+  public GrupoPedido setTipoTrabalho(TipoTrabalho tipoTrabalho){
+    this.tipoTrabalho = tipoTrabalho;
+    return this;
+  }
+
+  /**
+   * Obtém idGrupo
+   * return idGrupo
+   * @generated
+   */
+  
+  public java.lang.String getIdGrupo(){
+    return this.idGrupo;
+  }
+
+  /**
+   * Define idGrupo
+   * @param idGrupo idGrupo
+   * @generated
+   */
+  public GrupoPedido setIdGrupo(java.lang.String idGrupo){
+    this.idGrupo = idGrupo;
     return this;
   }
 
@@ -204,7 +204,7 @@ public class ModoDesign implements Serializable {
   public boolean equals(Object obj) {
     if (this == obj) return true;
     if (obj == null || getClass() != obj.getClass()) return false;
-    ModoDesign object = (ModoDesign)obj;
+    GrupoPedido object = (GrupoPedido)obj;
     if (id != null ? !id.equals(object.id) : object.id != null) return false;
     return true;
   }

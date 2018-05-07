@@ -15,5 +15,5 @@ window.blockly.js.blockly.ModalClienteAdmin.fechar = function() {
  * Descreva esta função...
  */
 window.blockly.js.blockly.ModalClienteAdmin.exibir = function() {
-	this.cronapi.screen.showModal("modal8785");
+	this.cronapi.screen.showIonicModal("modal8785");
 }

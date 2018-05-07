@@ -49,8 +49,8 @@ public interface TipoTrabalhoDAO extends JpaRepository<TipoTrabalho, java.lang.S
    * OneToMany Relation
    * @generated
    */
-  @Query("SELECT entity FROM TipoMaterial entity WHERE entity.tipoTrabalho.id = :id")
-  public Page<TipoMaterial> findTipoMaterial(@Param(value="id") java.lang.String id, Pageable pageable);
+  @Query("SELECT entity FROM GrupoPedido entity WHERE entity.tipoTrabalho.id = :id")
+  public Page<GrupoPedido> findGrupoPedido(@Param(value="id") java.lang.String id, Pageable pageable);
 
   
   /**
