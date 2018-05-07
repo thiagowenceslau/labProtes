@@ -8,145 +8,167 @@
             <div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-347691"> 
               <datasource name="TipoTrabalho" entity="api/cronapi/crud/app.entity.TipoTrabalho" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource> 
             </div> 
-            <div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-1031027">
-              <datasource name="GrupoPedido" entity="api/cronapi/crud/app.entity.GrupoPedido" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource>
-            </div>
-            <div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-279673">
-              <datasource name="ItemPedido" entity="api/cronapi/crud/app.entity.ItemPedido" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource>
-            </div>
-            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-648545"> 
+            <div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-1031027"> 
+              <datasource name="GrupoPedido" entity="api/cronapi/crud/app.entity.GrupoPedido" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource> 
+            </div> 
+            <div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-279673"> 
+              <datasource name="ItemPedido" entity="api/cronapi/crud/app.entity.ItemPedido" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource> 
+            </div> 
+            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Paciente"> 
               <h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-714924">Nome do Paciente</h2> 
               <label class="item item-input component-holder" data-component="crn-input" id="crn-input-331500"><input id="textinput-id" type="text" placeholder="Paciente" ng-model="vars.txtPaciente" mask=""></label> 
             </ion-item> 
             <!-- sexo begin --> 
-            <ion-item class="item dark component-holder col-xs-6" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-648545"> 
+            <ion-item class="item dark component-holder col-xs-6" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Idade"> 
               <h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-735912">Idade</h2> 
               <label class="item item-input component-holder" data-component="crn-input" id="crn-input-249751"><input id="textinput-id" type="text" placeholder="Idade" ng-model="vars.txtIdade" mask=""></label> 
             </ion-item> 
-            <ion-item class="item dark component-holder col-xs-1" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-648545" style="width: 199px; height: 99px;"> 
+            <ion-item class="item dark component-holder col-xs-1" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Sexo" style="width: 199px; height: 99px;"> 
               <h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-634107">Sexo</h2> 
               <label class="item item-input item-select component-holder" data-component="crn-select" id="crn-select-558250"> 
                 <div class="input-label"></div><select ng-model="txtSexo"><option>Feminino</option><option>Masculino</option></select></label> 
             </ion-item> 
             <!-- idadePaciente begin --> 
             <!-- dataEntregaSolicitada begin --> 
-            <ion-item class="item dark component-holder  col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-648545"> 
+            <ion-item class="item dark component-holder  col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Entrega"> 
               <h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-855552">Data de Entrega</h2> 
               <label class="item item-input component-holder" data-component="crn-input" id="crn-input-637375"><input id="textinput-id" type="date" placeholder="Placeholder text" ng-model="vars.dtEntrega" mask=""></label> 
             </ion-item> 
             <!-- tipoTrabalho begin --> 
-            <ion-item class="item dark component-holder  col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-648545"> 
+            <ion-item class="item dark component-holder  col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-TipoTrabalho"> 
               <h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-796544">Tipo de Trabalho</h2> 
               <label class="item item-input item-select component-holder" data-component="crn-select" id="crn-select-713550"> 
-                <div class="input-label"></div><select ng-model="TipoTrabalho.active" class="form-control" id="textinput-item" name="textinput-item" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required> <option value=""></option> </select></label> 
+                <div class="input-label"></div><select ng-model="txtTipo" class="form-control" id="textinput-item" name="textinput-item" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required="true"> <option value=""></option> </select></label> 
             </ion-item> 
-            <div data-replace="false" data-component="crn-container" class="component-holder" id="crn-container-523305">
-             <table>
-                 <tr>
-                     <td><label for="18">18</label></td>
-                     <td><label for="17">17</label></td>
-                     <td><label for="16">16</label></td>
-                     <td><label for="15">15</label></td>
-                     <td><label for="14">14</label></td>
-                     <td><label for="13">13</label></td>
-                     <td><label for="12">12</label></td>
-                     <td><label for="11">11</label></td>
-                     <td><label for="21">21</label></td>
-                     <td><label for="22">22</label></td>
-                     <td><label for="23">23</label></td>
-                     <td><label for="24">24</label></td>
-                     <td><label for="25">25</label></td>
-                     <td><label for="26">26</label></td>
-                     <td><label for="27">27</label></td>
-                     <td><label for="28">28</label></td>
-                 </tr>
-                 <tr>
-                     <td><input type="checkbox" id="48" value=""></td>
-                     <td><input type="checkbox" id="47" value=""></td>
-                     <td><input type="checkbox" id="46" value=""></td>
-                     <td><input type="checkbox" id="45" value=""></td>
-                     <td><input type="checkbox" id="44" value=""></td>
-                     <td><input type="checkbox" id="43" value=""></td>
-                     <td><input type="checkbox" id="42" value=""></td>
-                     <td><input type="checkbox" id="41" value=""></td>
-                     <td><input type="checkbox" id="31" value=""></td>
-                     <td><input type="checkbox" id="32" value=""></td>
-                     <td><input type="checkbox" id="33" value=""></td>
-                     <td><input type="checkbox" id="34" value=""></td>
-                     <td><input type="checkbox" id="35" value=""></td>
-                     <td><input type="checkbox" id="36" value=""></td>
-                     <td><input type="checkbox" id="37" value=""></td>
-                     <td><input type="checkbox" id="38" value=""></td>
-                 </tr>
-                 <tr>
-                     <td><label for="48">48</label></td>
-                     <td><label for="47">47</label></td>
-                     <td><label for="46">46</label></td>
-                     <td><label for="45">15</label></td>
-                     <td><label for="44">44</label></td>
-                     <td><label for="43">43</label></td>
-                     <td><label for="42">42</label></td>
-                     <td><label for="41">41</label></td>
-                     <td><label for="31">31</label></td>
-                     <td><label for="32">32</label></td>
-                     <td><label for="33">33</label></td>
-                     <td><label for="34">34</label></td>
-                     <td><label for="35">35</label></td>
-                     <td><label for="36">36</label></td>
-                     <td><label for="37">37</label></td>
-                     <td><label for="38">38</label></td>
-                 </tr>
-                 <tr>
-                     <td><input type="checkbox" id="18" value=""></td>
-                     <td><input type="checkbox" id="17" value=""></td>
-                     <td><input type="checkbox" id="16" value=""></td>
-                     <td><input type="checkbox" id="15" value=""></td>
-                     <td><input type="checkbox" id="14" value=""></td>
-                     <td><input type="checkbox" id="13" value=""></td>
-                     <td><input type="checkbox" id="12" value=""></td>
-                     <td><input type="checkbox" id="11" value=""></td>
-                     <td><input type="checkbox" id="21" value=""></td>
-                     <td><input type="checkbox" id="22" value=""></td>
-                     <td><input type="checkbox" id="23" value=""></td>
-                     <td><input type="checkbox" id="24" value=""></td>
-                     <td><input type="checkbox" id="25" value=""></td>
-                     <td><input type="checkbox" id="26" value=""></td>
-                     <td><input type="checkbox" id="27" value=""></td>
-                     <td><input type="checkbox" id="28" value=""></td>
-                 </tr>
-             </table>
+            <div data-replace="true" data-component="crn-container" class="component-holder col-xs-12" id="crn-container-Odontograma">
+               &nbsp; 
+              <table border="0" align="center" width="100%" id="odonto"> 
+                <tbody> 
+                  <tr> 
+                    <td><label for="18">18</label></td> 
+                    <td><label for="17">17</label></td> 
+                    <td><label for="16">16</label></td> 
+                    <td><label for="15">15</label></td> 
+                    <td><label for="14">14</label></td> 
+                    <td><label for="13">13</label></td> 
+                    <td><label for="12">12</label></td> 
+                    <td><label for="11">11</label></td> 
+                    <td>&nbsp;<span class="span-borda"></span>&nbsp;&nbsp;</td> 
+                    <td><label for="21">21</label></td> 
+                    <td><label for="22">22</label></td> 
+                    <td><label for="23">23</label></td> 
+                    <td><label for="24">24</label></td> 
+                    <td><label for="25">25</label></td> 
+                    <td><label for="26">26</label></td> 
+                    <td><label for="27">27</label></td> 
+                    <td><label for="28">28</label></td> 
+                  </tr> 
+                  <tr> 
+                    <td><input type="checkbox" id="18" value="18" ng-model="cbD18"></td> 
+                    <td><input type="checkbox" id="17" value="17" ng-model="cbD17"></td> 
+                    <td><input type="checkbox" id="16" value="16" ng-model="cbD16"></td> 
+                    <td><input type="checkbox" id="15" value="15" ng-model="cbD15"></td> 
+                    <td><input type="checkbox" id="14" value="14" ng-model="cbD14"></td> 
+                    <td><input type="checkbox" id="13" value="13" ng-model="cbD13"></td> 
+                    <td><input type="checkbox" id="12" value="12" ng-model="cbD12"></td> 
+                    <td><input type="checkbox" id="11" value="11" ng-model="cbD11"></td> 
+                    <td>&nbsp;<span class="span-borda"></span>&nbsp;&nbsp;</td> 
+                    <td><input type="checkbox" id="21" value="21" ng-model="cbD21"></td> 
+                    <td><input type="checkbox" id="22" value="22" ng-model="cbD22"></td> 
+                    <td><input type="checkbox" id="23" value="23" ng-model="cbD23"></td> 
+                    <td><input type="checkbox" id="24" value="24" ng-model="cbD24"></td> 
+                    <td><input type="checkbox" id="25" value="25" ng-model="cbD25"></td> 
+                    <td><input type="checkbox" id="26" value="26" ng-model="cbD26"></td> 
+                    <td><input type="checkbox" id="27" value="27" ng-model="cbD27"></td> 
+                    <td><input type="checkbox" id="28" value="28" ng-model="cbD28"></td> 
+                  </tr> 
+                  <tr> 
+                    <td colspan="17" class="table-borda"></td> 
+                  </tr> 
+                  <tr> 
+                    <td class="pt"><label for="48">48</label></td> 
+                    <td class="pt"><label for="47">47</label></td> 
+                    <td class="pt"><label for="46">46</label></td> 
+                    <td class="pt"><label for="45">15</label></td> 
+                    <td class="pt"><label for="44">44</label></td> 
+                    <td class="pt"><label for="43">43</label></td> 
+                    <td class="pt"><label for="42">42</label></td> 
+                    <td class="pt"><label for="41">41</label></td> 
+                    <td>&nbsp;<span class="span-borda"></span>&nbsp;&nbsp;</td> 
+                    <td class="pt"><label for="31">31</label></td> 
+                    <td class="pt"><label for="32">32</label></td> 
+                    <td class="pt"><label for="33">33</label></td> 
+                    <td class="pt"><label for="34">34</label></td> 
+                    <td class="pt"><label for="35">35</label></td> 
+                    <td class="pt"><label for="36">36</label></td> 
+                    <td class="pt"><label for="37">37</label></td> 
+                    <td class="pt"><label for="38">38</label></td> 
+                  </tr> 
+                  <tr> 
+                    <td><input type="checkbox" id="48" value="48" ng-model="cbD48"></td> 
+                    <td><input type="checkbox" id="47" value="47" ng-model="cbD47"></td> 
+                    <td><input type="checkbox" id="46" value="46" ng-model="cbD46"></td> 
+                    <td><input type="checkbox" id="45" value="45" ng-model="cbD45"></td> 
+                    <td><input type="checkbox" id="44" value="44" ng-model="cbD44"></td> 
+                    <td><input type="checkbox" id="43" value="43" ng-model="cbD43"></td> 
+                    <td><input type="checkbox" id="42" value="42" ng-model="cbD42"></td> 
+                    <td><input type="checkbox" id="41" value="41" ng-model="cbD41"></td> 
+                    <td>&nbsp;<span class="span-borda"></span>&nbsp;&nbsp;</td> 
+                    <td><input type="checkbox" id="31" value="31" ng-model="cbD31"></td> 
+                    <td><input type="checkbox" id="32" value="32" ng-model="cbD32"></td> 
+                    <td><input type="checkbox" id="33" value="33" ng-model="cbD33"></td> 
+                    <td><input type="checkbox" id="34" value="34" ng-model="cbD34"></td> 
+                    <td><input type="checkbox" id="35" value="35" ng-model="cbD35"></td> 
+                    <td><input type="checkbox" id="36" value="36" ng-model="cbD36"></td> 
+                    <td><input type="checkbox" id="37" value="37" ng-model="cbD37"></td> 
+                    <td><input type="checkbox" id="38" value="38" ng-model="cbD38"></td> 
+                  </tr> 
+                </tbody> 
+              </table> &nbsp; 
             </div> 
-            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-653406">
+            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Grupo">
                Grupo 
-              <label class="item item-input item-select component-holder col-xs-12" data-component="crn-select" id="crn-select-376771"> 
-                <div class="input-label"></div><select ng-model="GrupoPedido.active" class="form-control" id="textinput-item" name="textinput-item" ng-options="opt as opt.nome for opt in GrupoPedido.data track by opt.id"><option value=""></option></select></label> 
+              <label class="item item-input item-select component-holder col-xs-12" data-component="crn-select" id="crn-select-438011"> 
+                <div class="input-label"></div><select ng-model="txtGrupo" class="form-control" id="textinput-item" name="textinput-item" ng-options="opt as opt.nome for opt in GrupoPedido.data track by opt.id" required=""><option value=""></option></select></label> 
             </ion-item> 
-            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-653406">
+            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Cor">
                Cor 
-              <label class="item item-input component-holder col-xs-12" data-component="crn-input" id="crn-input-626674"><input id="textinput-id" type="text" placeholder="" ng-model="vars.input6132" mask=""></label> 
+              <label class="item item-input component-holder col-xs-12" data-component="crn-input" id="crn-input-693589"><input id="textinput-id" type="text" placeholder="" ng-model="vars.txtCor" mask=""></label> 
+            </ion-item>
+            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-70222">
+              <button class="button button-dark component-holder col-xs-12 button-outline" type="submit" ng-click="" data-component="crn-button" id="crn-button-btnAdicionar" xattr-type="button-outline" xattr-size=""><i class="ion ion-android-add"></i> <span>Adicionar Item</span></button>
             </ion-item> 
-            <ion-list can-swipe="listCanSwipe"> 
-              <ion-item ng-repeat="rowData in ItemPedido.data" class="item col-xs-12"> 
-                <div class="row"> 
-                  <div class="col">
-                     {{rowData.tipoTrabalho}} 
-                  </div> 
-                  <div class="col">
-                     {{rowData.grupo}} 
-                  </div> 
-                  <div class="col">
-                     {{rowData.dente}} 
-                  </div> 
-                </div> 
-              </ion-item> 
-            </ion-list> 
-            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-653406">
+            <div data-replace="true" data-component="crn-container" class="component-holder col-xs-12" id="crn-container-ItensPedido">
+               &nbsp; 
+              <div crn-datasource="ItemPedido" class="" ng-hide="ItemPedido.editing || ItemPedido.inserting"> 
+                <ion-list can-swipe="listCanSwipe"> 
+                  <ion-item ng-repeat="rowData in datasource.data" class="item" ng-click="datasource.startEditing(rowData)"> 
+                    <div class="row"> 
+                      <div class="col">
+                         {{rowData.tipoTrabalho}} 
+                      </div> 
+                      <div class="col">
+                         {{rowData.dente}} 
+                      </div> 
+                      <div class="col">
+                         {{rowData.grupo}} 
+                      </div> 
+                    </div> 
+                    <ion-option-button class="button-assertive" ng-click="datasource.remove(rowData)">
+                       &nbsp; 
+                      <i class="icon ion-trash-a"></i> 
+                    </ion-option-button> 
+                  </ion-item> 
+                </ion-list> 
+              </div> &nbsp; 
+            </div> 
+            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Observacoes">
                Observações 
-              <label class="item item-input component-holder col-xs-12" data-component="crn-input" id="crn-input-442799"><input id="textinput-id" type="text" placeholder="" ng-model="vars.input4228" mask=""></label> 
+              <label class="item item-input component-holder col-xs-12" data-component="crn-input" id="crn-input-442799"><input id="textinput-id" type="text" placeholder="" ng-model="vars.txtObs" mask=""></label> 
             </ion-item> 
             <br> 
             <br> 
-            <button class="button component-holder button-block button-positive col-xs-12" type="submit" ng-click="blockly.js.ModalAdicionar.exibir()" data-component="crn-button" id="crn-button-878260" xattr-fullsize="button-block" xattr-theme="button-positive"><i class="ion ion-android-checkmark-circle"></i> <span>Finalizar</span></button> 
+            <button class="button component-holder button-block button-positive col-xs-12" type="submit" ng-click="blockly.js.ModalAdicionar.exibir()" data-component="crn-button" id="crn-button-btnFinalizar" xattr-fullsize="button-block" xattr-theme="button-positive"><i class="ion ion-android-checkmark-circle"></i> <span>Finalizar</span></button> 
           </div> 
         </fieldset> 
       </form> 

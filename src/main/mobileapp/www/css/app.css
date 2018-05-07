@@ -15,9 +15,21 @@
   text-align: center;
 }
 
-.genClassOdonto { 
-  display:block;
+
+.table-borda { 
+  border-bottom:1px #606060 solid;
+  padding-top: 5px;
 }
 
-.genClass1957 { 
+.span-borda{
+  border-right:1px #606060 dashed;
+}
+
+#odonto{
+  text-align: center;
+  padding: 5px;
+}
+
+.pt{
+ padding-top: 5px;
 }
