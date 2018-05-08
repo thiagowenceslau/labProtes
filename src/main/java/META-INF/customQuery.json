@@ -743,5 +743,86 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/s4se2bfekrxh/"
+	},
+	"uvbvzyqiu0qc": {
+		"customId": "GrupoPedido",
+		"queryName": "GrupoPedido",
+		"screen": "src/main/mobileapp/www/views/logged/pedidonovo.view.html",
+		"sourceType": "blockly",
+		"blockly": {
+			"blocklyClass": "blockly.PedidoNovoMobile",
+			"blocklyMethod": "popularComboGrupo",
+			"blocklyLanguage": "java",
+			"blocklyJson": {
+				"namespace": "blockly.PedidoNovoMobile",
+				"classNameNew": "PedidoNovoMobile",
+				"classNameOld": "PedidoNovoMobile",
+				"sourcePath": "src/main/java/blockly/PedidoNovoMobile.blockly",
+				"language": "java",
+				"class": "blockly.PedidoNovoMobile",
+				"methods": [
+					{
+						"name": "popularComboGrupo",
+						"hasReturn": "true",
+						"params": []
+					},
+					{
+						"name": "retornarIdTipoTrabalho",
+						"hasReturn": "true",
+						"params": [
+							"comboTipo"
+						]
+					},
+					{
+						"name": "retornarNomeTipoTrabalho",
+						"hasReturn": "true",
+						"params": [
+							"tipo"
+						]
+					}
+				]
+			},
+			"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.PedidoNovoMobile:popularComboGrupo', null, null)",
+			"blocklyGETMethod": "popularComboGrupo",
+			"blocklyPOSTMethod": "popularComboGrupo",
+			"blocklyPUTMethod": "popularComboGrupo",
+			"blocklyDELETEMethod": "popularComboGrupo",
+			"blocklyFILTERMethod": "popularComboGrupo"
+		},
+		"entitySimpleName": null,
+		"entityFullName": null,
+		"query": "",
+		"queryParamsValues": [],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {},
+		"security": {},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/uvbvzyqiu0qc/"
 	}
 }

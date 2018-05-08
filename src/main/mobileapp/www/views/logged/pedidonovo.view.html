@@ -7,9 +7,9 @@
             <!-- paciente begin --> 
             <div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-347691"> 
               <datasource name="TipoTrabalho" entity="api/cronapi/crud/app.entity.TipoTrabalho" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource> 
-            </div> 
+            </div><div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-905289"><datasource name="GrupoPedido" entity="api/cronapi/query/uvbvzyqiu0qc/" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource></div> 
             <div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-1031027"> 
-              <datasource name="GrupoPedido" entity="api/cronapi/crud/app.entity.GrupoPedido" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource> 
+               
             </div> 
             <div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-279673"> 
               <datasource name="ItemPedido" entity="api/cronapi/crud/app.entity.ItemPedido" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource> 
@@ -38,13 +38,13 @@
             <ion-item class="item dark component-holder  col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-TipoTrabalho"> 
               <h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-796544">Tipo de Trabalho</h2> 
               <label class="item item-input item-select component-holder" data-component="crn-select" id="crn-select-713550"> 
-                <div class="input-label"></div><select ng-model="txtTipo" class="form-control" id="textinput-item" name="textinput-item" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required="true" ng-change="blockly.js.PedidoNovo.Executar()"> <option value=""></option> </select></label> 
+                <div class="input-label"></div><select ng-model="vars.txtTipo" class="form-control" id="comboTipo" name="comboTipo" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required="required" ng-click="" onselect="" ng-mouseup="" ng-blur="" ng-mouseleave="blockly.js.PedidoNovo.Executar(vars.txtTipo)"> <option value=""></option> </select></label> 
             </ion-item> 
             <div data-replace="true" data-component="crn-container" class="component-holder col-xs-12" id="crn-container-Odontograma" ng-hide="true">
                &nbsp; 
               <table border="0" align="center" width="100%" id="odonto"> 
-                <tbody> 
-                  <tr> 
+                <tbody style=""> 
+                  <tr style=""> 
                     <td><label for="18">18</label></td> 
                     <td><label for="17">17</label></td> 
                     <td><label for="16">16</label></td> 
@@ -63,7 +63,7 @@
                     <td><label for="27">27</label></td> 
                     <td><label for="28">28</label></td> 
                   </tr> 
-                  <tr> 
+                  <tr style=""> 
                     <td><input type="checkbox" id="18" value="18" ng-model="cbD18"></td> 
                     <td><input type="checkbox" id="17" value="17" ng-model="cbD17"></td> 
                     <td><input type="checkbox" id="16" value="16" ng-model="cbD16"></td> 
@@ -82,10 +82,10 @@
                     <td><input type="checkbox" id="27" value="27" ng-model="cbD27"></td> 
                     <td><input type="checkbox" id="28" value="28" ng-model="cbD28"></td> 
                   </tr> 
-                  <tr> 
+                  <tr style=""> 
                     <td colspan="17" class="table-borda"></td> 
                   </tr> 
-                  <tr> 
+                  <tr style=""> 
                     <td class="pt"><label for="48">48</label></td> 
                     <td class="pt"><label for="47">47</label></td> 
                     <td class="pt"><label for="46">46</label></td> 
@@ -104,7 +104,7 @@
                     <td class="pt"><label for="37">37</label></td> 
                     <td class="pt"><label for="38">38</label></td> 
                   </tr> 
-                  <tr> 
+                  <tr style=""> 
                     <td><input type="checkbox" id="48" value="48" ng-model="cbD48"></td> 
                     <td><input type="checkbox" id="47" value="47" ng-model="cbD47"></td> 
                     <td><input type="checkbox" id="46" value="46" ng-model="cbD46"></td> 
@@ -129,13 +129,13 @@
             <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Grupo" ng-hide="true">
                Grupo 
               <label class="item item-input item-select component-holder col-xs-12" data-component="crn-select" id="crn-select-438011"> 
-                <div class="input-label"></div><select ng-model="txtGrupo" class="form-control" id="textinput-item" name="textinput-item" ng-options="opt as opt.nome for opt in GrupoPedido.data track by opt.id" required=""><option value=""></option></select></label> 
+                <div class="input-label"></div><select ng-model="vars.txtGrupo" class="form-control" id="textinput-item" name="textinput-item" ng-options="opt as opt.nome for opt in GrupoPedido.data track by opt.id"><option value=""></option></select></label> 
             </ion-item> 
             <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Cor" ng-hide="true">
                Cor 
               <label class="item item-input component-holder col-xs-12" data-component="crn-input" id="crn-input-693589"><input id="textinput-id" type="text" placeholder="" ng-model="vars.txtCor" mask=""></label> 
             </ion-item>
-            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-70222" ng-hide="true">
+            <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-btnAdd" ng-hide="true">
               <button class="button button-dark component-holder col-xs-12 button-outline" type="submit" ng-click="" data-component="crn-button" id="crn-button-btnAdicionar" xattr-type="button-outline" xattr-size=""><i class="ion ion-android-add"></i> <span>Adicionar Item</span></button>
             </ion-item> 
             <div data-replace="true" data-component="crn-container" class="component-holder col-xs-12" id="crn-container-ItensPedido" ng-hide="true">

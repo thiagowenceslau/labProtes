@@ -79,6 +79,27 @@ public class EtapaComissao implements Serializable {
   private Servico servico;
 
   /**
+  * @generated
+  */
+  @Column(name = "TipoCalculo", nullable = true, unique = false, length=10, insertable=true, updatable=true)
+  
+  private java.lang.String tipoCalculo;
+
+  /**
+  * @generated
+  */
+  @Column(name = "Quantidade", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.Integer quantidade;
+
+  /**
+  * @generated
+  */
+  @Column(name = "Periodo", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.Integer periodo;
+
+  /**
    * Construtor
    * @generated
    */
@@ -223,6 +244,66 @@ public class EtapaComissao implements Serializable {
    */
   public EtapaComissao setServico(Servico servico){
     this.servico = servico;
+    return this;
+  }
+
+  /**
+   * Obtém tipoCalculo
+   * return tipoCalculo
+   * @generated
+   */
+  
+  public java.lang.String getTipoCalculo(){
+    return this.tipoCalculo;
+  }
+
+  /**
+   * Define tipoCalculo
+   * @param tipoCalculo tipoCalculo
+   * @generated
+   */
+  public EtapaComissao setTipoCalculo(java.lang.String tipoCalculo){
+    this.tipoCalculo = tipoCalculo;
+    return this;
+  }
+
+  /**
+   * Obtém quantidade
+   * return quantidade
+   * @generated
+   */
+  
+  public java.lang.Integer getQuantidade(){
+    return this.quantidade;
+  }
+
+  /**
+   * Define quantidade
+   * @param quantidade quantidade
+   * @generated
+   */
+  public EtapaComissao setQuantidade(java.lang.Integer quantidade){
+    this.quantidade = quantidade;
+    return this;
+  }
+
+  /**
+   * Obtém periodo
+   * return periodo
+   * @generated
+   */
+  
+  public java.lang.Integer getPeriodo(){
+    return this.periodo;
+  }
+
+  /**
+   * Define periodo
+   * @param periodo periodo
+   * @generated
+   */
+  public EtapaComissao setPeriodo(java.lang.Integer periodo){
+    this.periodo = periodo;
     return this;
   }
 
