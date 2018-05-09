@@ -43,20 +43,6 @@ public class GrupoPedido implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "ativo", nullable = true, unique = false, length=3, insertable=true, updatable=true)
-  
-  private java.lang.String ativo;
-
-  /**
-  * @generated
-  */
-  @Column(name = "excluir", nullable = true, unique = false, insertable=true, updatable=true)
-  
-  private java.lang.Boolean excluir;
-
-  /**
-  * @generated
-  */
   @ManyToOne
   @JoinColumn(name="fk_tipoTrabalho", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
   
@@ -114,46 +100,6 @@ public class GrupoPedido implements Serializable {
    */
   public GrupoPedido setNome(java.lang.String nome){
     this.nome = nome;
-    return this;
-  }
-
-  /**
-   * Obtém ativo
-   * return ativo
-   * @generated
-   */
-  
-  public java.lang.String getAtivo(){
-    return this.ativo;
-  }
-
-  /**
-   * Define ativo
-   * @param ativo ativo
-   * @generated
-   */
-  public GrupoPedido setAtivo(java.lang.String ativo){
-    this.ativo = ativo;
-    return this;
-  }
-
-  /**
-   * Obtém excluir
-   * return excluir
-   * @generated
-   */
-  
-  public java.lang.Boolean getExcluir(){
-    return this.excluir;
-  }
-
-  /**
-   * Define excluir
-   * @param excluir excluir
-   * @generated
-   */
-  public GrupoPedido setExcluir(java.lang.Boolean excluir){
-    this.excluir = excluir;
     return this;
   }
 

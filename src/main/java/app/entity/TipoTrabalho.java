@@ -41,20 +41,6 @@ public class TipoTrabalho implements Serializable {
   private java.lang.String nome;
 
   /**
-  * @generated
-  */
-  @Column(name = "ativo", nullable = true, unique = false, length=3, insertable=true, updatable=true)
-  
-  private java.lang.String ativo;
-
-  /**
-  * @generated
-  */
-  @Column(name = "excluir", nullable = true, unique = false, insertable=true, updatable=true)
-  
-  private java.lang.Boolean excluir;
-
-  /**
    * Construtor
    * @generated
    */
@@ -99,46 +85,6 @@ public class TipoTrabalho implements Serializable {
    */
   public TipoTrabalho setNome(java.lang.String nome){
     this.nome = nome;
-    return this;
-  }
-
-  /**
-   * Obtém ativo
-   * return ativo
-   * @generated
-   */
-  
-  public java.lang.String getAtivo(){
-    return this.ativo;
-  }
-
-  /**
-   * Define ativo
-   * @param ativo ativo
-   * @generated
-   */
-  public TipoTrabalho setAtivo(java.lang.String ativo){
-    this.ativo = ativo;
-    return this;
-  }
-
-  /**
-   * Obtém excluir
-   * return excluir
-   * @generated
-   */
-  
-  public java.lang.Boolean getExcluir(){
-    return this.excluir;
-  }
-
-  /**
-   * Define excluir
-   * @param excluir excluir
-   * @generated
-   */
-  public TipoTrabalho setExcluir(java.lang.Boolean excluir){
-    this.excluir = excluir;
     return this;
   }
 

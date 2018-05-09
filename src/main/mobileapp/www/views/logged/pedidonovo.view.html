@@ -7,7 +7,7 @@
             <!-- paciente begin --> 
             <div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-347691"> 
               <datasource name="TipoTrabalho" entity="api/cronapi/crud/app.entity.TipoTrabalho" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource> 
-            </div><div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-905289"><datasource name="GrupoPedido" entity="api/cronapi/query/uvbvzyqiu0qc/" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource></div> 
+            </div><div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-905289"><datasource name="GrupoPedido" entity="api/cronapi/query/uvbvzyqiu0qc/{{vars.txtTipo}}/" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource></div> 
             <div class="component-holder ng-binding ng-scope col-xs-12" data-component="crn-datasource" id="crn-datasource-1031027"> 
                
             </div> 
@@ -38,7 +38,7 @@
             <ion-item class="item dark component-holder  col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-TipoTrabalho"> 
               <h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-796544">Tipo de Trabalho</h2> 
               <label class="item item-input item-select component-holder" data-component="crn-select" id="crn-select-713550"> 
-                <div class="input-label"></div><select ng-model="vars.txtTipo" class="form-control" id="comboTipo" name="comboTipo" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required="required" ng-click="" onselect="" ng-mouseup="" ng-blur="" ng-mouseleave="blockly.js.PedidoNovo.Executar(vars.txtTipo)"> <option value=""></option> </select></label> 
+                <div class="input-label"></div><select ng-model="vars.txtTipo" class="form-control" id="comboTipo" name="comboTipo" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required="required" ng-click="" onselect="" ng-mouseup="" ng-blur="" ng-mouseleave="blockly.js.PedidoNovo.Executar(vars.txtTipo)"> <option value=""></option> </select><select ng-model="vars.txtTipo" class="form-control" id="comboTipo" name="comboTipo" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required="required" ng-click="" onselect="" ng-mouseup="" ng-blur="" ng-mouseleave="blockly.js.PedidoNovo.Executar(vars.txtTipo)"> <option value=""></option> </select></label> 
             </ion-item> 
             <div data-replace="true" data-component="crn-container" class="component-holder col-xs-12" id="crn-container-Odontograma" ng-hide="true">
                &nbsp; 

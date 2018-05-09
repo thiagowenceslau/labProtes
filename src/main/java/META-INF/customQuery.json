@@ -764,7 +764,9 @@
 					{
 						"name": "popularComboGrupo",
 						"hasReturn": "true",
-						"params": []
+						"params": [
+							"tipo"
+						]
 					},
 					{
 						"name": "retornarIdTipoTrabalho",
@@ -792,7 +794,12 @@
 		"entitySimpleName": null,
 		"entityFullName": null,
 		"query": "",
-		"queryParamsValues": [],
+		"queryParamsValues": [
+			{
+				"fieldName": "tipo",
+				"fieldValue": "vars.txtTipo"
+			}
+		],
 		"verbs": {
 			"GET": true,
 			"GETAuthorities": null,
@@ -823,6 +830,6 @@
 			"primaryKey": null,
 			"foreignKey": null
 		},
-		"serviceUrl": "api/cronapi/query/uvbvzyqiu0qc/"
+		"serviceUrl": "api/cronapi/query/uvbvzyqiu0qc/{{vars.txtTipo}}/"
 	}
 }

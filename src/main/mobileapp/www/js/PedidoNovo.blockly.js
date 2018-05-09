@@ -8,8 +8,7 @@ var tipoTrabalho, comboTipo;
  * PedidoNovo
  */
 window.blockly.js.PedidoNovo.Executar = function(comboTipo) {
-	tipoTrabalho = this.cronapi.util.callServerBlockly(
-			'blockly.PedidoNovoMobile:retornarNomeTipoTrabalho', comboTipo);
+	tipoTrabalho = null;
 	window.alert(this.cronapi.object.getProperty(this.cronapi.screen
 			.getValueOfField("vars.txtTipo"), 'nome'));
 	if (tipoTrabalho == 'Contenção' || tipoTrabalho == 'Placa') {
@@ -29,4 +28,5 @@ window.blockly.js.PedidoNovo.Executar = function(comboTipo) {
 		this.cronapi.screen.showComponent("crn-list-item-Observacoes");
 		this.cronapi.screen.showComponent("crn-button-btnFinalizar");
 	}
+	this.cronapi.screen.refreshDatasource("GrupoPedido", 'true');
 }

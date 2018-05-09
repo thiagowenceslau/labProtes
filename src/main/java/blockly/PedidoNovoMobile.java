@@ -33,27 +33,20 @@ public class PedidoNovoMobile {
 
 	/**
 	 *
+	 * @param tipo
 	 * @return Var
 	 */
 	// Descreva esta função...
-	public static Var popularComboGrupo() throws Exception {
+	public static Var popularComboGrupo(Var tipo) throws Exception {
 		return new Callable<Var>() {
 
-			private Var consultaId = Var.VAR_NULL;
-			private Var idTipoTrabalho = Var.VAR_NULL;
 			private Var consultaGrupo = Var.VAR_NULL;
 
 			public Var call() throws Exception {
-				consultaId = cronapi.database.Operations.query(Var.valueOf("app.entity.TipoTrabalho"),
-						Var.valueOf("select t from TipoTrabalho t where t.id = :id"),
-						Var.valueOf("id",
-								cronapi.object.Operations.getObjectField(
-										cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtTipo")),
-										Var.valueOf("id"))));
-				idTipoTrabalho = cronapi.database.Operations.getField(consultaId, Var.valueOf("this[0].id"));
 				consultaGrupo = cronapi.database.Operations.query(Var.valueOf("app.entity.GrupoPedido"),
 						Var.valueOf("select g from GrupoPedido g where g.tipoTrabalho.id = :tipoTrabalhoId"),
-						Var.valueOf("tipoTrabalhoId", idTipoTrabalho));
+						Var.valueOf("tipoTrabalhoId", Var.valueOf("3B515D80-A08C-439E-9E07-1995595D051F")));
+				System.out.println(tipo.getObjectAsString());
 				return consultaGrupo;
 			}
 		}.call();
