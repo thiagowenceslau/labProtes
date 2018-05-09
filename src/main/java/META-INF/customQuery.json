@@ -880,5 +880,109 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/1h7ioiwcx7nld/"
+	},
+	"ts2ewnt8xx6b": {
+		"customId": "dsItensPedidoGrid",
+		"queryName": "ItensPedidoGrid",
+		"screen": "src/main/mobileapp/www/views/logged/pedidonovo.view.html",
+		"sourceType": "blockly",
+		"blockly": {
+			"blocklyClass": "blockly.PedidoNovoMobile",
+			"blocklyMethod": "preencherGridItens",
+			"blocklyLanguage": "java",
+			"blocklyJson": {
+				"namespace": "blockly.PedidoNovoMobile",
+				"classNameNew": "PedidoNovoMobile",
+				"classNameOld": "PedidoNovoMobile",
+				"sourcePath": "src/main/java/blockly/PedidoNovoMobile.blockly",
+				"language": "java",
+				"class": "blockly.PedidoNovoMobile",
+				"methods": [
+					{
+						"name": "preencherGridItens",
+						"hasReturn": "true",
+						"params": []
+					},
+					{
+						"name": "finalizarPedido",
+						"hasReturn": "false",
+						"params": []
+					},
+					{
+						"name": "retornarIdJson",
+						"hasReturn": "true",
+						"params": []
+					},
+					{
+						"name": "popularCombogrupo",
+						"hasReturn": "true",
+						"params": []
+					},
+					{
+						"name": "retornarIdTipoTrabalho",
+						"hasReturn": "true",
+						"params": [
+							"comboTipo"
+						]
+					},
+					{
+						"name": "retornarNomeTipoTrabalho",
+						"hasReturn": "true",
+						"params": [
+							"tipo"
+						]
+					}
+				]
+			},
+			"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.PedidoNovoMobile:preencherGridItens', null, null)",
+			"blocklyGETMethod": "preencherGridItens",
+			"blocklyPOSTMethod": "preencherGridItens",
+			"blocklyPUTMethod": "preencherGridItens",
+			"blocklyDELETEMethod": "preencherGridItens",
+			"blocklyFILTERMethod": "preencherGridItens"
+		},
+		"entitySimpleName": null,
+		"entityFullName": null,
+		"query": "",
+		"queryParamsValues": [],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"tipoItem": null,
+			"grupoItem": null,
+			"dente": null
+		},
+		"security": {
+			"tipoItem": null,
+			"grupoItem": null,
+			"dente": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/ts2ewnt8xx6b/"
 	}
 }

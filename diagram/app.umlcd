@@ -3502,7 +3502,8 @@
         "DataEnvio:java.util.Date",
         "cliente:Cliente",
         "valor:java.lang.Double",
-        "DataFinalizado:java.util.Date"
+        "DataFinalizado:java.util.Date",
+        "observacoes:java.lang.String"
       ],
       "methods": [],
       "position": {
@@ -3510,8 +3511,8 @@
         "y": 585
       },
       "size": {
-        "width": 264.5625,
-        "height": 227.87879943847656
+        "width": 256,
+        "height": 241.34414672851562
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -3824,6 +3825,29 @@
           "isEncryption": false,
           "referencedColumnName": "",
           "isSearchable": false
+        },
+        {
+          "name": "observacoes",
+          "type": "java.lang.String",
+          "dbName": "observacoes",
+          "dbLength": 150,
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Observacoes",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
         }
       ],
       "runtimeClass": "cronos.widgets.joint.uml.Class",
@@ -3838,12 +3862,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 290,
+          "height": 310,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,340)"
+          "transform": "translate(0,360)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -3853,12 +3877,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\nPaciente\nCodigoPaciente\nSexo\nDataNascimentoPaciente\nIdadePaciente\nDataEntregaSolicitada\nSituacaoPedido\nAtivo\nDataEnvio\ncliente\nvalor\nDataFinalizado\n"
+          "text": "id\nPaciente\nCodigoPaciente\nSexo\nDataNascimentoPaciente\nIdadePaciente\nDataEntregaSolicitada\nSituacaoPedido\nAtivo\nDataEnvio\ncliente\nvalor\nDataFinalizado\nobservacoes\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 159.109375,
+          "ref-x": 153,
           "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.util.Date\njava.lang.Integer\njava.util.Date\njava.lang.String\njava.lang.Boolean\njava.util.Date\nCliente\njava.lang.Double\njava.util.Date\n"
+          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.util.Date\njava.lang.Integer\njava.util.Date\njava.lang.String\njava.lang.Boolean\njava.util.Date\nCliente\njava.lang.Double\njava.util.Date\njava.lang.String\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",

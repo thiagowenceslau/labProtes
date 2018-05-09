@@ -3,6 +3,7 @@
     <persistence-unit name="app" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <non-jta-data-source>java:comp/env/jdbc/main</non-jta-data-source>
+        <class>app.entity.Pedido</class>
         <class>app.entity.TipoTrabalho</class>
         <class>app.entity.GrupoPedido</class>
         <class>app.entity.Servico</class>
@@ -17,7 +18,6 @@
         <class>app.entity.EtapaComissao</class>
         <class>app.entity.Role</class>
         <class>app.entity.Device</class>
-        <class>app.entity.Pedido</class>
         <properties>
             <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
         </properties>

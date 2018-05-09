@@ -2,6 +2,7 @@ package blockly;
 
 import cronapi.*;
 import cronapi.rest.security.CronappSecurity;
+import java.util.Iterator;
 import java.util.concurrent.Callable;
 
 @CronapiMetaData(type = "blockly")
@@ -48,6 +49,8 @@ public class PedidoNovoMobile {
 				idCliente = cronapi.database.Operations.getField(cliente, Var.valueOf("this[0].id"));
 				idPedido = cronapi.util.Operations.generateUUID();
 				cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"), Var.valueOf("cliente", idCliente),
+						Var.valueOf("observacoes",
+								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtObs"))),
 						Var.valueOf("ativo", Var.valueOf("")),
 						Var.valueOf("idadePaciente",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtIdade"))),
@@ -87,6 +90,70 @@ public class PedidoNovoMobile {
 						Var.valueOf("select g from GrupoPedido g where g.tipoTrabalho.id = :tipoTrabalhoId"),
 						Var.valueOf("tipoTrabalhoId", Var.valueOf(retornarIdJson())));
 				return consultaGrupo;
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Descreva esta função...
+	public static Var preencherGridItens() throws Exception {
+		return new Callable<Var>() {
+
+			private Var dentes = Var.VAR_NULL;
+			private Var itensPedido = Var.VAR_NULL;
+			private Var i = Var.VAR_NULL;
+			private Var dente = Var.VAR_NULL;
+			private Var grupoItem = Var.VAR_NULL;
+			private Var tipoItem = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				dentes = cronapi.list.Operations.newList(
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD11")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD12")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD13")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD14")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD15")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD16")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD17")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD18")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD21")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD22")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD23")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD24")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD25")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD26")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD27")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD28")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD31")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD32")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD33")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD34")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD35")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD36")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD37")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD38")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD41")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD42")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD43")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD44")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD45")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD46")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD47")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD48")));
+				itensPedido = cronapi.list.Operations.newList();
+				for (Iterator it_i = dentes.iterator(); it_i.hasNext();) {
+					i = Var.valueOf(it_i.next());
+					if (cronapi.logic.Operations.isNullOrEmpty(i).negate().getObjectAsBoolean()) {
+						dente = i;
+						grupoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtGrupo"));
+						tipoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtTipo"));
+						itensPedido = cronapi.list.Operations.newList(tipoItem, grupoItem, dente);
+					}
+				} // end for
+				return itensPedido;
 			}
 		}.call();
 	}

@@ -123,6 +123,13 @@ public class Pedido implements Serializable {
   private java.util.Date dataFinalizado;
 
   /**
+  * @generated
+  */
+  @Column(name = "observacoes", nullable = true, unique = false, length=150, insertable=true, updatable=true)
+  
+  private java.lang.String observacoes;
+
+  /**
    * Construtor
    * @generated
    */
@@ -387,6 +394,26 @@ public class Pedido implements Serializable {
    */
   public Pedido setDataFinalizado(java.util.Date dataFinalizado){
     this.dataFinalizado = dataFinalizado;
+    return this;
+  }
+
+  /**
+   * Obtém observacoes
+   * return observacoes
+   * @generated
+   */
+  
+  public java.lang.String getObservacoes(){
+    return this.observacoes;
+  }
+
+  /**
+   * Define observacoes
+   * @param observacoes observacoes
+   * @generated
+   */
+  public Pedido setObservacoes(java.lang.String observacoes){
+    this.observacoes = observacoes;
     return this;
   }
 
