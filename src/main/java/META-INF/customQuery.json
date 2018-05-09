@@ -744,60 +744,99 @@
 		},
 		"serviceUrl": "api/cronapi/query/s4se2bfekrxh/"
 	},
-	"uvbvzyqiu0qc": {
-		"customId": "GrupoPedido",
-		"queryName": "GrupoPedido",
+	"1h7ioiwcx7nld": {
+		"customId": "dsComboGrupo",
+		"queryName": "ComboGrupo",
 		"screen": "src/main/mobileapp/www/views/logged/pedidonovo.view.html",
-		"sourceType": "blockly",
-		"blockly": {
-			"blocklyClass": "blockly.PedidoNovoMobile",
-			"blocklyMethod": "popularComboGrupo",
-			"blocklyLanguage": "java",
-			"blocklyJson": {
-				"namespace": "blockly.PedidoNovoMobile",
-				"classNameNew": "PedidoNovoMobile",
-				"classNameOld": "PedidoNovoMobile",
-				"sourcePath": "src/main/java/blockly/PedidoNovoMobile.blockly",
-				"language": "java",
-				"class": "blockly.PedidoNovoMobile",
-				"methods": [
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "GrupoPedido",
+		"entityFullName": "app.entity.GrupoPedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "GrupoPedido",
+					"namespace": "app.entity.GrupoPedido",
+					"alias": "g"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "g",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
 					{
-						"name": "popularComboGrupo",
-						"hasReturn": "true",
-						"params": [
-							"tipo"
-						]
-					},
-					{
-						"name": "retornarIdTipoTrabalho",
-						"hasReturn": "true",
-						"params": [
-							"comboTipo"
-						]
-					},
-					{
-						"name": "retornarNomeTipoTrabalho",
-						"hasReturn": "true",
-						"params": [
-							"tipo"
-						]
+						"id": "g.tipoTrabalho.id",
+						"field": "g.tipoTrabalho.id",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":tipoTrabalhoId",
+						"valueIsField": false
 					}
-				]
+				],
+				"not": false,
+				"valid": true
 			},
-			"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.PedidoNovoMobile:popularComboGrupo', null, null)",
-			"blocklyGETMethod": "popularComboGrupo",
-			"blocklyPOSTMethod": "popularComboGrupo",
-			"blocklyPUTMethod": "popularComboGrupo",
-			"blocklyDELETEMethod": "popularComboGrupo",
-			"blocklyFILTERMethod": "popularComboGrupo"
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
 		},
-		"entitySimpleName": null,
-		"entityFullName": null,
-		"query": "",
 		"queryParamsValues": [
 			{
-				"fieldName": "tipo",
-				"fieldValue": "vars.txtTipo"
+				"fieldName": "tipoTrabalhoId",
+				"fieldValue": {
+					"blocklyClass": "blockly.PedidoNovoMobile",
+					"blocklyMethod": "retornarIdJson",
+					"blocklyLanguage": "java",
+					"blocklyJson": {
+						"namespace": "blockly.PedidoNovoMobile",
+						"classNameNew": "PedidoNovoMobile",
+						"classNameOld": "PedidoNovoMobile",
+						"sourcePath": "src/main/java/blockly/PedidoNovoMobile.blockly",
+						"language": "java",
+						"class": "blockly.PedidoNovoMobile",
+						"methods": [
+							{
+								"name": "popularCombogrupo",
+								"hasReturn": "true",
+								"params": []
+							},
+							{
+								"name": "retornarIdJson",
+								"hasReturn": "true",
+								"params": []
+							},
+							{
+								"name": "retornarIdTipoTrabalho",
+								"hasReturn": "true",
+								"params": [
+									"comboTipo"
+								]
+							},
+							{
+								"name": "retornarNomeTipoTrabalho",
+								"hasReturn": "true",
+								"params": [
+									"tipo"
+								]
+							}
+						]
+					},
+					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.PedidoNovoMobile:retornarIdJson', null, null)"
+				}
 			}
 		],
 		"verbs": {
@@ -822,14 +861,24 @@
 			"onNavigate": null,
 			"onGetData": null
 		},
-		"defaultValues": {},
-		"security": {},
+		"defaultValues": {
+			"id": null,
+			"nome": null,
+			"tipoTrabalho": null,
+			"idGrupo": null
+		},
+		"security": {
+			"id": null,
+			"nome": null,
+			"tipoTrabalho": null,
+			"idGrupo": null
+		},
 		"calcFields": {},
 		"calcFieldsSecurity": {},
 		"errorHandles": {
 			"primaryKey": null,
 			"foreignKey": null
 		},
-		"serviceUrl": "api/cronapi/query/uvbvzyqiu0qc/{{vars.txtTipo}}/"
+		"serviceUrl": "api/cronapi/query/1h7ioiwcx7nld/"
 	}
 }
