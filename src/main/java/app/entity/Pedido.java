@@ -130,6 +130,21 @@ public class Pedido implements Serializable {
   private java.lang.String observacoes;
 
   /**
+  * @generated
+  */
+  @Column(name = "protocolo", nullable = true, unique = false, length=12, insertable=true, updatable=true)
+  
+  private java.lang.String protocolo;
+
+  /**
+  * @generated
+  */
+  @Temporal(TemporalType.DATE)
+  @Column(name = "dataPrevisao", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.util.Date dataPrevisao;
+
+  /**
    * Construtor
    * @generated
    */
@@ -414,6 +429,46 @@ public class Pedido implements Serializable {
    */
   public Pedido setObservacoes(java.lang.String observacoes){
     this.observacoes = observacoes;
+    return this;
+  }
+
+  /**
+   * Obtém protocolo
+   * return protocolo
+   * @generated
+   */
+  
+  public java.lang.String getProtocolo(){
+    return this.protocolo;
+  }
+
+  /**
+   * Define protocolo
+   * @param protocolo protocolo
+   * @generated
+   */
+  public Pedido setProtocolo(java.lang.String protocolo){
+    this.protocolo = protocolo;
+    return this;
+  }
+
+  /**
+   * Obtém dataPrevisao
+   * return dataPrevisao
+   * @generated
+   */
+  
+  public java.util.Date getDataPrevisao(){
+    return this.dataPrevisao;
+  }
+
+  /**
+   * Define dataPrevisao
+   * @param dataPrevisao dataPrevisao
+   * @generated
+   */
+  public Pedido setDataPrevisao(java.util.Date dataPrevisao){
+    this.dataPrevisao = dataPrevisao;
     return this;
   }
 
