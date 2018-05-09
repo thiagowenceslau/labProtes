@@ -35,7 +35,7 @@
             <ion-item class="item dark component-holder  col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-TipoTrabalho"> 
               <h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-796544">Tipo de Trabalho</h2> 
               <label class="item item-input item-select component-holder" data-component="crn-select" id="crn-select-713550"> 
-                <div class="input-label"></div><select ng-model="vars.txtTipo" class="form-control" id="comboTipo" name="comboTipo" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required="required" ng-click="" onselect="" ng-mouseup="" ng-blur="" ng-mouseleave="blockly.js.PedidoNovo.Executar(vars.txtTipo)"> <option value=""></option> </select><select ng-model="vars.txtTipo" class="form-control" id="comboTipo" name="comboTipo" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required="required" ng-click="" onselect="" ng-mouseup="" ng-blur="cronapi.util.makeCallServerBlocklyAsync('blockly.PedidoNovoMobile:retornarIdJson', null, null)" ng-mouseleave="blockly.js.PedidoNovo.Executar(vars.txtTipo)"> <option value=""></option> </select></label> 
+                <div class="input-label"></div><select ng-model="vars.txtTipo" class="form-control" id="comboTipo" name="comboTipo" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required="required" ng-click="" onselect="" ng-mouseup="" ng-blur="" ng-mouseleave="blockly.js.PedidoNovo.Executar(vars.txtTipo)"> <option value=""></option> </select><select ng-model="vars.txtTipo" class="form-control" id="comboTipo" name="comboTipo" ng-options="opt as opt.nome for opt in TipoTrabalho.data track by opt.id" required="required" ng-click="" onselect="" ng-mouseup="" ng-blur="cronapi.util.makeCallServerBlocklyAsync('blockly.PedidoNovoMobile:retornarIdJson', null, null)" ng-mouseleave="blockly.js.PedidoNovo.Executar(vars.txtTipo)" ng-change=""> <option value=""></option> </select></label> 
             </ion-item> 
             <div data-replace="true" data-component="crn-container" class="component-holder col-xs-12" id="crn-container-Odontograma" ng-hide="true">
                &nbsp; 
@@ -61,23 +61,23 @@
                     <td><label for="28">28</label></td> 
                   </tr> 
                   <tr style=""> 
-                    <td><input type="checkbox" id="18" value="18" ng-model="cbD18"></td> 
-                    <td><input type="checkbox" id="17" value="17" ng-model="cbD17"></td> 
-                    <td><input type="checkbox" id="16" value="16" ng-model="cbD16"></td> 
-                    <td><input type="checkbox" id="15" value="15" ng-model="cbD15"></td> 
-                    <td><input type="checkbox" id="14" value="14" ng-model="cbD14"></td> 
-                    <td><input type="checkbox" id="13" value="13" ng-model="cbD13"></td> 
-                    <td><input type="checkbox" id="12" value="12" ng-model="cbD12"></td> 
-                    <td><input type="checkbox" id="11" value="11" ng-model="cbD11"></td> 
+                    <td><input type="checkbox" id="18" value="18" ng-model="vars.cbD18" name="dentes"></td> 
+                    <td><input type="checkbox" id="17" value="17" ng-model="cbD17" name="dentes"></td> 
+                    <td><input type="checkbox" id="16" value="16" ng-model="cbD16" name="dentes"></td> 
+                    <td><input type="checkbox" id="15" value="15" ng-model="cbD15" name="dentes"></td> 
+                    <td><input type="checkbox" id="14" value="14" ng-model="cbD14" name="dentes"></td> 
+                    <td><input type="checkbox" id="13" value="13" ng-model="cbD13" name="dentes"></td> 
+                    <td><input type="checkbox" id="12" value="12" ng-model="cbD12" name="dentes"></td> 
+                    <td><input type="checkbox" id="11" value="11" ng-model="cbD11" name="dentes"></td> 
                     <td>&nbsp;<span class="span-borda"></span>&nbsp;&nbsp;</td> 
-                    <td><input type="checkbox" id="21" value="21" ng-model="cbD21"></td> 
-                    <td><input type="checkbox" id="22" value="22" ng-model="cbD22"></td> 
-                    <td><input type="checkbox" id="23" value="23" ng-model="cbD23"></td> 
-                    <td><input type="checkbox" id="24" value="24" ng-model="cbD24"></td> 
-                    <td><input type="checkbox" id="25" value="25" ng-model="cbD25"></td> 
-                    <td><input type="checkbox" id="26" value="26" ng-model="cbD26"></td> 
-                    <td><input type="checkbox" id="27" value="27" ng-model="cbD27"></td> 
-                    <td><input type="checkbox" id="28" value="28" ng-model="cbD28"></td> 
+                    <td><input type="checkbox" id="21" value="21" ng-model="cbD21" name="dentes"></td> 
+                    <td><input type="checkbox" id="22" value="22" ng-model="cbD22" name="dentes"></td> 
+                    <td><input type="checkbox" id="23" value="23" ng-model="cbD23" name="dentes"></td> 
+                    <td><input type="checkbox" id="24" value="24" ng-model="cbD24" name="dentes"></td> 
+                    <td><input type="checkbox" id="25" value="25" ng-model="cbD25" name="dentes"></td> 
+                    <td><input type="checkbox" id="26" value="26" ng-model="cbD26" name="dentes"></td> 
+                    <td><input type="checkbox" id="27" value="27" ng-model="cbD27" name="dentes"></td> 
+                    <td><input type="checkbox" id="28" value="28" ng-model="cbD28" name="dentes"></td> 
                   </tr> 
                   <tr style=""> 
                     <td colspan="17" class="table-borda"></td> 
@@ -86,7 +86,7 @@
                     <td class="pt"><label for="48">48</label></td> 
                     <td class="pt"><label for="47">47</label></td> 
                     <td class="pt"><label for="46">46</label></td> 
-                    <td class="pt"><label for="45">15</label></td> 
+                    <td class="pt"><label for="45">45</label></td> 
                     <td class="pt"><label for="44">44</label></td> 
                     <td class="pt"><label for="43">43</label></td> 
                     <td class="pt"><label for="42">42</label></td> 
@@ -102,23 +102,23 @@
                     <td class="pt"><label for="38">38</label></td> 
                   </tr> 
                   <tr style=""> 
-                    <td><input type="checkbox" id="48" value="48" ng-model="cbD48"></td> 
-                    <td><input type="checkbox" id="47" value="47" ng-model="cbD47"></td> 
-                    <td><input type="checkbox" id="46" value="46" ng-model="cbD46"></td> 
-                    <td><input type="checkbox" id="45" value="45" ng-model="cbD45"></td> 
-                    <td><input type="checkbox" id="44" value="44" ng-model="cbD44"></td> 
-                    <td><input type="checkbox" id="43" value="43" ng-model="cbD43"></td> 
-                    <td><input type="checkbox" id="42" value="42" ng-model="cbD42"></td> 
-                    <td><input type="checkbox" id="41" value="41" ng-model="cbD41"></td> 
+                    <td><input type="checkbox" id="48" value="48" ng-model="vars.dente48" ng-true-value="48"></td> 
+                    <td><input type="checkbox" id="47" value="47" ng-model="vars.dente47" ng-true-value="47"></td> 
+                    <td><input type="checkbox" id="46" value="46" ng-model="vars.dente46" ng-true-value="46"></td> 
+                    <td><input type="checkbox" id="45" value="45" ng-model="vars.dente45" ng-true-value="45"></td> 
+                    <td><input type="checkbox" id="44" value="44" ng-model="vars.dente44" ng-true-value="44"></td> 
+                    <td><input type="checkbox" id="43" value="43" ng-model="vars.dente43" ng-true-value="43"></td> 
+                    <td><input type="checkbox" id="42" value="42" ng-model="vars.dente42" ng-true-value="42"></td> 
+                    <td><input type="checkbox" id="41" value="41" ng-model="vars.dente41" ng-true-value="41"></td> 
                     <td>&nbsp;<span class="span-borda"></span>&nbsp;&nbsp;</td> 
-                    <td><input type="checkbox" id="31" value="31" ng-model="cbD31"></td> 
-                    <td><input type="checkbox" id="32" value="32" ng-model="cbD32"></td> 
-                    <td><input type="checkbox" id="33" value="33" ng-model="cbD33"></td> 
-                    <td><input type="checkbox" id="34" value="34" ng-model="cbD34"></td> 
-                    <td><input type="checkbox" id="35" value="35" ng-model="cbD35"></td> 
-                    <td><input type="checkbox" id="36" value="36" ng-model="cbD36"></td> 
-                    <td><input type="checkbox" id="37" value="37" ng-model="cbD37"></td> 
-                    <td><input type="checkbox" id="38" value="38" ng-model="cbD38"></td> 
+                    <td><input type="checkbox" id="31" value="31" ng-model="cbD31" name="dentes"></td> 
+                    <td><input type="checkbox" id="32" value="32" ng-model="cbD32" name="dentes"></td> 
+                    <td><input type="checkbox" id="33" value="33" ng-model="cbD33" name="dentes"></td> 
+                    <td><input type="checkbox" id="34" value="34" ng-model="cbD34" name="dentes"></td> 
+                    <td><input type="checkbox" id="35" value="35" ng-model="cbD35" name="dentes"></td> 
+                    <td><input type="checkbox" id="36" value="36" ng-model="cbD36" name="dentes"></td> 
+                    <td><input type="checkbox" id="37" value="37" ng-model="cbD37" name="dentes"></td> 
+                    <td><input type="checkbox" id="38" value="38" ng-model="cbD38" name="dentes"></td> 
                   </tr> 
                 </tbody> 
               </table> &nbsp; 
@@ -137,20 +137,17 @@
             </ion-item> 
             <div data-replace="true" data-component="crn-container" class="component-holder col-xs-12" id="crn-container-ItensPedido" ng-hide="true">
                &nbsp; 
-              <div crn-datasource="ItemPedido" class="" ng-hide="ItemPedido.editing || ItemPedido.inserting"> 
+              <div crn-datasource="ItemPedido" class=""> 
                 <ion-list can-swipe="listCanSwipe"> 
-                  <ion-item ng-repeat="rowData in datasource.data" class="item" ng-click="datasource.startEditing(rowData)"> 
+                  <ion-item ng-repeat="rowData in datasource.data" class="item"> 
                     <div class="row"> 
-                      <div class="col">
-                         {{rowData.tipoTrabalho}} 
-                      </div> 
+                      <div class="col">{{rowData.tipoTrabalho}}</div> 
+                      <div class="col">{{rowData.grupo}}</div> 
+                        <div class="col">{{rowData.cor}}</div> 
                       <div class="col">
                          {{rowData.dente}} 
                       </div> 
-                      <div class="col">
-                         {{rowData.grupo}} 
-                      </div> 
-                    </div> 
+                      </div>
                     <ion-option-button class="button-assertive" ng-click="datasource.remove(rowData)">
                        &nbsp; 
                       <i class="icon ion-trash-a"></i> 

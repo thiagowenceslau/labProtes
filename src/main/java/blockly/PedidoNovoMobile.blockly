@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/mobileapp/www/views/logged/pedidonovo.view.html" resourceType="JAVA" ruleDescription="PedidoNovoMobile" ruleName="PedidoNovoMobile" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="403.00000000000153" scrolly="-17.99999999999943" target="_x%_?V-Ww(B(=QlKo.@w"/>
+  <metadata scale="1" scrollx="286.0000000000004" scrolly="-1459.9999999999925" target="A2^pIcXsuV:~5V,Q3PJ@"/>
   <block colour="#995ba5" id="A2^pIcXsuV:~5V,Q3PJ@" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-142" y="-97">
     <field name="NAME">preencherGridItens</field>
     <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
@@ -396,100 +396,125 @@
           </block>
         </value>
         <next>
-          <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="FOKH|6*6B2Lp#;~o#9Th" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
-            <field name="VAR">itensPedido</field>
-            <value name="VALUE">
-              <block colour="#745ba5" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="E50-:aZNMGOdl|om7#m`" origintype="lists_create_with" output="true" tooltip="Cria uma lista com a quantidade de itens informada." type="lists_create_with">
-                <mutation items="0"/>
+          <block colour="#5ba55b" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="M9MfVPlz8dwFRQzcb%/u" origintype="controls_forEach" output="false" tooltip="Faça algumas instruções várias vezes." type="controls_forEach">
+            <field name="VAR">i</field>
+            <value name="LIST">
+              <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="|td!~};2~0aJ!:}*ka*0" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                <field name="VAR">dentes</field>
               </block>
             </value>
-            <next>
-              <block colour="#5ba55b" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="M9MfVPlz8dwFRQzcb%/u" origintype="controls_forEach" output="false" tooltip="Faça algumas instruções várias vezes." type="controls_forEach">
-                <field name="VAR">i</field>
-                <value name="LIST">
-                  <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="|td!~};2~0aJ!:}*ka*0" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                    <field name="VAR">dentes</field>
-                  </block>
-                </value>
-                <statement name="DO">
-                  <block colour="#5b80a5" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="qK%i`z1nM|jd,`Y9QQaR" origintype="controls_if" output="false" tooltip="function () { [native code] }" type="controls_if">
-                    <value name="IF0">
-                      <block colour="#5b80a5" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="#8B`lc[eQ5T6dN@rD?@4" origintype="logic_negate" output="true" tooltip="Retorna verdadeiro se a entrada for falsa.  Retorna falsa se a entrada for verdadeira." type="logic_negate">
-                        <value name="BOOL">
-                          <block colour="#5b80a5" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="0oXi.)6}]i]m@bn7}aac" inline="true" multilayer="false" namespace="cronapi.logic.Operations.isNullOrEmpty" origintype="procedures_callreturn" output="true" returntype="ObjectType.BOOLEAN" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3E%C3%A9%20nulo%20ou%20vazio?%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20verifica%20se%20a%20var%C3%ADavel%20%C3%A9%20nula%20ou%20vazia%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Par%C3%A2metro%20:%20Objeto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20L%C3%B3gico%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.logic.Operations.isNullOrEmpty%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.logic.Operations.isNullOrEmpty%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
-                            <mutation name="{{cronapi.logic.Operations.isNullOrEmpty}}" return-raw-type="cronapi.Var">
-                              <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.OBJECT" name="Parâmetro"/>
-                            </mutation>
-                            <value name="ARG0">
-                              <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="x,?ea5KBtm4ydDp9^!Cs" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                                <field name="VAR">i</field>
-                              </block>
-                            </value>
+            <statement name="DO">
+              <block colour="#5b80a5" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="qK%i`z1nM|jd,`Y9QQaR" origintype="controls_if" output="false" tooltip="function () { [native code] }" type="controls_if">
+                <value name="IF0">
+                  <block colour="#5b80a5" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="#8B`lc[eQ5T6dN@rD?@4" origintype="logic_negate" output="true" tooltip="Retorna verdadeiro se a entrada for falsa.  Retorna falsa se a entrada for verdadeira." type="logic_negate">
+                    <value name="BOOL">
+                      <block colour="#5b80a5" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="0oXi.)6}]i]m@bn7}aac" inline="true" multilayer="false" namespace="cronapi.logic.Operations.isNullOrEmpty" origintype="procedures_callreturn" output="true" returntype="ObjectType.BOOLEAN" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3E%C3%A9%20nulo%20ou%20vazio?%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20verifica%20se%20a%20var%C3%ADavel%20%C3%A9%20nula%20ou%20vazia%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Par%C3%A2metro%20:%20Objeto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20L%C3%B3gico%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.logic.Operations.isNullOrEmpty%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.logic.Operations.isNullOrEmpty%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                        <mutation name="{{cronapi.logic.Operations.isNullOrEmpty}}" return-raw-type="cronapi.Var">
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.OBJECT" name="Parâmetro"/>
+                        </mutation>
+                        <value name="ARG0">
+                          <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="x,?ea5KBtm4ydDp9^!Cs" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                            <field name="VAR">i</field>
                           </block>
                         </value>
                       </block>
                     </value>
-                    <statement name="DO0">
-                      <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id=",v8b5w:hg!8dn2UAF}:r" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
-                        <field name="VAR">dente</field>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id=",v8b5w:hg!8dn2UAF}:r" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                    <field name="VAR">dente</field>
+                    <value name="VALUE">
+                      <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="k]7h;ML?6L,lw@/nzn(R" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                        <field name="VAR">i</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="j;*f}Mi4qCqOlu_NY6R8" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                        <field name="VAR">grupoItem</field>
                         <value name="VALUE">
-                          <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="k]7h;ML?6L,lw@/nzn(R" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                            <field name="VAR">i</field>
+                          <block colour="#5ba593" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="My8{4aj?nF%`5yFY#IEa" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">Temporário</field>
                           </block>
                         </value>
                         <next>
-                          <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="j;*f}Mi4qCqOlu_NY6R8" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
-                            <field name="VAR">grupoItem</field>
+                          <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id=")O.K(r+V:{^;6@B)OS|l" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                            <field name="VAR">tipoItem</field>
                             <value name="VALUE">
-                              <block colour="#934848" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="`~j=szKdtxcvD-[r{7|b" multilayer="false" namespace="cronapi.screen.Operations.getValueOfField" origintype="procedures_callreturn" output="true" returntype="ObjectType.JSON" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20valor%20do%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20valor%20do%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Json%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                              <block colour="#934848" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="oLq)u}*x9)mz[B_Iw+)B" multilayer="false" namespace="cronapi.screen.Operations.getValueOfField" origintype="procedures_callreturn" output="true" returntype="ObjectType.JSON" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20valor%20do%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20valor%20do%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Json%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
                                 <mutation name="{{cronapi.screen.Operations.getValueOfField}}" return-raw-type="cronapi.Var">
                                   <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Campo"/>
                                 </mutation>
                                 <value name="ARG0">
-                                  <block colour="#934848" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="g.%!GM9D%~Z})B4=+YwT" origintype="form_fieldscreen_callreturn" output="true" type="form_fieldscreen_callreturn">
-                                    <field name="SELECT">vars.txtGrupo</field>
+                                  <block colour="#934848" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="WC7R]EUiy:5{BbV9J63C" origintype="form_fieldscreen_callreturn" output="true" type="form_fieldscreen_callreturn">
+                                    <field name="SELECT">vars.txtTipo</field>
                                   </block>
                                 </value>
                               </block>
                             </value>
                             <next>
-                              <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id=")O.K(r+V:{^;6@B)OS|l" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
-                                <field name="VAR">tipoItem</field>
+                              <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="Wj}fg^$Rz2zY~7h[e1Ax" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                                <field name="VAR">corItem</field>
                                 <value name="VALUE">
-                                  <block colour="#934848" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="oLq)u}*x9)mz[B_Iw+)B" multilayer="false" namespace="cronapi.screen.Operations.getValueOfField" origintype="procedures_callreturn" output="true" returntype="ObjectType.JSON" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20valor%20do%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20valor%20do%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Json%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                                  <block colour="#934848" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="en1M-_sih_)v:.OmhriL" multilayer="false" namespace="cronapi.screen.Operations.getValueOfField" origintype="procedures_callreturn" output="true" returntype="ObjectType.JSON" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20valor%20do%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20valor%20do%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Json%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
                                     <mutation name="{{cronapi.screen.Operations.getValueOfField}}" return-raw-type="cronapi.Var">
                                       <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Campo"/>
                                     </mutation>
                                     <value name="ARG0">
-                                      <block colour="#934848" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="WC7R]EUiy:5{BbV9J63C" origintype="form_fieldscreen_callreturn" output="true" type="form_fieldscreen_callreturn">
-                                        <field name="SELECT">vars.txtTipo</field>
+                                      <block colour="#934848" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="=:$_%Njb^|6R1-^L+cGa" origintype="form_fieldscreen_callreturn" output="true" type="form_fieldscreen_callreturn">
+                                        <field name="SELECT">vars.txtCor</field>
                                       </block>
                                     </value>
                                   </block>
                                 </value>
                                 <next>
-                                  <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="*82f35N3TUA(UxniDix}" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                                  <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="FOKH|6*6B2Lp#;~o#9Th" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
                                     <field name="VAR">itensPedido</field>
                                     <value name="VALUE">
-                                      <block colour="#745ba5" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="6:Yv*g,hv]Q:P!{0,u{0" origintype="lists_create_with" output="true" tooltip="Cria uma lista com a quantidade de itens informada." type="lists_create_with">
-                                        <mutation items="3"/>
-                                        <value name="ADD0">
+                                      <block colour="#404340" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="x%lH~lLTh/k!nD)tL{Vv" multilayer="false" namespace="cronapi.object.Operations.newObject" origintype="procedures_createnewobject_callreturn" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3ECriar%20novo%20objeto%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20cria%20um%20novo%20objeto%20%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Par%C3%A2metros%20:%20Mapa%3C/span%3E%3Cdiv%3E%20Par%C3%A2metros%20a%20serem%20passados%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.object.Operations.newObject%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.object.Operations.newObject%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_createnewobject_callreturn">
+                                        <mutation data="%7B%22entity%22:%22app.entity.ItemPedido%22,%22entityFullName%22:%22app.entity.ItemPedido%22,%22params%22:%22%5B%5C%22tipoTrabalho%5C%22,%5C%22dente%5C%22,%5C%22grupo%5C%22,%5C%22cor%5C%22%5D%22,%22paramTypes%22:%22%5B%5C%22undefined%5C%22,%5C%22undefined%5C%22,%5C%22undefined%5C%22,%5C%22undefined%5C%22%5D%22,%22type%22:%22F%22%7D" name="{{cronapi.object.Operations.newObject}}">
+                                          <arg name="tipoTrabalho"/>
+                                          <arg name="dente"/>
+                                          <arg name="grupo"/>
+                                          <arg name="cor"/>
+                                        </mutation>
+                                        <value name="ARG0">
                                           <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="^Gia6CDO+9/,/tUdH]a#" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
                                             <field name="VAR">tipoItem</field>
                                           </block>
                                         </value>
-                                        <value name="ADD1">
-                                          <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="p1p{8!0U,m25g!sQ2:T8" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                                            <field name="VAR">grupoItem</field>
-                                          </block>
-                                        </value>
-                                        <value name="ADD2">
+                                        <value name="ARG1">
                                           <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="||lSAq*ka;%QbU#YW,(H" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
                                             <field name="VAR">dente</field>
                                           </block>
                                         </value>
+                                        <value name="ARG2">
+                                          <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="p1p{8!0U,m25g!sQ2:T8" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                            <field name="VAR">grupoItem</field>
+                                          </block>
+                                        </value>
+                                        <value name="ARG3">
+                                          <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="+qg+*#GUnf4zIx#%A)IQ" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                            <field name="VAR">corItem</field>
+                                          </block>
+                                        </value>
                                       </block>
                                     </value>
+                                    <next>
+                                      <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="|STuNLEVAo!%usapkS9_" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                                        <field name="VAR">listaItem</field>
+                                        <value name="VALUE">
+                                          <block colour="#745ba5" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="?0-EVoBhJx/%om%ESt^]" origintype="lists_create_with" output="true" tooltip="Cria uma lista com a quantidade de itens informada." type="lists_create_with">
+                                            <mutation items="1"/>
+                                            <value name="ADD0">
+                                              <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="P/JiCg*(+z;(7I2cJz(m" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                                <field name="VAR">itensPedido</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
                                   </block>
                                 </next>
                               </block>
@@ -497,18 +522,18 @@
                           </block>
                         </next>
                       </block>
-                    </statement>
+                    </next>
                   </block>
                 </statement>
               </block>
-            </next>
+            </statement>
           </block>
         </next>
       </block>
     </statement>
     <value name="RETURN">
-      <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="P/JiCg*(+z;(7I2cJz(m" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-        <field name="VAR">itensPedido</field>
+      <block colour="#a55b80" dependencyby="A2^pIcXsuV:~5V,Q3PJ@" id="=B.BwEMtacmSBn:j1uf2" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+        <field name="VAR">listaItem</field>
       </block>
     </value>
   </block>

@@ -103,11 +103,13 @@ public class PedidoNovoMobile {
 		return new Callable<Var>() {
 
 			private Var dentes = Var.VAR_NULL;
-			private Var itensPedido = Var.VAR_NULL;
 			private Var i = Var.VAR_NULL;
 			private Var dente = Var.VAR_NULL;
 			private Var grupoItem = Var.VAR_NULL;
 			private Var tipoItem = Var.VAR_NULL;
+			private Var corItem = Var.VAR_NULL;
+			private Var itensPedido = Var.VAR_NULL;
+			private Var listaItem = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				dentes = cronapi.list.Operations.newList(
@@ -143,17 +145,32 @@ public class PedidoNovoMobile {
 						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD46")),
 						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD47")),
 						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD48")));
-				itensPedido = cronapi.list.Operations.newList();
+				System.out.println(
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtTipo")).getObjectAsString());
+				System.out.println(
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor")).getObjectAsString());
+				System.out.println(
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente48")).getObjectAsString());
+				System.out.println(
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente47")).getObjectAsString());
+				System.out.println(
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente45")).getObjectAsString());
+				System.out.println(
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente44")).getObjectAsString());
 				for (Iterator it_i = dentes.iterator(); it_i.hasNext();) {
 					i = Var.valueOf(it_i.next());
 					if (cronapi.logic.Operations.isNullOrEmpty(i).negate().getObjectAsBoolean()) {
 						dente = i;
-						grupoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtGrupo"));
+						grupoItem = Var.valueOf("Temporário");
 						tipoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtTipo"));
-						itensPedido = cronapi.list.Operations.newList(tipoItem, grupoItem, dente);
+						corItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor"));
+						itensPedido = cronapi.object.Operations.newObject(Var.valueOf("app.entity.ItemPedido"),
+								Var.valueOf("tipoTrabalho", tipoItem), Var.valueOf("dente", dente),
+								Var.valueOf("grupo", grupoItem), Var.valueOf("cor", corItem));
+						listaItem = cronapi.list.Operations.newList(itensPedido);
 					}
 				} // end for
-				return itensPedido;
+				return listaItem;
 			}
 		}.call();
 	}

@@ -967,16 +967,8 @@
 			"onNavigate": null,
 			"onGetData": null
 		},
-		"defaultValues": {
-			"tipoItem": null,
-			"grupoItem": null,
-			"dente": null
-		},
-		"security": {
-			"tipoItem": null,
-			"grupoItem": null,
-			"dente": null
-		},
+		"defaultValues": {},
+		"security": {},
 		"calcFields": {},
 		"calcFieldsSecurity": {},
 		"errorHandles": {
