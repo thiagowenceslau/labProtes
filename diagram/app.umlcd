@@ -26,6 +26,7 @@
         "put": "authenticated",
         "delete": "authenticated"
       },
+      "generationType": "drop-and-create-tables",
       "attrs": {}
     },
     {
@@ -3855,7 +3856,7 @@
           "name": "protocolo",
           "type": "java.lang.String",
           "dbName": "protocolo",
-          "dbLength": 12,
+          "dbLength": 15,
           "dbPrecision": "",
           "dbScale": "",
           "dbDefaultValue": "",

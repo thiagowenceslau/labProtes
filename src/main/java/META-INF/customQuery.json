@@ -976,5 +976,315 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/ts2ewnt8xx6b/"
+	},
+	"qhq3yihtylo9": {
+		"customId": "dsPedidosAbertosMobile",
+		"queryName": "PedidosAbertosPorCliente",
+		"screen": "src/main/mobileapp/www/views/logged/pedidos.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Pedido",
+		"entityFullName": "app.entity.Pedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Pedido",
+					"namespace": "app.entity.Pedido",
+					"alias": "p"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "p",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "p.cliente.id",
+						"field": "p.cliente.id",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":clienteId",
+						"valueIsField": false
+					},
+					{
+						"id": "p.situacaoPedido",
+						"field": "p.situacaoPedido",
+						"type": "string",
+						"input": "text",
+						"operator": "not_equal",
+						"value": ":situacaoPedido",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "clienteId",
+				"fieldValue": {
+					"blocklyClass": "blockly.ObterCliente",
+					"blocklyMethod": "obterClienteLogado",
+					"blocklyLanguage": "java",
+					"blocklyJson": {
+						"namespace": "blockly.ObterCliente",
+						"classNameNew": "ObterCliente",
+						"classNameOld": "ObterCliente",
+						"sourcePath": "src/main/java/blockly/ObterCliente.blockly",
+						"language": "java",
+						"class": "blockly.ObterCliente",
+						"methods": [
+							{
+								"name": "obterClienteLogado",
+								"hasReturn": "true",
+								"params": []
+							}
+						]
+					},
+					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.ObterCliente:obterClienteLogado', null, null)"
+				}
+			},
+			{
+				"fieldName": "situacaoPedido",
+				"fieldValue": "finalizado"
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"paciente": null,
+			"codigoPaciente": null,
+			"sexo": null,
+			"dataNascimentoPaciente": null,
+			"idadePaciente": null,
+			"dataEntregaSolicitada": null,
+			"situacaoPedido": null,
+			"ativo": null,
+			"dataEnvio": null,
+			"cliente": null,
+			"valor": null,
+			"dataFinalizado": null,
+			"observacoes": null,
+			"protocolo": null,
+			"dataPrevisao": null
+		},
+		"security": {
+			"id": null,
+			"paciente": null,
+			"codigoPaciente": null,
+			"sexo": null,
+			"dataNascimentoPaciente": null,
+			"idadePaciente": null,
+			"dataEntregaSolicitada": null,
+			"situacaoPedido": null,
+			"ativo": null,
+			"dataEnvio": null,
+			"cliente": null,
+			"valor": null,
+			"dataFinalizado": null,
+			"observacoes": null,
+			"protocolo": null,
+			"dataPrevisao": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/qhq3yihtylo9/finalizado/"
+	},
+	"ubgbgpp33vc4": {
+		"customId": "dsHistoricoPedidos",
+		"queryName": "HistoricoPedidosPorCliente",
+		"screen": "src/main/mobileapp/www/views/logged/historicopedidos.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Pedido",
+		"entityFullName": "app.entity.Pedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Pedido",
+					"namespace": "app.entity.Pedido",
+					"alias": "p"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "p",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "p.situacaoPedido",
+						"field": "p.situacaoPedido",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":situacaoPedido",
+						"valueIsField": false
+					},
+					{
+						"id": "p.cliente.user.id",
+						"field": "p.cliente.user.id",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":clienteUserId",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "situacaoPedido",
+				"fieldValue": "finalizado"
+			},
+			{
+				"fieldName": "clienteUserId",
+				"fieldValue": {
+					"blocklyClass": "blockly.ObterCliente",
+					"blocklyMethod": "obterClienteLogado",
+					"blocklyLanguage": "java",
+					"blocklyJson": {
+						"namespace": "blockly.ObterCliente",
+						"classNameNew": "ObterCliente",
+						"classNameOld": "ObterCliente",
+						"sourcePath": "src/main/java/blockly/ObterCliente.blockly",
+						"language": "java",
+						"class": "blockly.ObterCliente",
+						"methods": [
+							{
+								"name": "obterClienteLogado",
+								"hasReturn": "true",
+								"params": []
+							}
+						]
+					},
+					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.ObterCliente:obterClienteLogado', null, null)"
+				}
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"paciente": null,
+			"codigoPaciente": null,
+			"sexo": null,
+			"dataNascimentoPaciente": null,
+			"idadePaciente": null,
+			"dataEntregaSolicitada": null,
+			"situacaoPedido": null,
+			"ativo": null,
+			"dataEnvio": null,
+			"cliente": null,
+			"valor": null,
+			"dataFinalizado": null,
+			"observacoes": null,
+			"protocolo": null,
+			"dataPrevisao": null
+		},
+		"security": {
+			"id": null,
+			"paciente": null,
+			"codigoPaciente": null,
+			"sexo": null,
+			"dataNascimentoPaciente": null,
+			"idadePaciente": null,
+			"dataEntregaSolicitada": null,
+			"situacaoPedido": null,
+			"ativo": null,
+			"dataEnvio": null,
+			"cliente": null,
+			"valor": null,
+			"dataFinalizado": null,
+			"observacoes": null,
+			"protocolo": null,
+			"dataPrevisao": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/ubgbgpp33vc4/finalizado/"
 	}
 }

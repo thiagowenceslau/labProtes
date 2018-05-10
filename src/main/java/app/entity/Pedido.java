@@ -132,7 +132,7 @@ public class Pedido implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "protocolo", nullable = true, unique = false, length=12, insertable=true, updatable=true)
+  @Column(name = "protocolo", nullable = true, unique = false, length=15, insertable=true, updatable=true)
   
   private java.lang.String protocolo;
 
