@@ -2,24 +2,26 @@ window.blockly = window.blockly || {};
 window.blockly.js = window.blockly.js || {};
 window.blockly.js.PedidoNovo = window.blockly.js.PedidoNovo || {};
 
-var item, comboTipo, idTipo, tipoTrabalho;
-
 /**
  * Descreva esta função...
  */
 window.blockly.js.PedidoNovo.adicionar = function() {
+
+	var item, comboTipo, dente, i, ip, tipoTrabalho;
 	this.cronapi.screen.hideComponent("crn-list-item-Paciente");
 	this.cronapi.screen.hideComponent("crn-list-item-Idade");
 	this.cronapi.screen.hideComponent("crn-list-item-Sexo");
 	this.cronapi.screen.hideComponent("crn-list-item-Entrega");
 	this.cronapi.util
-			.callServerBlocklyNoReturn('blockly.PedidoNovoMobile:preencherGridItens');
+			.callServerBlocklyNoReturn('blockly.PedidoNovoMobile:criarPedido');
 }
 
 /**
  * PedidoNovo
  */
 window.blockly.js.PedidoNovo.Executar = function(comboTipo) {
+
+	var item, comboTipo, dente, i, ip, tipoTrabalho;
 	tipoTrabalho = this.cronapi.util.callServerBlockly(
 			'blockly.PedidoNovoMobile:retornarNomeTipoTrabalho', comboTipo);
 	if (tipoTrabalho == 'Contenção' || tipoTrabalho == 'Placa') {

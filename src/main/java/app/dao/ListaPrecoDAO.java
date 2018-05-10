@@ -51,5 +51,19 @@ public interface ListaPrecoDAO extends JpaRepository<ListaPreco, java.lang.Strin
    */
   @Query("SELECT entity FROM Cliente entity WHERE entity.listaPreco.id = :id")
   public Page<Cliente> findCliente(@Param(value="id") java.lang.String id, Pageable pageable);
+  /**
+   * ManyToOne Relation
+   * @generated
+   */
+  @Query("SELECT entity.user FROM Cliente entity WHERE entity.listaPreco.id = :id")
+  public Page<User> listUser(@Param(value="id") java.lang.String id, Pageable pageable);
+
+  /**
+   * ManyToOne Relation Delete
+   * @generated
+   */
+  @Modifying
+  @Query("DELETE FROM Cliente entity WHERE entity.listaPreco.id = :instanceId AND entity.user.id = :relationId")
+  public int deleteUser(@Param(value="instanceId") java.lang.String instanceId, @Param(value="relationId") java.lang.String relationId);
 
 }

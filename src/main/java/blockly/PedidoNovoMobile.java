@@ -33,14 +33,21 @@ public class PedidoNovoMobile {
 	}
 
 	/**
+	 *
+	 * @return Var
 	 */
 	// Descreva esta função...
-	public static void finalizarPedido() throws Exception {
-		new Callable<Var>() {
+	public static Var criarPedido() throws Exception {
+		return new Callable<Var>() {
 
-			private Var cliente = Var.VAR_NULL;
 			private Var idCliente = Var.VAR_NULL;
 			private Var idPedido = Var.VAR_NULL;
+			private Var cliente = Var.VAR_NULL;
+			private Var i = Var.VAR_NULL;
+			private Var dente = Var.VAR_NULL;
+			private Var tipoItem = Var.VAR_NULL;
+			private Var corItem = Var.VAR_NULL;
+			private Var grupoItem = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				cliente = cronapi.database.Operations.query(Var.valueOf("app.entity.Cliente"),
@@ -49,14 +56,47 @@ public class PedidoNovoMobile {
 				idCliente = cronapi.database.Operations.getField(cliente, Var.valueOf("this[0].id"));
 				idPedido = cronapi.util.Operations.generateUUID();
 				cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"), Var.valueOf("cliente", idCliente),
+						Var.valueOf("ativo", Var.valueOf("false")),
+						Var.valueOf("paciente",
+								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtPaciente"))),
+						Var.valueOf("id", idPedido),
+						Var.valueOf("sexo", cronapi.screen.Operations.getValueOfField(Var.valueOf("txtSexo"))));
+				for (Iterator it_i = Var.valueOf(retornarListaDentes()).iterator(); it_i.hasNext();) {
+					i = Var.valueOf(it_i.next());
+					dente = i;
+					tipoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("TipoTrabalho.active.nome"));
+					corItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor"));
+					grupoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("GrupoPedido.active.nome"));
+					cronapi.database.Operations.insert(Var.valueOf("app.entity.ItemPedido"),
+							Var.valueOf("cor", corItem), Var.valueOf("grupo", grupoItem),
+							Var.valueOf("pedido", idPedido), Var.valueOf("id", cronapi.util.Operations.generateUUID()),
+							Var.valueOf("dente", dente), Var.valueOf("tipoTrabalho", tipoItem));
+					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.refreshDatasource"),
+							Var.valueOf("ItemPedido"), Var.valueOf("true"));
+				} // end for
+				return Var.VAR_NULL;
+			}
+		}.call();
+	}
+
+	/**
+	 */
+	// Descreva esta função...
+	public static void finalizarPedido() throws Exception {
+		new Callable<Var>() {
+
+			public Var call() throws Exception {
+				cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"),
+						Var.valueOf("protocolo", Var.VAR_NULL), Var.valueOf("cliente", idCliente),
 						Var.valueOf("observacoes",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtObs"))),
-						Var.valueOf("ativo", Var.valueOf("")),
+						Var.valueOf("ativo", Var.valueOf("true")),
 						Var.valueOf("idadePaciente",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtIdade"))),
 						Var.valueOf("paciente",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtPaciente"))),
 						Var.valueOf("codigoPaciente", Var.valueOf("")),
+						Var.valueOf("situacaoPedido", Var.valueOf("aguardando")),
 						Var.valueOf("dataEntregaSolicitada",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dtEntrega"))),
 						Var.valueOf("id", idPedido),
@@ -99,87 +139,6 @@ public class PedidoNovoMobile {
 	 * @return Var
 	 */
 	// Descreva esta função...
-	public static Var preencherGridItens() throws Exception {
-		return new Callable<Var>() {
-
-			private Var dentes = Var.VAR_NULL;
-			private Var i = Var.VAR_NULL;
-			private Var dente = Var.VAR_NULL;
-			private Var grupoItem = Var.VAR_NULL;
-			private Var tipoItem = Var.VAR_NULL;
-			private Var corItem = Var.VAR_NULL;
-			private Var itensPedido = Var.VAR_NULL;
-			private Var listaItem = Var.VAR_NULL;
-
-			public Var call() throws Exception {
-				dentes = cronapi.list.Operations.newList(
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD11")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD12")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD13")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD14")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD15")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD16")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD17")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD18")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD21")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD22")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD23")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD24")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD25")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD26")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD27")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD28")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD31")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD32")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD33")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD34")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD35")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD36")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD37")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD38")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD41")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD42")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD43")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD44")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD45")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD46")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD47")),
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("cbD48")));
-				System.out.println(
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtTipo")).getObjectAsString());
-				System.out.println(
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor")).getObjectAsString());
-				System.out.println(
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente48")).getObjectAsString());
-				System.out.println(
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente47")).getObjectAsString());
-				System.out.println(
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente45")).getObjectAsString());
-				System.out.println(
-						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente44")).getObjectAsString());
-				for (Iterator it_i = dentes.iterator(); it_i.hasNext();) {
-					i = Var.valueOf(it_i.next());
-					if (cronapi.logic.Operations.isNullOrEmpty(i).negate().getObjectAsBoolean()) {
-						dente = i;
-						grupoItem = Var.valueOf("Temporário");
-						tipoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtTipo"));
-						corItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor"));
-						itensPedido = cronapi.object.Operations.newObject(Var.valueOf("app.entity.ItemPedido"),
-								Var.valueOf("tipoTrabalho", tipoItem), Var.valueOf("dente", dente),
-								Var.valueOf("grupo", grupoItem), Var.valueOf("cor", corItem));
-						listaItem = cronapi.list.Operations.newList(itensPedido);
-					}
-				} // end for
-				return listaItem;
-			}
-		}.call();
-	}
-
-	/**
-	 *
-	 * @return Var
-	 */
-	// Descreva esta função...
 	public static Var retornarIdJson() throws Exception {
 		return new Callable<Var>() {
 
@@ -187,7 +146,7 @@ public class PedidoNovoMobile {
 			private Var idJson = Var.VAR_NULL;
 
 			public Var call() throws Exception {
-				tipo = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtTipo"));
+				tipo = cronapi.screen.Operations.getValueOfField(Var.valueOf("TipoTrabalho.active"));
 				idJson = cronapi.json.Operations.getJsonOrMapField(tipo, Var.valueOf("id"));
 				System.out.println(idJson.getObjectAsString());
 				return idJson;
@@ -212,6 +171,56 @@ public class PedidoNovoMobile {
 						Var.valueOf("select t from TipoTrabalho t where t = :t"), Var.valueOf("t", comboTipo));
 				idTipoTrabalho = cronapi.database.Operations.getField(consultaId, Var.valueOf("this[0].id"));
 				return idTipoTrabalho;
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Descreva esta função...
+	public static Var retornarListaDentes() throws Exception {
+		return new Callable<Var>() {
+
+			private Var dentes = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				dentes = cronapi.list.Operations.newList();
+				dentes = cronapi.list.Operations.newList(
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente11")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente12")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente13")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente14")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente15")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente16")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente17")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente18")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente21")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente22")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente23")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente24")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente25")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente26")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente27")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente28")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente31")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente32")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente33")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente34")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente35")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente36")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente37")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente38")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente41")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente42")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente43")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente44")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente45")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente46")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente47")),
+						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente48")));
+				return dentes;
 			}
 		}.call();
 	}

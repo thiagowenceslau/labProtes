@@ -778,12 +778,12 @@
 				"condition": "AND",
 				"rules": [
 					{
-						"id": "g.tipoTrabalho.id",
-						"field": "g.tipoTrabalho.id",
+						"id": "g.tipoTrabalho.nome",
+						"field": "g.tipoTrabalho.nome",
 						"type": "string",
 						"input": "text",
 						"operator": "equal",
-						"value": ":tipoTrabalhoId",
+						"value": ":tipoTrabalhoNome",
 						"valueIsField": false
 					}
 				],
@@ -796,47 +796,8 @@
 		},
 		"queryParamsValues": [
 			{
-				"fieldName": "tipoTrabalhoId",
-				"fieldValue": {
-					"blocklyClass": "blockly.PedidoNovoMobile",
-					"blocklyMethod": "retornarIdJson",
-					"blocklyLanguage": "java",
-					"blocklyJson": {
-						"namespace": "blockly.PedidoNovoMobile",
-						"classNameNew": "PedidoNovoMobile",
-						"classNameOld": "PedidoNovoMobile",
-						"sourcePath": "src/main/java/blockly/PedidoNovoMobile.blockly",
-						"language": "java",
-						"class": "blockly.PedidoNovoMobile",
-						"methods": [
-							{
-								"name": "popularCombogrupo",
-								"hasReturn": "true",
-								"params": []
-							},
-							{
-								"name": "retornarIdJson",
-								"hasReturn": "true",
-								"params": []
-							},
-							{
-								"name": "retornarIdTipoTrabalho",
-								"hasReturn": "true",
-								"params": [
-									"comboTipo"
-								]
-							},
-							{
-								"name": "retornarNomeTipoTrabalho",
-								"hasReturn": "true",
-								"params": [
-									"tipo"
-								]
-							}
-						]
-					},
-					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.PedidoNovoMobile:retornarIdJson', null, null)"
-				}
+				"fieldName": "tipoTrabalhoNome",
+				"fieldValue": "{{TipoTrabalho.active.nome}}"
 			}
 		],
 		"verbs": {
@@ -879,7 +840,7 @@
 			"primaryKey": null,
 			"foreignKey": null
 		},
-		"serviceUrl": "api/cronapi/query/1h7ioiwcx7nld/"
+		"serviceUrl": "api/cronapi/query/1h7ioiwcx7nld/{{TipoTrabalho.active.nome}}/"
 	},
 	"ts2ewnt8xx6b": {
 		"customId": "dsItensPedidoGrid",
@@ -1286,5 +1247,103 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/ubgbgpp33vc4/finalizado/"
+	},
+	"s1jgthy9zqk1": {
+		"customId": "GrupoCombo",
+		"queryName": "GrupoCombo",
+		"screen": "src/main/mobileapp/www/views/logged/pedidonovo.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "GrupoPedido",
+		"entityFullName": "app.entity.GrupoPedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "GrupoPedido",
+					"namespace": "app.entity.GrupoPedido",
+					"alias": "g"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "g",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "g.tipoTrabalho.id",
+						"field": "g.tipoTrabalho.id",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":tipoTrabalhoId",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "tipoTrabalhoId",
+				"fieldValue": "{{TipoTrabalho.active.id}}"
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"nome": null,
+			"tipoTrabalho": null,
+			"idGrupo": null
+		},
+		"security": {
+			"id": null,
+			"nome": null,
+			"tipoTrabalho": null,
+			"idGrupo": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/s1jgthy9zqk1/{{TipoTrabalho.active.id}}/"
 	}
 }

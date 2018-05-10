@@ -36,7 +36,7 @@ public class Pedido implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "Paciente", nullable = false, unique = false, length=120, insertable=true, updatable=true)
+  @Column(name = "Paciente", nullable = true, unique = false, length=120, insertable=true, updatable=true)
   
   private java.lang.String paciente;
 
@@ -50,7 +50,7 @@ public class Pedido implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "Sexo", nullable = false, unique = false, length=10, insertable=true, updatable=true)
+  @Column(name = "Sexo", nullable = true, unique = false, length=10, insertable=true, updatable=true)
   
   private java.lang.String sexo;
 
