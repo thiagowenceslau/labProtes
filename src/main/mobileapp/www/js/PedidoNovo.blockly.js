@@ -7,7 +7,7 @@ window.blockly.js.PedidoNovo = window.blockly.js.PedidoNovo || {};
  */
 window.blockly.js.PedidoNovo.finalizar = function() {
 
-	var item, comboTipo, idPedido, tipoTrabalho;
+	var idPedido, tipoTrabalho, comboTipo;
 	if (this.cronapi.logic
 			.isNullOrEmpty(this.cronapi.screen
 					.getValueOfField("vars.txtPaciente")
@@ -32,11 +32,7 @@ window.blockly.js.PedidoNovo.finalizar = function() {
  */
 window.blockly.js.PedidoNovo.adicionar = function() {
 
-	var item, comboTipo, idPedido, tipoTrabalho;
-	this.cronapi.screen.hideComponent("crn-list-item-Paciente");
-	this.cronapi.screen.hideComponent("crn-list-item-Idade");
-	this.cronapi.screen.hideComponent("crn-list-item-Sexo");
-	this.cronapi.screen.hideComponent("crn-list-item-Entrega");
+	var idPedido, tipoTrabalho, comboTipo;
 	idPedido = this.cronapi.util
 			.callServerBlockly('blockly.PedidoNovoMobile:criarPedido');
 	this.cronapi.screen.changeValueOfField("vars.idPedido", idPedido);
@@ -47,7 +43,7 @@ window.blockly.js.PedidoNovo.adicionar = function() {
  */
 window.blockly.js.PedidoNovo.Executar = function(comboTipo) {
 
-	var item, comboTipo, idPedido, tipoTrabalho;
+	var idPedido, tipoTrabalho, comboTipo;
 	tipoTrabalho = this.cronapi.util.callServerBlockly(
 			'blockly.PedidoNovoMobile:retornarNomeTipoTrabalho', comboTipo);
 	if (tipoTrabalho == 'Contenção' || tipoTrabalho == 'Placa') {
