@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/mobileapp/www/views/login.view.html" resourceType="JAVA" ruleDescription="ClienteEntidade" ruleName="ClienteEntidade" ruleSecurity="{&quot;post&quot;:&quot;Public&quot;,&quot;get&quot;:&quot;Public&quot;,&quot;execute&quot;:&quot;Public&quot;,&quot;delete&quot;:&quot;Public&quot;,&quot;put&quot;:&quot;Public&quot;}" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="344.00000000000176" scrolly="-532.4999999999991" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="1" scrollx="344.00000000000176" scrolly="-532.4999999999992" target="Anb:u5+^,0vLkL9QIqn5"/>
   <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-202" y="53">
     <field name="NAME">insereUsuario</field>
     <comment h="80" pinned="false" w="160">ClienteEntidade</comment>

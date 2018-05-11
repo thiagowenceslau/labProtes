@@ -40,9 +40,7 @@ public class PedidoNovoMobile {
 	public static Var criarPedido() throws Exception {
 		return new Callable<Var>() {
 
-			private Var idCliente = Var.VAR_NULL;
 			private Var idPedido = Var.VAR_NULL;
-			private Var cliente = Var.VAR_NULL;
 			private Var i = Var.VAR_NULL;
 			private Var dente = Var.VAR_NULL;
 			private Var tipoItem = Var.VAR_NULL;
@@ -50,12 +48,9 @@ public class PedidoNovoMobile {
 			private Var grupoItem = Var.VAR_NULL;
 
 			public Var call() throws Exception {
-				cliente = cronapi.database.Operations.query(Var.valueOf("app.entity.Cliente"),
-						Var.valueOf("select c from Cliente c where c.user.id = :userId"),
-						Var.valueOf("userId", blockly.UsuarioEntidade.obterIdUsuarioLogado()));
-				idCliente = cronapi.database.Operations.getField(cliente, Var.valueOf("this[0].id"));
 				idPedido = cronapi.util.Operations.generateUUID();
-				cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"), Var.valueOf("cliente", idCliente),
+				cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"),
+						Var.valueOf("cliente", Var.valueOf(retornarIdClienteLogado())),
 						Var.valueOf("ativo", Var.valueOf("false")),
 						Var.valueOf("paciente",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtPaciente"))),
@@ -63,50 +58,55 @@ public class PedidoNovoMobile {
 						Var.valueOf("sexo", cronapi.screen.Operations.getValueOfField(Var.valueOf("txtSexo"))));
 				for (Iterator it_i = Var.valueOf(retornarListaDentes()).iterator(); it_i.hasNext();) {
 					i = Var.valueOf(it_i.next());
-					dente = i;
-					tipoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("TipoTrabalho.active.nome"));
-					corItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor"));
-					grupoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("GrupoPedido.active.nome"));
-					cronapi.database.Operations.insert(Var.valueOf("app.entity.ItemPedido"),
-							Var.valueOf("cor", corItem), Var.valueOf("grupo", grupoItem),
-							Var.valueOf("pedido", idPedido), Var.valueOf("id", cronapi.util.Operations.generateUUID()),
-							Var.valueOf("dente", dente), Var.valueOf("tipoTrabalho", tipoItem));
-					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.refreshDatasource"),
-							Var.valueOf("ItemPedido"), Var.valueOf("true"));
+					if (cronapi.logic.Operations.isNullOrEmpty(i).negate().getObjectAsBoolean()) {
+						dente = i;
+						tipoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("TipoTrabalho.active.nome"));
+						corItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor"));
+						grupoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("GrupoPedido.active.nome"));
+						cronapi.database.Operations.insert(Var.valueOf("app.entity.ItemPedido"),
+								Var.valueOf("cor", corItem), Var.valueOf("grupo", grupoItem),
+								Var.valueOf("pedido", idPedido),
+								Var.valueOf("id", cronapi.util.Operations.generateUUID()), Var.valueOf("dente", dente),
+								Var.valueOf("tipoTrabalho", tipoItem));
+						cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.refreshDatasource"),
+								Var.valueOf("ItemPedido"), Var.valueOf("true"));
+					}
 				} // end for
-				return Var.VAR_NULL;
+				return idPedido;
 			}
 		}.call();
 	}
 
 	/**
+	 *
+	 * @param pedidoId
 	 */
 	// Descreva esta função...
-	public static void finalizarPedido() throws Exception {
+	public static void finalizarPedido(Var pedidoId) throws Exception {
 		new Callable<Var>() {
 
+			private Var idPedido = Var.VAR_NULL;
+			private Var consultaPedido = Var.VAR_NULL;
+
 			public Var call() throws Exception {
-				cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"),
-						Var.valueOf("protocolo", Var.VAR_NULL), Var.valueOf("cliente", idCliente),
+				consultaPedido = cronapi.database.Operations.query(Var.valueOf("app.entity.Pedido"),
+						Var.valueOf("select p from Pedido p where p.cliente.id = :clienteId"),
+						Var.valueOf("clienteId", Var.valueOf(retornarIdClienteLogado())));
+				idPedido = cronapi.database.Operations.getField(consultaPedido, Var.valueOf("this[0].id"));
+				cronapi.database.Operations.execute(Var.valueOf("app.entity.Pedido"),
+						Var.valueOf(
+								"update Pedido set ativo = :ativo, observacoes = :observacoes, idadePaciente = :idadePaciente, paciente = :paciente, sexo = :sexo, dataEntregaSolicitada = :dataEntregaSolicitada, situacaoPedido = :situacaoPedido where id = :id"),
+						Var.valueOf("ativo", Var.valueOf("true")),
 						Var.valueOf("observacoes",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtObs"))),
-						Var.valueOf("ativo", Var.valueOf("true")),
 						Var.valueOf("idadePaciente",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtIdade"))),
 						Var.valueOf("paciente",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtPaciente"))),
-						Var.valueOf("codigoPaciente", Var.valueOf("")),
-						Var.valueOf("situacaoPedido", Var.valueOf("aguardando")),
+						Var.valueOf("sexo", cronapi.screen.Operations.getValueOfField(Var.valueOf("txtSexo"))),
 						Var.valueOf("dataEntregaSolicitada",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dtEntrega"))),
-						Var.valueOf("id", idPedido),
-						Var.valueOf("sexo", cronapi.screen.Operations.getValueOfField(Var.valueOf("txtSexo"))));
-				cronapi.database.Operations.insert(Var.valueOf("app.entity.ItemPedido"),
-						Var.valueOf("cor", cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor"))),
-						Var.valueOf("grupo", cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtGrupo"))),
-						Var.valueOf("pedido", idPedido), Var.valueOf("id", cronapi.util.Operations.generateUUID()),
-						Var.valueOf("dente", Var.VAR_NULL), Var.valueOf("tipoTrabalho",
-								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtTipo"))));
+						Var.valueOf("situacaoPedido", Var.valueOf("aguardando")), Var.valueOf("id", pedidoId));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.notify"), Var.valueOf("success"),
 						Var.valueOf("Pedido finalizado com sucesso"));
 				return Var.VAR_NULL;
@@ -130,6 +130,27 @@ public class PedidoNovoMobile {
 						Var.valueOf("select g from GrupoPedido g where g.tipoTrabalho.id = :tipoTrabalhoId"),
 						Var.valueOf("tipoTrabalhoId", Var.valueOf(retornarIdJson())));
 				return consultaGrupo;
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Descreva esta função...
+	public static Var retornarIdClienteLogado() throws Exception {
+		return new Callable<Var>() {
+
+			private Var cliente = Var.VAR_NULL;
+			private Var idCliente = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				cliente = cronapi.database.Operations.query(Var.valueOf("app.entity.Cliente"),
+						Var.valueOf("select c from Cliente c where c.user.id = :userId"),
+						Var.valueOf("userId", blockly.UsuarioEntidade.obterIdUsuarioLogado()));
+				idCliente = cronapi.database.Operations.getField(cliente, Var.valueOf("this[0].id"));
+				return idCliente;
 			}
 		}.call();
 	}
