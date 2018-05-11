@@ -68,8 +68,6 @@ public class PedidoNovoMobile {
 								Var.valueOf("pedido", idPedido),
 								Var.valueOf("id", cronapi.util.Operations.generateUUID()), Var.valueOf("dente", dente),
 								Var.valueOf("tipoTrabalho", tipoItem));
-						cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.refreshDatasource"),
-								Var.valueOf("ItemPedido"), Var.valueOf("true"));
 					}
 				} // end for
 				return idPedido;
