@@ -48,14 +48,16 @@ public class PedidoNovoMobile {
 			private Var grupoItem = Var.VAR_NULL;
 
 			public Var call() throws Exception {
-				idPedido = cronapi.util.Operations.generateUUID();
-				cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"),
-						Var.valueOf("cliente", Var.valueOf(retornarIdClienteLogado())),
-						Var.valueOf("ativo", Var.valueOf("false")),
-						Var.valueOf("paciente",
-								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtPaciente"))),
-						Var.valueOf("id", idPedido),
-						Var.valueOf("sexo", cronapi.screen.Operations.getValueOfField(Var.valueOf("txtSexo"))));
+				idPedido = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.idPedido"));
+				if (Var.valueOf(Var.valueOf(idPedido.equals(Var.valueOf("0"))).getObjectAsBoolean()
+						|| cronapi.logic.Operations.isNullOrEmpty(idPedido).getObjectAsBoolean())
+						.getObjectAsBoolean()) {
+					idPedido = cronapi.util.Operations.generateUUID();
+					cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"),
+							Var.valueOf("cliente", Var.valueOf(retornarIdClienteLogado())),
+							Var.valueOf("ativo", Var.valueOf("false")), Var.valueOf("paciente", Var.valueOf(" ")),
+							Var.valueOf("id", idPedido), Var.valueOf("sexo", Var.valueOf(" ")));
+				}
 				for (Iterator it_i = Var.valueOf(retornarListaDentes()).iterator(); it_i.hasNext();) {
 					i = Var.valueOf(it_i.next());
 					if (cronapi.logic.Operations.isNullOrEmpty(i).negate().getObjectAsBoolean()) {
@@ -83,14 +85,7 @@ public class PedidoNovoMobile {
 	public static void finalizarPedido(Var pedidoId) throws Exception {
 		new Callable<Var>() {
 
-			private Var idPedido = Var.VAR_NULL;
-			private Var consultaPedido = Var.VAR_NULL;
-
 			public Var call() throws Exception {
-				consultaPedido = cronapi.database.Operations.query(Var.valueOf("app.entity.Pedido"),
-						Var.valueOf("select p from Pedido p where p.cliente.id = :clienteId"),
-						Var.valueOf("clienteId", Var.valueOf(retornarIdClienteLogado())));
-				idPedido = cronapi.database.Operations.getField(consultaPedido, Var.valueOf("this[0].id"));
 				cronapi.database.Operations.execute(Var.valueOf("app.entity.Pedido"),
 						Var.valueOf(
 								"update Pedido set ativo = :ativo, observacoes = :observacoes, idadePaciente = :idadePaciente, paciente = :paciente, sexo = :sexo, dataEntregaSolicitada = :dataEntregaSolicitada, situacaoPedido = :situacaoPedido where id = :id"),
@@ -105,8 +100,32 @@ public class PedidoNovoMobile {
 						Var.valueOf("dataEntregaSolicitada",
 								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dtEntrega"))),
 						Var.valueOf("situacaoPedido", Var.valueOf("aguardando")), Var.valueOf("id", pedidoId));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
+						Var.valueOf("crn-container-Odontograma"));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
+						Var.valueOf("crn-list-item-Grupo"));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
+						Var.valueOf("crn-list-item-Cor"));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
+						Var.valueOf("crn-list-item-btnAdd"));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
+						Var.valueOf("crn-datasource-347691"));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.idPedido"), Var.valueOf("0"));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.txtPaciente"), Var.valueOf(" "));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.txtObs"), Var.valueOf(" "));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.txtIdade"), Var.valueOf(" "));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dtEntrega"), Var.valueOf(" "));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("TipoTrabalho.active"), Var.valueOf("0"));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.refreshDatasource"),
+						Var.valueOf("ItemPedido"), Var.valueOf("true"));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.notify"), Var.valueOf("success"),
-						Var.valueOf("Pedido finalizado com sucesso"));
+						Var.valueOf("Pedido realizado com sucesso!"));
 				return Var.VAR_NULL;
 			}
 		}.call();
