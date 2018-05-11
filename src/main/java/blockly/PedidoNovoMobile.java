@@ -34,6 +34,43 @@ public class PedidoNovoMobile {
 
 	/**
 	 *
+	 * @param pedidoId
+	 */
+	// Descreva esta função...
+	public static void adicionarNovoItem(Var pedidoId) throws Exception {
+		new Callable<Var>() {
+
+			private Var i = Var.VAR_NULL;
+			private Var dente = Var.VAR_NULL;
+			private Var tipoItem = Var.VAR_NULL;
+			private Var corItem = Var.VAR_NULL;
+			private Var grupoItem = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				for (Iterator it_i = Var.valueOf(retornarListaDentes()).iterator(); it_i.hasNext();) {
+					i = Var.valueOf(it_i.next());
+					if (cronapi.logic.Operations.isNullOrEmpty(i).negate().getObjectAsBoolean()) {
+						dente = i;
+						tipoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("TipoTrabalho.active.nome"));
+						corItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor"));
+						grupoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("GrupoPedido.active.nome"));
+						cronapi.database.Operations.insert(Var.valueOf("app.entity.ItemPedido"),
+								Var.valueOf("cor", corItem), Var.valueOf("grupo", grupoItem),
+								Var.valueOf("pedido", pedidoId),
+								Var.valueOf("id", cronapi.util.Operations.generateUUID()), Var.valueOf("dente", dente),
+								Var.valueOf("tipoTrabalho", tipoItem));
+					}
+				} // end for
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.refreshDatasource"),
+						Var.valueOf("ItemPedido"), Var.valueOf("true"));
+				limparOdontograma();
+				return Var.VAR_NULL;
+			}
+		}.call();
+	}
+
+	/**
+	 *
 	 * @return Var
 	 */
 	// Descreva esta função...
@@ -72,6 +109,7 @@ public class PedidoNovoMobile {
 								Var.valueOf("tipoTrabalho", tipoItem));
 					}
 				} // end for
+				limparOdontograma();
 				return idPedido;
 			}
 		}.call();
@@ -79,27 +117,109 @@ public class PedidoNovoMobile {
 
 	/**
 	 *
-	 * @param pedidoId
+	 * @return Var
 	 */
 	// Descreva esta função...
-	public static void finalizarPedido(Var pedidoId) throws Exception {
+	public static Var criarPedidoCompleto() throws Exception {
+		return new Callable<Var>() {
+
+			private Var idPedido = Var.VAR_NULL;
+			private Var codigoPaciente = Var.VAR_NULL;
+			private Var nomePaciente = Var.VAR_NULL;
+			private Var dataEntrega = Var.VAR_NULL;
+			private Var dataNascimento = Var.VAR_NULL;
+			private Var idadePaciente = Var.VAR_NULL;
+			private Var sexoPaciente = Var.VAR_NULL;
+			private Var validador = Var.VAR_NULL;
+			private Var i = Var.VAR_NULL;
+			private Var dente = Var.VAR_NULL;
+			private Var tipoItem = Var.VAR_NULL;
+			private Var corItem = Var.VAR_NULL;
+			private Var grupoItem = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				idPedido = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.idPedido"));
+				codigoPaciente = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCodPaciente"));
+				nomePaciente = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtPaciente"));
+				dataEntrega = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dtEntrega"));
+				dataNascimento = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dtNasc"));
+				idadePaciente = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtIdade"));
+				sexoPaciente = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtSexo"));
+				validador = Var.VAR_TRUE;
+				if (cronapi.logic.Operations.isNullOrEmpty(codigoPaciente).getObjectAsBoolean()) {
+					validador = Var.VAR_FALSE;
+				}
+				if (cronapi.logic.Operations.isNullOrEmpty(nomePaciente).getObjectAsBoolean()) {
+					validador = Var.VAR_FALSE;
+				}
+				if (cronapi.logic.Operations.isNullOrEmpty(dataEntrega).getObjectAsBoolean()) {
+					validador = Var.VAR_FALSE;
+				}
+				if (cronapi.logic.Operations.isNullOrEmpty(dataNascimento).getObjectAsBoolean()) {
+					validador = Var.VAR_FALSE;
+				}
+				if (cronapi.logic.Operations.isNullOrEmpty(idadePaciente).getObjectAsBoolean()) {
+					validador = Var.VAR_FALSE;
+				}
+				if (cronapi.logic.Operations.isNullOrEmpty(sexoPaciente).getObjectAsBoolean()) {
+					validador = Var.VAR_FALSE;
+				}
+				if (validador.getObjectAsBoolean()) {
+					if (Var.valueOf(Var.valueOf(idPedido.equals(Var.valueOf("0"))).getObjectAsBoolean()
+							|| cronapi.logic.Operations.isNullOrEmpty(idPedido).getObjectAsBoolean())
+							.getObjectAsBoolean()) {
+						idPedido = cronapi.util.Operations.generateUUID();
+						cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"),
+								Var.valueOf("cliente", Var.valueOf(retornarIdClienteLogado())),
+								Var.valueOf("observacoes",
+										cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtObs"))),
+								Var.valueOf("ativo", Var.valueOf("true")), Var.valueOf("idadePaciente", idadePaciente),
+								Var.valueOf("paciente", nomePaciente), Var.valueOf("codigoPaciente", codigoPaciente),
+								Var.valueOf("situacaoPedido", Var.valueOf("aguardando")), Var.valueOf("id", idPedido),
+								Var.valueOf("dataEntregaSolicitada", dataEntrega), Var.valueOf("sexo", sexoPaciente),
+								Var.valueOf("dataNascimentoPaciente", dataNascimento));
+					}
+					for (Iterator it_i = Var.valueOf(retornarListaDentes()).iterator(); it_i.hasNext();) {
+						i = Var.valueOf(it_i.next());
+						if (cronapi.logic.Operations.isNullOrEmpty(i).negate().getObjectAsBoolean()) {
+							dente = i;
+							tipoItem = cronapi.screen.Operations
+									.getValueOfField(Var.valueOf("TipoTrabalho.active.nome"));
+							corItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor"));
+							grupoItem = cronapi.screen.Operations
+									.getValueOfField(Var.valueOf("GrupoPedido.active.nome"));
+							cronapi.database.Operations.insert(Var.valueOf("app.entity.ItemPedido"),
+									Var.valueOf("cor", corItem), Var.valueOf("grupo", grupoItem),
+									Var.valueOf("pedido", idPedido),
+									Var.valueOf("id", cronapi.util.Operations.generateUUID()),
+									Var.valueOf("dente", dente), Var.valueOf("tipoTrabalho", tipoItem));
+						}
+					} // end for
+					limparOdontograma();
+					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+							Var.valueOf("TipoTrabalho.active"), Var.valueOf("0"));
+					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+							Var.valueOf("GrupoPedido.active"), Var.valueOf("0"));
+					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+							Var.valueOf("vars.txtCor"), Var.VAR_NULL);
+					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.showComponent"),
+							Var.valueOf("crn-button-btnFinalizar"));
+				} else {
+					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.notify"),
+							Var.valueOf("warning"), Var.valueOf("Preencha os campos obrigatórios"));
+				}
+				return idPedido;
+			}
+		}.call();
+	}
+
+	/**
+	 */
+	// Descreva esta função...
+	public static void finalizarPedido() throws Exception {
 		new Callable<Var>() {
 
 			public Var call() throws Exception {
-				cronapi.database.Operations.execute(Var.valueOf("app.entity.Pedido"),
-						Var.valueOf(
-								"update Pedido set ativo = :ativo, observacoes = :observacoes, idadePaciente = :idadePaciente, paciente = :paciente, sexo = :sexo, dataEntregaSolicitada = :dataEntregaSolicitada, situacaoPedido = :situacaoPedido where id = :id"),
-						Var.valueOf("ativo", Var.valueOf("true")),
-						Var.valueOf("observacoes",
-								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtObs"))),
-						Var.valueOf("idadePaciente",
-								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtIdade"))),
-						Var.valueOf("paciente",
-								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtPaciente"))),
-						Var.valueOf("sexo", cronapi.screen.Operations.getValueOfField(Var.valueOf("txtSexo"))),
-						Var.valueOf("dataEntregaSolicitada",
-								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dtEntrega"))),
-						Var.valueOf("situacaoPedido", Var.valueOf("aguardando")), Var.valueOf("id", pedidoId));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
 						Var.valueOf("crn-container-Odontograma"));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
@@ -109,7 +229,7 @@ public class PedidoNovoMobile {
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
 						Var.valueOf("crn-list-item-btnAdd"));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
-						Var.valueOf("crn-datasource-347691"));
+						Var.valueOf("crn-button-btnFinalizar"));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
 						Var.valueOf("vars.idPedido"), Var.valueOf("0"));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
@@ -119,13 +239,93 @@ public class PedidoNovoMobile {
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
 						Var.valueOf("vars.txtIdade"), Var.valueOf(" "));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.txtCodPaciente"), Var.valueOf(" "));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
 						Var.valueOf("vars.dtEntrega"), Var.valueOf(" "));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dtNasc"), Var.valueOf(" "));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
 						Var.valueOf("TipoTrabalho.active"), Var.valueOf("0"));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.refreshDatasource"),
 						Var.valueOf("ItemPedido"), Var.valueOf("true"));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.notify"), Var.valueOf("success"),
 						Var.valueOf("Pedido realizado com sucesso!"));
+				return Var.VAR_NULL;
+			}
+		}.call();
+	}
+
+	/**
+	 */
+	// Descreva esta função...
+	public static void limparOdontograma() throws Exception {
+		new Callable<Var>() {
+
+			public Var call() throws Exception {
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente11"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente12"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente13"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente14"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente15"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente16"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente17"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente18"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente21"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente22"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente23"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente24"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente25"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente26"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente27"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente28"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente31"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente32"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente33"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente34"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente35"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente36"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente37"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente38"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente41"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente42"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente43"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente44"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente45"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente46"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente47"), Var.VAR_FALSE);
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.dente48"), Var.VAR_FALSE);
 				return Var.VAR_NULL;
 			}
 		}.call();
