@@ -1345,5 +1345,107 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/s1jgthy9zqk1/{{TipoTrabalho.active.id}}/"
+	},
+	"1hrmhql8ryd69": {
+		"customId": "ItemPedidosMobile",
+		"queryName": "ItemPedidoPorCliente",
+		"screen": "src/main/mobileapp/www/views/logged/pedidonovo.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "ItemPedido",
+		"entityFullName": "app.entity.ItemPedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "ItemPedido",
+					"namespace": "app.entity.ItemPedido",
+					"alias": "i"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "i",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "i.pedido.id",
+						"field": "i.pedido.id",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":pedidoId",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "pedidoId",
+				"fieldValue": "{{vars.idPedido}}"
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"pedido": null,
+			"tipoTrabalho": null,
+			"dente": null,
+			"grupo": null,
+			"cor": null
+		},
+		"security": {
+			"id": null,
+			"pedido": null,
+			"tipoTrabalho": null,
+			"dente": null,
+			"grupo": null,
+			"cor": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/1hrmhql8ryd69/{{vars.idPedido}}/"
 	}
 }
