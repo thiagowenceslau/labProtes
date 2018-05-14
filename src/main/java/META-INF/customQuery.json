@@ -1668,7 +1668,29 @@
 		"queryParamsValues": [
 			{
 				"fieldName": "id",
-				"fieldValue": ""
+				"fieldValue": {
+					"blocklyClass": "blockly.DetalheSolicitacao",
+					"blocklyMethod": "obterIdPedido",
+					"blocklyLanguage": "java",
+					"blocklyJson": {
+						"namespace": "blockly.DetalheSolicitacao",
+						"classNameNew": "DetalheSolicitacao",
+						"classNameOld": "DetalheSolicitacao",
+						"sourcePath": "src/main/java/blockly/DetalheSolicitacao.blockly",
+						"language": "java",
+						"class": "blockly.DetalheSolicitacao",
+						"methods": [
+							{
+								"name": "obterIdPedido",
+								"hasReturn": "true",
+								"params": [
+									"Dados"
+								]
+							}
+						]
+					},
+					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.DetalheSolicitacao:obterIdPedido', null, null)"
+				}
 			}
 		],
 		"verbs": {
