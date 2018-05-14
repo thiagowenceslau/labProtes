@@ -21,13 +21,11 @@
       <ion-list can-swipe="listCanSwipe">
         <ion-item ng-repeat="rowData in datasource.data" class="item" ng-click="datasource.startEditing(rowData)">
           <div class="row">
-              <b>{{rowData.protocolo}}</b>
-              <br>
-              <b>{{rowData.paciente}}</b>
-            <br>
-              {{rowData.dataEntregaSolicitada | date:'dd/MM/yyyy'}} - 
-              {{rowData.situacaoPedido}}
-          </div>
+              
+
+          <ion-item class="item dark component-holder col" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-711487"><h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-978883">{{rowData.protocolo}}</h2><h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-778525">{{rowData.paciente}}</h2>
+<h4>{{rowData.dataSolicitacao}}</h4>
+</ion-item></div>
           <ion-option-button class="button-positive" ng-click="datasource.startEditing(rowData)">
             <i class="icon ion-edit"></i>
           </ion-option-button>
