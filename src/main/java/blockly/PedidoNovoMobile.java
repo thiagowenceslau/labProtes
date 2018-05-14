@@ -130,6 +130,7 @@ public class PedidoNovoMobile {
 			private Var dataNascimento = Var.VAR_NULL;
 			private Var idadePaciente = Var.VAR_NULL;
 			private Var sexoPaciente = Var.VAR_NULL;
+			private Var protocolo = Var.VAR_NULL;
 			private Var validador = Var.VAR_NULL;
 			private Var i = Var.VAR_NULL;
 			private Var dente = Var.VAR_NULL;
@@ -145,6 +146,8 @@ public class PedidoNovoMobile {
 				dataNascimento = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dtNasc"));
 				idadePaciente = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtIdade"));
 				sexoPaciente = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtSexo"));
+				protocolo = Var.valueOf(retornarProcolo());
+				System.out.println(protocolo.getObjectAsString());
 				validador = Var.VAR_TRUE;
 				if (cronapi.logic.Operations.isNullOrEmpty(codigoPaciente).getObjectAsBoolean()) {
 					validador = Var.VAR_FALSE;
@@ -170,6 +173,7 @@ public class PedidoNovoMobile {
 							.getObjectAsBoolean()) {
 						idPedido = cronapi.util.Operations.generateUUID();
 						cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"),
+								Var.valueOf("protocolo", protocolo),
 								Var.valueOf("cliente", Var.valueOf(retornarIdClienteLogado())),
 								Var.valueOf("observacoes",
 										cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtObs"))),
@@ -359,8 +363,8 @@ public class PedidoNovoMobile {
 	public static Var retornarIdClienteLogado() throws Exception {
 		return new Callable<Var>() {
 
-			private Var cliente = Var.VAR_NULL;
 			private Var idCliente = Var.VAR_NULL;
+			private Var cliente = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				cliente = cronapi.database.Operations.query(Var.valueOf("app.entity.Cliente"),
@@ -459,6 +463,40 @@ public class PedidoNovoMobile {
 						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente47")),
 						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente48")));
 				return dentes;
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Descreva esta função...
+	public static Var retornarProcolo() throws Exception {
+		return new Callable<Var>() {
+
+			private Var protocolo = Var.VAR_NULL;
+			private Var idCliente = Var.VAR_NULL;
+			private Var mesAtual = Var.VAR_NULL;
+			private Var horaAtual = Var.VAR_NULL;
+			private Var minutoAtual = Var.VAR_NULL;
+			private Var anoAtual = Var.VAR_NULL;
+			private Var diaAtual = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				idCliente = Var.valueOf(retornarIdClienteLogado());
+				mesAtual = cronapi.dateTime.Operations.getMonth(cronapi.dateTime.Operations.getNow());
+				horaAtual = cronapi.dateTime.Operations.getHour(cronapi.dateTime.Operations.getNow());
+				minutoAtual = cronapi.dateTime.Operations.getMinute(cronapi.dateTime.Operations.getNow());
+				anoAtual = cronapi.dateTime.Operations.getYear(cronapi.dateTime.Operations.getNow());
+				diaAtual = cronapi.dateTime.Operations.getDay(cronapi.dateTime.Operations.getNow());
+				protocolo = Var.valueOf(cronapi.text.Operations
+						.getLettersFromStartToFromStart(idCliente, Var.valueOf(1), Var.valueOf(3)).toString()
+						+ diaAtual.toString() + mesAtual.toString()
+						+ cronapi.text.Operations
+								.getLettersFromStartToFromStart(anoAtual, Var.valueOf(3), Var.valueOf(4)).toString()
+						+ horaAtual.toString() + minutoAtual.toString());
+				return protocolo;
 			}
 		}.call();
 	}

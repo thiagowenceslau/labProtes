@@ -979,15 +979,6 @@
 						"operator": "equal",
 						"value": ":clienteId",
 						"valueIsField": false
-					},
-					{
-						"id": "p.situacaoPedido",
-						"field": "p.situacaoPedido",
-						"type": "string",
-						"input": "text",
-						"operator": "not_equal",
-						"value": ":situacaoPedido",
-						"valueIsField": false
 					}
 				],
 				"not": false,
@@ -1021,10 +1012,6 @@
 					},
 					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.ObterCliente:obterClienteLogado', null, null)"
 				}
-			},
-			{
-				"fieldName": "situacaoPedido",
-				"fieldValue": "finalizado"
 			}
 		],
 		"verbs": {
@@ -1091,7 +1078,7 @@
 			"primaryKey": null,
 			"foreignKey": null
 		},
-		"serviceUrl": "api/cronapi/query/qhq3yihtylo9/finalizado/"
+		"serviceUrl": "api/cronapi/query/qhq3yihtylo9/"
 	},
 	"ubgbgpp33vc4": {
 		"customId": "dsHistoricoPedidos",
@@ -1447,5 +1434,307 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/1hrmhql8ryd69/{{vars.idPedido}}/"
+	},
+	"qe9f73ao1buf": {
+		"customId": "dsSolicitacoesPedidos",
+		"queryName": "SolicitacoesPedidos",
+		"screen": "src/main/webapp/views/logged/solicitacoespedidos.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Pedido",
+		"entityFullName": "app.entity.Pedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Pedido",
+					"namespace": "app.entity.Pedido",
+					"alias": "p"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "p",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "p.situacaoPedido",
+						"field": "p.situacaoPedido",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":situacaoPedido",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "situacaoPedido",
+				"fieldValue": {
+					"blocklyClass": "blockly.SolicitacoesPedidos",
+					"blocklyMethod": "retornarCondicao",
+					"blocklyLanguage": "java",
+					"blocklyJson": {
+						"namespace": "blockly.SolicitacoesPedidos",
+						"classNameNew": "SolicitacoesPedidos",
+						"classNameOld": "SolicitacoesPedidos",
+						"sourcePath": "src/main/java/blockly/SolicitacoesPedidos.blockly",
+						"language": "java",
+						"class": "blockly.SolicitacoesPedidos",
+						"methods": [
+							{
+								"name": "calcularItens",
+								"hasReturn": "true",
+								"params": [
+									"Entidade<app.entity.Pedido>"
+								]
+							},
+							{
+								"name": "retornarCondicao",
+								"hasReturn": "true",
+								"params": []
+							}
+						]
+					},
+					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.SolicitacoesPedidos:retornarCondicao', null, null)"
+				}
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"paciente": null,
+			"codigoPaciente": null,
+			"sexo": null,
+			"dataNascimentoPaciente": null,
+			"idadePaciente": null,
+			"dataEntregaSolicitada": null,
+			"situacaoPedido": null,
+			"ativo": null,
+			"dataEnvio": null,
+			"cliente": null,
+			"valor": null,
+			"dataFinalizado": null,
+			"observacoes": null,
+			"protocolo": null,
+			"dataPrevisao": null
+		},
+		"security": {
+			"id": null,
+			"paciente": null,
+			"codigoPaciente": null,
+			"sexo": null,
+			"dataNascimentoPaciente": null,
+			"idadePaciente": null,
+			"dataEntregaSolicitada": null,
+			"situacaoPedido": null,
+			"ativo": null,
+			"dataEnvio": null,
+			"cliente": null,
+			"valor": null,
+			"dataFinalizado": null,
+			"observacoes": null,
+			"protocolo": null,
+			"dataPrevisao": null
+		},
+		"calcFields": {
+			"itens": {
+				"blocklyClass": "blockly.SolicitacoesPedidos",
+				"blocklyMethod": "calcularItens",
+				"blocklyLanguage": "java",
+				"blocklyJson": {
+					"namespace": "blockly.SolicitacoesPedidos",
+					"classNameNew": "SolicitacoesPedidos",
+					"classNameOld": "SolicitacoesPedidos",
+					"sourcePath": "src/main/java/blockly/SolicitacoesPedidos.blockly",
+					"language": "java",
+					"class": "blockly.SolicitacoesPedidos",
+					"methods": [
+						{
+							"name": "calcularItens",
+							"hasReturn": "true",
+							"params": [
+								"Entidade<app.entity.Pedido>"
+							]
+						}
+					]
+				},
+				"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.SolicitacoesPedidos:calcularItens', null, null)",
+				"blocklyGETMethod": null,
+				"blocklyPOSTMethod": null,
+				"blocklyPUTMethod": null,
+				"blocklyDELETEMethod": null,
+				"blocklyFILTERMethod": null
+			}
+		},
+		"calcFieldsSecurity": {
+			"itens": null
+		},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/qe9f73ao1buf/"
+	},
+	"sopo99ykfinr": {
+		"customId": "dsDetalheSolicitacao",
+		"queryName": "DetalheSolicitacao",
+		"screen": "src/main/webapp/views/logged/detalhesolicitacao.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Pedido",
+		"entityFullName": "app.entity.Pedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Pedido",
+					"namespace": "app.entity.Pedido",
+					"alias": "p"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "p",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "p.id",
+						"field": "p.id",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":id",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "id",
+				"fieldValue": ""
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"paciente": null,
+			"codigoPaciente": null,
+			"sexo": null,
+			"dataNascimentoPaciente": null,
+			"idadePaciente": null,
+			"dataEntregaSolicitada": null,
+			"situacaoPedido": null,
+			"ativo": null,
+			"dataEnvio": null,
+			"cliente": null,
+			"valor": null,
+			"dataFinalizado": null,
+			"observacoes": null,
+			"protocolo": null,
+			"dataPrevisao": null
+		},
+		"security": {
+			"id": null,
+			"paciente": null,
+			"codigoPaciente": null,
+			"sexo": null,
+			"dataNascimentoPaciente": null,
+			"idadePaciente": null,
+			"dataEntregaSolicitada": null,
+			"situacaoPedido": null,
+			"ativo": null,
+			"dataEnvio": null,
+			"cliente": null,
+			"valor": null,
+			"dataFinalizado": null,
+			"observacoes": null,
+			"protocolo": null,
+			"dataPrevisao": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/sopo99ykfinr/"
 	}
 }
