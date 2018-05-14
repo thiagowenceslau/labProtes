@@ -1615,7 +1615,7 @@
 		},
 		"serviceUrl": "api/cronapi/query/qe9f73ao1buf/"
 	},
-	"sopo99ykfinr": {
+	"qy1ndrzu4661": {
 		"customId": "dsDetalheSolicitacao",
 		"queryName": "DetalheSolicitacao",
 		"screen": "src/main/webapp/views/logged/detalhesolicitacao.view.html",
@@ -1681,11 +1681,14 @@
 						"class": "blockly.DetalheSolicitacao",
 						"methods": [
 							{
+								"name": "retornarPedido",
+								"hasReturn": "true",
+								"params": []
+							},
+							{
 								"name": "obterIdPedido",
 								"hasReturn": "true",
-								"params": [
-									"Dados"
-								]
+								"params": []
 							}
 						]
 					},
@@ -1757,6 +1760,6 @@
 			"primaryKey": null,
 			"foreignKey": null
 		},
-		"serviceUrl": "api/cronapi/query/sopo99ykfinr/"
+		"serviceUrl": "api/cronapi/query/qy1ndrzu4661/"
 	}
 }

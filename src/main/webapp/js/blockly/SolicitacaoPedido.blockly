@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/webapp/views/logged/solicitacoespedidos.view.html" resourceType="JS" ruleDescription="SolicitacaoPedido" ruleName="SolicitacaoPedido" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="501.16468590831903" scrolly="86.99999999999989" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="1" scrollx="502.16468590831914" scrolly="86.99999999999994" target="Anb:u5+^,0vLkL9QIqn5"/>
   <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-187" y="98">
     <mutation>
       <arg name="pedido&lt;app.entity.Pedido&gt;"/>
@@ -27,7 +27,7 @@
               <arg name="idPedido"/>
             </mutation>
             <value name="ARG0">
-              <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="FW0Azb}76r+maUGqq~vf" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+              <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="0vdSfZgFsLa0:zUJ1]*W" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
                 <field name="VAR">idPedido</field>
               </block>
             </value>
