@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/mobileapp/www/views/logged/pedidonovo.view.html" resourceType="JAVA" ruleDescription="PedidoNovoMobile" ruleName="PedidoNovoMobile" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="298.5000000000001" scrolly="3.9999999999964757" target="_x%_?V-Ww(B(=QlKo.@w"/>
+  <metadata scale="1" scrollx="298.5000000000001" scrolly="3.999999999996419" target="_x%_?V-Ww(B(=QlKo.@w"/>
   <block colour="#995ba5" id="^]54_+0,}FM}5j]WyKgJ" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-217" y="-202">
     <field name="NAME">criarPedidoCompleto</field>
     <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
