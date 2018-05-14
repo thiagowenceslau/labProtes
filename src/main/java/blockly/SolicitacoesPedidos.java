@@ -46,6 +46,20 @@ public class SolicitacoesPedidos {
 	 * @return Var
 	 */
 	// Descreva esta função...
+	public static Var obterIdPedido() throws Exception {
+		return new Callable<Var>() {
+
+			public Var call() throws Exception {
+				return Var.VAR_NULL;
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Descreva esta função...
 	public static Var retornarCondicao() throws Exception {
 		return new Callable<Var>() {
 
@@ -57,6 +71,27 @@ public class SolicitacoesPedidos {
 
 			public Var call() throws Exception {
 				return Var.valueOf("aguardando");
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @param dados
+	 * @return Var
+	 */
+	// Descreva esta função...
+	public static Var retornarIdPedido(Var dados) throws Exception {
+		return new Callable<Var>() {
+
+			private Var consulta = Var.VAR_NULL;
+			private Var idPedido = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				consulta = cronapi.database.Operations.query(Var.valueOf("app.entity.Pedido"),
+						Var.valueOf("select p from Pedido p where p = :p"), Var.valueOf("p", dados));
+				idPedido = cronapi.database.Operations.getField(consulta, Var.valueOf("this[0].id"));
+				return idPedido;
 			}
 		}.call();
 	}
