@@ -979,15 +979,6 @@
 						"operator": "equal",
 						"value": ":clienteId",
 						"valueIsField": false
-					},
-					{
-						"id": "p.situacaoPedido",
-						"field": "p.situacaoPedido",
-						"type": "string",
-						"input": "text",
-						"operator": "not_equal",
-						"value": ":situacaoPedido",
-						"valueIsField": false
 					}
 				],
 				"not": false,
@@ -1021,10 +1012,6 @@
 					},
 					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.ObterCliente:obterClienteLogado', null, null)"
 				}
-			},
-			{
-				"fieldName": "situacaoPedido",
-				"fieldValue": "finalizado"
 			}
 		],
 		"verbs": {
@@ -1091,7 +1078,7 @@
 			"primaryKey": null,
 			"foreignKey": null
 		},
-		"serviceUrl": "api/cronapi/query/qhq3yihtylo9/finalizado/"
+		"serviceUrl": "api/cronapi/query/qhq3yihtylo9/"
 	},
 	"ubgbgpp33vc4": {
 		"customId": "dsHistoricoPedidos",

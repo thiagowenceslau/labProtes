@@ -359,8 +359,8 @@ public class PedidoNovoMobile {
 	public static Var retornarIdClienteLogado() throws Exception {
 		return new Callable<Var>() {
 
-			private Var cliente = Var.VAR_NULL;
 			private Var idCliente = Var.VAR_NULL;
+			private Var cliente = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				cliente = cronapi.database.Operations.query(Var.valueOf("app.entity.Cliente"),
@@ -459,6 +459,40 @@ public class PedidoNovoMobile {
 						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente47")),
 						cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dente48")));
 				return dentes;
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Descreva esta função...
+	public static Var retornarProcolo() throws Exception {
+		return new Callable<Var>() {
+
+			private Var idadePaciente = Var.VAR_NULL;
+			private Var mesAtual = Var.VAR_NULL;
+			private Var horaAtual = Var.VAR_NULL;
+			private Var minutoAtual = Var.VAR_NULL;
+			private Var anoAtual = Var.VAR_NULL;
+			private Var diaAtual = Var.VAR_NULL;
+			private Var protocolo = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				idadePaciente = blockly.ObterCliente.obterClienteLogado();
+				mesAtual = cronapi.dateTime.Operations.getMonth(cronapi.dateTime.Operations.getNow());
+				horaAtual = cronapi.dateTime.Operations.getHour(cronapi.dateTime.Operations.getNow());
+				minutoAtual = cronapi.dateTime.Operations.getMinute(cronapi.dateTime.Operations.getNow());
+				anoAtual = cronapi.dateTime.Operations.getYear(cronapi.dateTime.Operations.getNow());
+				diaAtual = cronapi.dateTime.Operations.getDay(cronapi.dateTime.Operations.getNow());
+				protocolo = Var.valueOf(cronapi.text.Operations
+						.getLettersFromStartToFromStart(idCliente, Var.valueOf(1), Var.valueOf(3)).toString()
+						+ diaAtual.toString() + mesAtual.toString()
+						+ cronapi.text.Operations
+								.getLettersFromStartToFromStart(anoAtual, Var.valueOf(3), Var.valueOf(4)).toString()
+						+ horaAtual.toString() + minutoAtual.toString());
+				return horaAtual;
 			}
 		}.call();
 	}
