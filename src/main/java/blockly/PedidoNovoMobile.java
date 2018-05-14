@@ -149,9 +149,6 @@ public class PedidoNovoMobile {
 				protocolo = Var.valueOf(retornarProcolo());
 				System.out.println(protocolo.getObjectAsString());
 				validador = Var.VAR_TRUE;
-				if (cronapi.logic.Operations.isNullOrEmpty(codigoPaciente).getObjectAsBoolean()) {
-					validador = Var.VAR_FALSE;
-				}
 				if (cronapi.logic.Operations.isNullOrEmpty(nomePaciente).getObjectAsBoolean()) {
 					validador = Var.VAR_FALSE;
 				}
@@ -173,14 +170,17 @@ public class PedidoNovoMobile {
 							.getObjectAsBoolean()) {
 						idPedido = cronapi.util.Operations.generateUUID();
 						cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"),
+								Var.valueOf("ativo", Var.valueOf("true")), Var.valueOf("idadePaciente", idadePaciente),
+								Var.valueOf("codigoPaciente", codigoPaciente),
+								Var.valueOf("dataEntregaSolicitada", dataEntrega),
+								Var.valueOf("dataEnvio", cronapi.dateTime.Operations.getNowNoHour()),
 								Var.valueOf("protocolo", protocolo),
 								Var.valueOf("cliente", Var.valueOf(retornarIdClienteLogado())),
 								Var.valueOf("observacoes",
 										cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtObs"))),
-								Var.valueOf("ativo", Var.valueOf("true")), Var.valueOf("idadePaciente", idadePaciente),
-								Var.valueOf("paciente", nomePaciente), Var.valueOf("codigoPaciente", codigoPaciente),
+								Var.valueOf("paciente", nomePaciente),
 								Var.valueOf("situacaoPedido", Var.valueOf("aguardando")), Var.valueOf("id", idPedido),
-								Var.valueOf("dataEntregaSolicitada", dataEntrega), Var.valueOf("sexo", sexoPaciente),
+								Var.valueOf("sexo", sexoPaciente),
 								Var.valueOf("dataNascimentoPaciente", dataNascimento));
 					}
 					for (Iterator it_i = Var.valueOf(retornarListaDentes()).iterator(); it_i.hasNext();) {
