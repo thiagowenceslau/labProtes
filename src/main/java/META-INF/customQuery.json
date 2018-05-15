@@ -1658,29 +1658,7 @@
 		"queryParamsValues": [
 			{
 				"fieldName": "id",
-				"fieldValue": {
-					"blocklyClass": "blockly.DetalheSolicitacao",
-					"blocklyMethod": "obterIdPedido",
-					"blocklyLanguage": "java",
-					"blocklyJson": {
-						"namespace": "blockly.DetalheSolicitacao",
-						"classNameNew": "DetalheSolicitacao",
-						"classNameOld": "DetalheSolicitacao",
-						"sourcePath": "src/main/java/blockly/DetalheSolicitacao.blockly",
-						"language": "java",
-						"class": "blockly.DetalheSolicitacao",
-						"methods": [
-							{
-								"name": "obterIdPedido",
-								"hasReturn": "true",
-								"params": [
-									"pedido"
-								]
-							}
-						]
-					},
-					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.DetalheSolicitacao:obterIdPedido', null, null)"
-				}
+				"fieldValue": "{{params.pedido}}"
 			}
 		],
 		"verbs": {
@@ -1747,7 +1725,7 @@
 			"primaryKey": null,
 			"foreignKey": null
 		},
-		"serviceUrl": "api/cronapi/query/1jefxths35zcm/"
+		"serviceUrl": "api/cronapi/query/1jefxths35zcm/{{params.pedido}}/"
 	},
 	"urunfzivbub6": {
 		"customId": "EtapaEntidade",
