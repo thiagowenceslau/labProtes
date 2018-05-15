@@ -1463,8 +1463,8 @@
         "y": 40
       },
       "size": {
-        "width": 178.484375,
-        "height": 119.29871368408203
+        "width": 175,
+        "height": 121.17371368408203
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -1579,7 +1579,7 @@
           "text": "id\nDescricao\nAtivo\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 84.28125,
+          "ref-x": 83,
           "font-size": 11,
           "text": "java.lang.String\njava.lang.String\njava.lang.String\n"
         },
@@ -1601,8 +1601,8 @@
       ],
       "methods": [],
       "position": {
-        "x": 102,
-        "y": 13
+        "x": 104.3671875,
+        "y": 40
       },
       "size": {
         "width": 169.265625,
@@ -2278,8 +2278,8 @@
         "y": 227
       },
       "size": {
-        "width": 201.9375,
-        "height": 272.38368225097656
+        "width": 196.578125,
+        "height": 274.25868225097656
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -2712,7 +2712,7 @@
           "text": "id\nDescricao\nDiasUteis\nPreco1\nPreco2\nPreco3\nPreco4\nPreco5\nPreco6\nPreco7\nPreco8\nPreco9\nPreco10\nPreco11\nPreco12\nAtivo\ntipoTrabalho\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 96.109375,
+          "ref-x": 93.578125,
           "font-size": 11,
           "text": "java.lang.String\njava.lang.String\njava.lang.Integer\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Boolean\nTipoTrabalho\n"
         },
@@ -3683,7 +3683,7 @@
         "pedido:Pedido",
         "tipoTrabalho:java.lang.String",
         "dente:java.lang.String",
-        "servico:java.lang.String",
+        "grupo:java.lang.String",
         "cor:java.lang.String",
         "situacaoEtapa:java.lang.String",
         "valorServico:java.lang.Double"
@@ -3694,8 +3694,8 @@
         "y": 898
       },
       "size": {
-        "width": 205.421875,
-        "height": 173.7540512084961
+        "width": 200,
+        "height": 175.6290512084961
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -3803,14 +3803,14 @@
           "isSearchable": false
         },
         {
-          "name": "servico",
+          "name": "grupo",
           "type": "java.lang.String",
-          "dbName": "servico",
+          "dbName": "grupo",
           "dbLength": 30,
           "dbPrecision": "",
           "dbScale": "",
           "dbDefaultValue": "",
-          "label": "Serviço",
+          "label": "Grupo",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
@@ -3922,10 +3922,10 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\npedido\ntipoTrabalho\ndente\nservico\ncor\nsituacaoEtapa\nvalorServico\n"
+          "text": "id\npedido\ntipoTrabalho\ndente\ngrupo\ncor\nsituacaoEtapa\nvalorServico\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 105.09375,
+          "ref-x": 103,
           "font-size": 11,
           "text": "java.lang.String\nPedido\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.Double\n"
         },
@@ -4029,12 +4029,12 @@
       ],
       "methods": [],
       "position": {
-        "x": 990,
-        "y": 35
+        "x": 964,
+        "y": 24
       },
       "size": {
-        "width": 155.84375,
-        "height": 108.49479293823242
+        "width": 152,
+        "height": 110.36979293823242
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -4126,7 +4126,7 @@
           "text": "id\nnome\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 61.640625,
+          "ref-x": 60,
           "font-size": 11,
           "text": "java.lang.String\njava.lang.String\n"
         },
@@ -4144,7 +4144,7 @@
       ],
       "associationType": "Association",
       "name": null,
-      "id": "b1401824-9407-41e3-97e7-92eceb049f0b",
+      "id": "0a4bc714-a079-4938-9066-e66211ab3cc4",
       "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
       "target": {
         "id": "32106184-3bb9-46e8-b1e2-bdb0d55207b4"

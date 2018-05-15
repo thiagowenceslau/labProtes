@@ -58,9 +58,9 @@ public class ItemPedido implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "servico", nullable = true, unique = false, length=30, insertable=true, updatable=true)
+  @Column(name = "grupo", nullable = true, unique = false, length=30, insertable=true, updatable=true)
   
-  private java.lang.String servico;
+  private java.lang.String grupo;
 
   /**
   * @generated
@@ -172,22 +172,22 @@ public class ItemPedido implements Serializable {
   }
 
   /**
-   * Obtém servico
-   * return servico
+   * Obtém grupo
+   * return grupo
    * @generated
    */
   
-  public java.lang.String getServico(){
-    return this.servico;
+  public java.lang.String getGrupo(){
+    return this.grupo;
   }
 
   /**
-   * Define servico
-   * @param servico servico
+   * Define grupo
+   * @param grupo grupo
    * @generated
    */
-  public ItemPedido setServico(java.lang.String servico){
-    this.servico = servico;
+  public ItemPedido setGrupo(java.lang.String grupo){
+    this.grupo = grupo;
     return this;
   }
 

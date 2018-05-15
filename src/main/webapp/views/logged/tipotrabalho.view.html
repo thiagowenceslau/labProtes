@@ -9,10 +9,13 @@
             <input type="text" ng-model="vars.search" cronapp-filter="nome;" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" crn-datasource="TipoTrabalho" class="form-control" value="" placeholder="{{'template.crud.search' | translate}}">
         </div>
     </div>
+    
+    <div class="button">
+    <button class="btn component-holder btn-primary" type="submit" ng-click="blockly.js.blockly.ModalTipoTrabalho.exibir()" xattr-size="" xattr-fullsize="" xattr-theme="btn-primary" data-component="crn-button" id="crn-button-tipo"><i class="glyphicon glyphicon-plus"></i> <span>Novo Tipo</span></button>
+    </div>
+    <br>
+    <br>
 
-<div data-component="crn-button" id="crn-button-564202" class="">
-    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="TipoTrabalho.startInserting()" ng-hide="TipoTrabalho.inserting || TipoTrabalho.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
-</div>
 <!-- fim div row para pesquisa -->
 <!--</div>-->
 
@@ -65,23 +68,14 @@
                 <button class="btn btn-success" data-component="crn-button" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
                 <button class="btn btn-danger" data-component="crn-button" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
             </div>
-            <br/>
+            <br>
             <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
 
                 <div data-component="crn-textinput" id="crn-textinput-nome" class="">
                     <div class="form-group">
                         <label for="textinput-nome" class="">Nome</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input
-                                            maxlength="30"
-                                            type="text"
-                                            ng-model="TipoTrabalho.active.nome"
-                                            class="form-control"
-                                            id="textinput-nome"
-                                            placeholder="Nome"
-                                            mask=""
-                                            mask-placeholder=""
-                                            ng-required="true">
+                                <input maxlength="30" type="text" ng-model="TipoTrabalho.active.nome" class="form-control" id="textinput-nome" placeholder="Nome" mask="" mask-placeholder="" ng-required="true">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
@@ -100,4 +94,35 @@
 
 
 <!-- OneToOne modal -->
+<div class="modal fade" id="modalTipo"> 
+  <div class="modal-dialog"> 
+    <div class="component-holder ng-binding ng-scope" data-component="crn-panel" id="crn-panel-411217"> 
+      <div class="panel panel-primary" xattr-theme="panel-primary" data-container="true"> 
+        <div class="panel-heading" data-container="true"> 
+          <div class="panel-title"> 
+            <div class="lead text-center component-holder" data-component="crn-title" xattr-position="text-center">
+              Novo Tipo de Trabalho
+            </div> 
+          </div> 
+        </div> 
+        <form id="tipo">
+        <div class="panel-body" data-container="true"> 
+          <div class="component-holder ng-binding ng-scope" data-component="crn-textinput" id="crn-textinput-nome">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" mask="" mask-placeholder="" ng-required="true" ng-model="vars.nome" class="form-control" id="nome" placeholder="Nome">
+            </div>
+          </div>
+        </div> 
+        <div class="panel-footer" data-container="true"> 
+            <div class="">
+          <button class="btn component-holder btn-danger" type="submit" ng-click="blockly.js.blockly.ModalTipoTrabalho.fechar()" xattr-size="" xattr-fullsize="" xattr-theme="btn-danger" data-component="crn-button" id="crn-button-872742"><i class="glyphicon glyphicon-remove"></i> <span>Cancelar</span></button>
+          <button class="btn component-holder btn-success" type="submit" ng-click="blockly.js.blockly.ModalTipoTrabalho.inserir()" xattr-size="" xattr-fullsize="" xattr-theme="btn-success" data-component="crn-button" id="crn-button-745155"><i class="glyphicon glyphicon-ok"></i> <span>Salvar</span></button></div>
+        </div>
+        </form>
+      </div> 
+      
+    </div> 
+  </div> 
+</div>
 <!-- OneToOne modal end-->
