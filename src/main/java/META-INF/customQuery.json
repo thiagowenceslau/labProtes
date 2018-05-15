@@ -1615,7 +1615,7 @@
 		},
 		"serviceUrl": "api/cronapi/query/qe9f73ao1buf/"
 	},
-	"sopo99ykfinr": {
+	"1jefxths35zcm": {
 		"customId": "dsDetalheSolicitacao",
 		"queryName": "DetalheSolicitacao",
 		"screen": "src/main/webapp/views/logged/detalhesolicitacao.view.html",
@@ -1684,7 +1684,7 @@
 								"name": "obterIdPedido",
 								"hasReturn": "true",
 								"params": [
-									"Dados"
+									"pedido"
 								]
 							}
 						]
@@ -1757,6 +1757,6 @@
 			"primaryKey": null,
 			"foreignKey": null
 		},
-		"serviceUrl": "api/cronapi/query/sopo99ykfinr/"
+		"serviceUrl": "api/cronapi/query/1jefxths35zcm/"
 	}
 }
