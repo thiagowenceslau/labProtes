@@ -12,34 +12,20 @@ public class DetalheSolicitacao {
 
 	/**
 	 *
+	 * @param pedido
 	 * @return Var
 	 */
 	// DetalheSolicitacao
-	public static Var obterIdPedido() throws Exception {
+	public static Var obterIdPedido(Var pedido) throws Exception {
 		return new Callable<Var>() {
 
 			private Var idPedido = Var.VAR_NULL;
 
 			public Var call() throws Exception {
-				cronapi.util.Operations
-						.callClientFunction(Var.valueOf("blockly.js.blockly.DetalheSolicitacao.obterId"));
-				idPedido = cronapi.util.Operations.getValueFromSession(Var.valueOf("idPedido"));
+				idPedido = pedido;
+				System.out.println(pedido.getObjectAsString());
 				System.out.println(idPedido.getObjectAsString());
 				return idPedido;
-			}
-		}.call();
-	}
-
-	/**
-	 *
-	 * @return Var
-	 */
-	// Descreva esta função...
-	public static Var retornarPedido() throws Exception {
-		return new Callable<Var>() {
-
-			public Var call() throws Exception {
-				return Var.VAR_NULL;
 			}
 		}.call();
 	}
