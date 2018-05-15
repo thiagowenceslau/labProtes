@@ -30,4 +30,19 @@ public class DetalheSolicitacao {
 		}.call();
 	}
 
+	/**
+	 *
+	 * @param pedido
+	 * @return Var
+	 */
+	// Descreva esta função...
+	public static Var ObterDetalhePedido(Var pedido) throws Exception {
+		return new Callable<Var>() {
+
+			public Var call() throws Exception {
+				return pedido;
+			}
+		}.call();
+	}
+
 }

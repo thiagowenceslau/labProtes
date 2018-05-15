@@ -1,17 +1,11 @@
-<h3>Lista de Preços</h3>
+<h3>Lista de preço</h3>
 
 <!-- div row para pesquisa -->
 <!--<div class="row">-->
 
-    <div ng-hide="ListaPreco.inserting || ListaPreco.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class="">
-        <div class="form-group">
-            <label for="textinput-filter" class="">{{"template.crud.search" | translate}}</label>
-            <input type="text" ng-model="vars.search" cronapp-filter="nome;" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" crn-datasource="ListaPreco" class="form-control" value="" placeholder="{{'template.crud.search' | translate}}">
-        </div>
-    </div>
 
 <div data-component="crn-button" id="crn-button-564202" class="">
-    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="" ng-hide="ListaPreco.inserting || ListaPreco.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="ListaPreco.startInserting()" ng-hide="ListaPreco.inserting || ListaPreco.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
 </div>
 <!-- fim div row para pesquisa -->
 <!--</div>-->
@@ -26,9 +20,12 @@
                     <div class="">Nome</div>
                 </th>
                 <th class="">
+                    <div class="">Ordem</div>
+                </th>
+                <th class="">
                     <div class="">Ativo</div>
                 </th>
-                <th><div data-container="true">Ordem</div></th><th class="">
+                <th class="">
                     <div class="">{{"template.crud.actions" | translate}}</div>
                 </th>
             </tr>
@@ -42,10 +39,15 @@
                 </td>
                 <td class="">
                     <div class="">
+                                {{rowData.ordem  }}
+                    </div>
+                </td>
+                <td class="">
+                    <div class="">
                                 {{rowData.ativo  }}
                     </div>
                 </td>
-                <td><div data-container="true">{{rowData.ordem}}</div></td><td class="">
+                <td class="">
                     <div class="">
                         <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
                         <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
@@ -76,7 +78,7 @@
             <br>
             <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
 
-                <div data-component="crn-textinput" id="crn-textinput-nome" class="">
+                <div data-component="crn-textinput" id="crn-textinput-nome" class="col-md-6">
                     <div class="form-group">
                         <label for="textinput-nome" class="">Nome</label>
  <!-- else for if !model.hasCronappFramework() -->
@@ -85,20 +87,20 @@
                     </div>
                 </div>
 
-                <div data-component="crn-textinput" id="crn-textinput-ativo" class="">
-                    <div class="form-group">
-                        <label for="textinput-ativo" class="">Ativo</label>
- <!-- else for if !model.hasCronappFramework() -->
-                                <input type="text" ng-model="ListaPreco.active.ativo" class="form-control" id="textinput-ativo" placeholder="Ativo" mask="" mask-placeholder="" ng-required="false">
-                         <!-- end if !model.hasCronappFramework() -->
-                    </div>
-                </div>
+                
 
-                <div data-component="crn-textinput" id="crn-textinput-ordem" class="">
+                <div data-component="crn-textinput" id="crn-textinput-ordem" class="col-md-2">
                     <div class="form-group">
                         <label for="textinput-ordem" class="">Ordem</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="integer" ng-model="ListaPreco.active.ordem" class="form-control" id="textinput-ordem" placeholder="Ordem" mask="" mask-placeholder="" ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div><div data-component="crn-textinput" id="crn-textinput-ativo" class="col-md-2">
+                    <div class="form-group">
+                        <label for="textinput-ativo" class="">Ativo</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="text" ng-model="ListaPreco.active.ativo" class="form-control" id="textinput-ativo" placeholder="Ativo" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>

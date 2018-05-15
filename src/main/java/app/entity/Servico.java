@@ -50,22 +50,6 @@ public class Servico implements Serializable {
   /**
   * @generated
   */
-  @ManyToOne
-  @JoinColumn(name="fk_grupoServicos", nullable = false, referencedColumnName = "id", insertable=true, updatable=true)
-  
-  private GrupoServicos grupoServicos;
-
-  /**
-  * @generated
-  */
-  @ManyToOne
-  @JoinColumn(name="fk_secao", nullable = false, referencedColumnName = "id", insertable=true, updatable=true)
-  
-  private Secao secao;
-
-  /**
-  * @generated
-  */
   @Column(name = "Preco1", nullable = true, unique = false, precision=2, insertable=true, updatable=true)
   
   private java.lang.Double preco1;
@@ -155,6 +139,14 @@ public class Servico implements Serializable {
   private java.lang.Boolean ativo;
 
   /**
+  * @generated
+  */
+  @ManyToOne
+  @JoinColumn(name="fk_tipoTrabalho", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+  
+  private TipoTrabalho tipoTrabalho;
+
+  /**
    * Construtor
    * @generated
    */
@@ -219,46 +211,6 @@ public class Servico implements Serializable {
    */
   public Servico setDiasUteis(java.lang.Integer diasUteis){
     this.diasUteis = diasUteis;
-    return this;
-  }
-
-  /**
-   * Obtém grupoServicos
-   * return grupoServicos
-   * @generated
-   */
-  
-  public GrupoServicos getGrupoServicos(){
-    return this.grupoServicos;
-  }
-
-  /**
-   * Define grupoServicos
-   * @param grupoServicos grupoServicos
-   * @generated
-   */
-  public Servico setGrupoServicos(GrupoServicos grupoServicos){
-    this.grupoServicos = grupoServicos;
-    return this;
-  }
-
-  /**
-   * Obtém secao
-   * return secao
-   * @generated
-   */
-  
-  public Secao getSecao(){
-    return this.secao;
-  }
-
-  /**
-   * Define secao
-   * @param secao secao
-   * @generated
-   */
-  public Servico setSecao(Secao secao){
-    this.secao = secao;
     return this;
   }
 
@@ -519,6 +471,26 @@ public class Servico implements Serializable {
    */
   public Servico setAtivo(java.lang.Boolean ativo){
     this.ativo = ativo;
+    return this;
+  }
+
+  /**
+   * Obtém tipoTrabalho
+   * return tipoTrabalho
+   * @generated
+   */
+  
+  public TipoTrabalho getTipoTrabalho(){
+    return this.tipoTrabalho;
+  }
+
+  /**
+   * Define tipoTrabalho
+   * @param tipoTrabalho tipoTrabalho
+   * @generated
+   */
+  public Servico setTipoTrabalho(TipoTrabalho tipoTrabalho){
+    this.tipoTrabalho = tipoTrabalho;
     return this;
   }
 

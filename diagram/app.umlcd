@@ -1463,8 +1463,8 @@
         "y": 40
       },
       "size": {
-        "width": 175,
-        "height": 121.17371368408203
+        "width": 178.484375,
+        "height": 119.29871368408203
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -1579,7 +1579,7 @@
           "text": "id\nDescricao\nAtivo\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 83,
+          "ref-x": 84.28125,
           "font-size": 11,
           "text": "java.lang.String\njava.lang.String\njava.lang.String\n"
         },
@@ -1601,8 +1601,8 @@
       ],
       "methods": [],
       "position": {
-        "x": 104.3671875,
-        "y": 40
+        "x": 102,
+        "y": 13
       },
       "size": {
         "width": 169.265625,
@@ -2252,154 +2252,11 @@
     },
     {
       "type": "uml.Class",
-      "name": "GrupoServicos",
-      "attributes": [
-        "id:java.lang.String",
-        "Nome:java.lang.String",
-        "Ativo:java.lang.String"
-      ],
-      "methods": [],
-      "position": {
-        "x": 973.109375,
-        "y": 40
-      },
-      "size": {
-        "width": 153,
-        "height": 121.17371368408203
-      },
-      "angle": 0,
-      "multitenantContextJsonIgnore": "false",
-      "multitenantContextIgnoreEntities": "",
-      "role": "Auto",
-      "queries": [],
-      "tableName": null,
-      "tableScheme": null,
-      "isRest": "true",
-      "multitenantContext": "",
-      "restSecurity": null,
-      "restPath": "",
-      "id": "077b089a-5037-41bf-9e5b-23bac4bdf726",
-      "fields": [
-        {
-          "name": "id",
-          "type": "java.lang.String",
-          "dbName": "id",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "UUID.randomUUID().toString().toUpperCase()",
-          "label": "Id",
-          "mask": "",
-          "isPrimaryKey": true,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "UUID",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "Nome",
-          "type": "java.lang.String",
-          "dbName": "Nome",
-          "dbLength": 120,
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Nome",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "Ativo",
-          "type": "java.lang.String",
-          "dbName": "Ativo",
-          "dbLength": 3,
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Ativo",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": true,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        }
-      ],
-      "runtimeClass": "cronos.widgets.joint.uml.Class",
-      "z": 21,
-      "attrs": {
-        "rect": {
-          "stroke": "yellow",
-          "stroke-width": 2
-        },
-        ".uml-class-name-rect": {
-          "height": 50,
-          "transform": "translate(0,0)"
-        },
-        ".uml-class-attrs-rect": {
-          "height": 90,
-          "transform": "translate(0,50)"
-        },
-        ".uml-class-methods-rect": {
-          "height": 30,
-          "transform": "translate(0,140)"
-        },
-        ".uml-class-name-text": {
-          "fill": "#000",
-          "font-size": 12,
-          "text": "GrupoServicos",
-          "font-weight": "bold"
-        },
-        ".uml-class-attrs-text": {
-          "font-size": 11,
-          "text": "id\nNome\nAtivo\n"
-        },
-        ".uml-class-attrs-value": {
-          "ref-x": 61,
-          "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\njava.lang.String\n"
-        },
-        ".uml-class-methods-text": {
-          "fill": "#0066FF",
-          "font-size": 11,
-          "text": ""
-        }
-      }
-    },
-    {
-      "type": "uml.Class",
       "name": "Servico",
       "attributes": [
         "id:java.lang.String",
         "Descricao:java.lang.String",
         "DiasUteis:java.lang.Integer",
-        "grupoServicos:GrupoServicos",
-        "secao:Secao",
         "Preco1:java.lang.Double",
         "Preco2:java.lang.Double",
         "Preco3:java.lang.Double",
@@ -2412,7 +2269,8 @@
         "Preco10:java.lang.Double",
         "Preco11:java.lang.Double",
         "Preco12:java.lang.Double",
-        "Ativo:java.lang.Boolean"
+        "Ativo:java.lang.Boolean",
+        "tipoTrabalho:TipoTrabalho"
       ],
       "methods": [],
       "position": {
@@ -2420,8 +2278,8 @@
         "y": 227
       },
       "size": {
-        "width": 211.265625,
-        "height": 282.7350311279297
+        "width": 201.9375,
+        "height": 272.38368225097656
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -2491,52 +2349,6 @@
           "dbScale": "",
           "dbDefaultValue": "",
           "label": "Dias Úteis",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "grupoServicos",
-          "type": "GrupoServicos",
-          "dbName": "fk_grupoServicos",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Grupo ",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "secao",
-          "type": "Secao",
-          "dbName": "fk_secao",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
@@ -2849,6 +2661,25 @@
           "isEncryption": false,
           "referencedColumnName": "",
           "isSearchable": false
+        },
+        {
+          "name": "tipoTrabalho",
+          "type": "TipoTrabalho",
+          "dbName": "fk_tipoTrabalho",
+          "label": "",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "multitenantContext": "",
+          "pkType": "",
+          "isIgnore": false,
+          "isTransien": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
         }
       ],
       "runtimeClass": "cronos.widgets.joint.uml.Class",
@@ -2863,12 +2694,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 390,
+          "height": 370,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,440)"
+          "transform": "translate(0,420)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -2878,112 +2709,17 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\nDescricao\nDiasUteis\ngrupoServicos\nsecao\nPreco1\nPreco2\nPreco3\nPreco4\nPreco5\nPreco6\nPreco7\nPreco8\nPreco9\nPreco10\nPreco11\nPreco12\nAtivo\n"
+          "text": "id\nDescricao\nDiasUteis\nPreco1\nPreco2\nPreco3\nPreco4\nPreco5\nPreco6\nPreco7\nPreco8\nPreco9\nPreco10\nPreco11\nPreco12\nAtivo\ntipoTrabalho\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 105.8125,
+          "ref-x": 96.109375,
           "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\njava.lang.Integer\nGrupoServicos\nSecao\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Boolean\n"
+          "text": "java.lang.String\njava.lang.String\njava.lang.Integer\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Double\njava.lang.Boolean\nTipoTrabalho\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
           "font-size": 11,
           "text": ""
-        }
-      }
-    },
-    {
-      "type": "uml.Composition",
-      "relationFields": [
-        "grupoServicos:target"
-      ],
-      "name": null,
-      "id": "c681c49b-a0f1-4205-b57a-0b0b6b38c4a4",
-      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
-      "target": {
-        "id": "32106184-3bb9-46e8-b1e2-bdb0d55207b4"
-      },
-      "source": {
-        "id": "077b089a-5037-41bf-9e5b-23bac4bdf726"
-      },
-      "labels": [
-        {
-          "position": 0.9,
-          "attrs": {
-            "rect": {
-              "fill": "transparent"
-            },
-            "text": {
-              "text": "*",
-              "font-family": "Arial",
-              "font-size": "12px",
-              "fill": "#cecece"
-            }
-          }
-        }
-      ],
-      "z": 23,
-      "previous_source": {
-        "id": "077b089a-5037-41bf-9e5b-23bac4bdf726"
-      },
-      "previous_target": {
-        "id": "32106184-3bb9-46e8-b1e2-bdb0d55207b4"
-      },
-      "vertices": [],
-      "attrs": {
-        ".marker-target": {
-          "d": "",
-          "fill": ""
-        },
-        ".marker-source": {
-          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
-          "fill": "#cecece"
-        },
-        "rect": {
-          "stroke": "yellow",
-          "stroke-width": 2
-        }
-      }
-    },
-    {
-      "type": "uml.Composition",
-      "relationFields": [
-        "secao:target"
-      ],
-      "name": null,
-      "id": "f13ef557-d474-4a2f-8fe8-8f964a75a1a8",
-      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
-      "target": {
-        "id": "32106184-3bb9-46e8-b1e2-bdb0d55207b4"
-      },
-      "source": {
-        "id": "677ad9f3-b08a-4293-b47a-4714ab52fa81"
-      },
-      "labels": [
-        {
-          "position": 0.9,
-          "attrs": {
-            "rect": {
-              "fill": "transparent"
-            },
-            "text": {
-              "text": "*",
-              "font-family": "Arial",
-              "font-size": "12px",
-              "fill": "#cecece"
-            }
-          }
-        }
-      ],
-      "z": 24,
-      "attrs": {
-        ".marker-target": {
-          "d": "",
-          "fill": ""
-        },
-        ".marker-source": {
-          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
-          "fill": "#cecece"
         }
       }
     },
@@ -3947,8 +3683,10 @@
         "pedido:Pedido",
         "tipoTrabalho:java.lang.String",
         "dente:java.lang.String",
-        "grupo:java.lang.String",
-        "cor:java.lang.String"
+        "servico:java.lang.String",
+        "cor:java.lang.String",
+        "situacaoEtapa:java.lang.String",
+        "valorServico:java.lang.Double"
       ],
       "methods": [],
       "position": {
@@ -3956,8 +3694,8 @@
         "y": 898
       },
       "size": {
-        "width": 189.546875,
-        "height": 151.29007720947266
+        "width": 205.421875,
+        "height": 173.7540512084961
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -4065,14 +3803,14 @@
           "isSearchable": false
         },
         {
-          "name": "grupo",
+          "name": "servico",
           "type": "java.lang.String",
-          "dbName": "grupo",
+          "dbName": "servico",
           "dbLength": 30,
           "dbPrecision": "",
           "dbScale": "",
           "dbDefaultValue": "",
-          "label": "Grupo",
+          "label": "Serviço",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
@@ -4109,6 +3847,52 @@
           "isEncryption": false,
           "referencedColumnName": "",
           "isSearchable": false
+        },
+        {
+          "name": "situacaoEtapa",
+          "type": "java.lang.String",
+          "dbName": "situacaoEtapa",
+          "dbLength": 30,
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Situação Etapa",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "valorServico",
+          "type": "java.lang.Double",
+          "dbName": "valorServico",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Valor Serviço",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
         }
       ],
       "runtimeClass": "cronos.widgets.joint.uml.Class",
@@ -4123,12 +3907,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 150,
+          "height": 190,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,200)"
+          "transform": "translate(0,240)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -4138,12 +3922,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\npedido\ntipoTrabalho\ndente\ngrupo\ncor\n"
+          "text": "id\npedido\ntipoTrabalho\ndente\nservico\ncor\nsituacaoEtapa\nvalorServico\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 95.734375,
+          "ref-x": 105.09375,
           "font-size": 11,
-          "text": "java.lang.String\nPedido\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\n"
+          "text": "java.lang.String\nPedido\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.Double\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
@@ -4245,12 +4029,12 @@
       ],
       "methods": [],
       "position": {
-        "x": 601,
-        "y": 637
+        "x": 990,
+        "y": 35
       },
       "size": {
-        "width": 155.328125,
-        "height": 107.86979293823242
+        "width": 155.84375,
+        "height": 108.49479293823242
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -4342,174 +4126,9 @@
           "text": "id\nnome\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 61.515625,
+          "ref-x": 61.640625,
           "font-size": 11,
           "text": "java.lang.String\njava.lang.String\n"
-        },
-        ".uml-class-methods-text": {
-          "fill": "#0066FF",
-          "font-size": 11,
-          "text": ""
-        }
-      }
-    },
-    {
-      "type": "uml.Class",
-      "name": "GrupoPedido",
-      "attributes": [
-        "id:java.lang.String",
-        "nome:java.lang.String",
-        "tipoTrabalho:TipoTrabalho",
-        "idGrupo:java.lang.String"
-      ],
-      "methods": [],
-      "position": {
-        "x": 597,
-        "y": 846
-      },
-      "size": {
-        "width": 189.546875,
-        "height": 129.51891326904297
-      },
-      "angle": 0,
-      "multitenantContextJsonIgnore": "false",
-      "multitenantContextIgnoreEntities": "",
-      "role": "Auto",
-      "queries": [],
-      "tableName": null,
-      "tableScheme": null,
-      "isRest": "true",
-      "multitenantContext": "",
-      "restSecurity": null,
-      "restPath": "",
-      "id": "5557ca32-12f7-4e41-be55-6f1056c90963",
-      "fields": [
-        {
-          "name": "id",
-          "type": "java.lang.String",
-          "dbName": "id",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "UUID.randomUUID().toString().toUpperCase()",
-          "label": "Id",
-          "mask": "",
-          "isPrimaryKey": true,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "UUID",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "nome",
-          "type": "java.lang.String",
-          "dbName": "nome",
-          "dbLength": 30,
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Nome",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "tipoTrabalho",
-          "type": "TipoTrabalho",
-          "dbName": "fk_tipoTrabalho",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": true,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "idGrupo",
-          "type": "java.lang.String",
-          "dbName": "idGrupo",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Grupo",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": true,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        }
-      ],
-      "runtimeClass": "cronos.widgets.joint.uml.Class",
-      "z": 35,
-      "attrs": {
-        "rect": {
-          "stroke": "yellow",
-          "stroke-width": 2
-        },
-        ".uml-class-name-rect": {
-          "height": 50,
-          "transform": "translate(0,0)"
-        },
-        ".uml-class-attrs-rect": {
-          "height": 110,
-          "transform": "translate(0,50)"
-        },
-        ".uml-class-methods-rect": {
-          "height": 30,
-          "transform": "translate(0,160)"
-        },
-        ".uml-class-name-text": {
-          "fill": "#000",
-          "font-size": 12,
-          "text": "GrupoPedido",
-          "font-weight": "bold"
-        },
-        ".uml-class-attrs-text": {
-          "font-size": 11,
-          "text": "id\nnome\ntipoTrabalho\nidGrupo\n"
-        },
-        ".uml-class-attrs-value": {
-          "ref-x": 95.734375,
-          "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\nTipoTrabalho\njava.lang.String\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
@@ -4523,11 +4142,12 @@
       "relationFields": [
         "tipoTrabalho:target"
       ],
+      "associationType": "Association",
       "name": null,
-      "id": "d96693f7-6c92-4deb-a6e3-307965c7d21a",
+      "id": "b1401824-9407-41e3-97e7-92eceb049f0b",
       "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
       "target": {
-        "id": "5557ca32-12f7-4e41-be55-6f1056c90963"
+        "id": "32106184-3bb9-46e8-b1e2-bdb0d55207b4"
       },
       "source": {
         "id": "8b8d8efb-f826-400c-a8ca-33c77dcf71d1"
@@ -4548,7 +4168,7 @@
           }
         }
       ],
-      "z": 36,
+      "z": 35,
       "attrs": {
         ".marker-target": {
           "d": "",
@@ -4580,14 +4200,12 @@
         "19e7db7f-eef3-4ded-b1aa-440e1f3cacca",
         "e49e7a1e-c203-4c2a-9fdc-d24745670f07",
         "d2e50f97-0b9e-4037-94ba-af64568af247",
-        "077b089a-5037-41bf-9e5b-23bac4bdf726",
         "be90c0e8-4181-4843-8185-a74555e93c4c",
         "3726fb12-8130-4d06-ab97-15d8ef054b7c",
         "677ad9f3-b08a-4293-b47a-4714ab52fa81",
         "1df87f56-c5ba-47f5-8e68-82931f49b989",
         "a4322c30-c8a7-483d-8a94-1da4e779a879",
         "1027a35f-f03c-402a-a435-3c7a31d8f3e6",
-        "5557ca32-12f7-4e41-be55-6f1056c90963",
         "d92238a3-a37d-4cc6-a543-d0687dc207cd",
         "8b8d8efb-f826-400c-a8ca-33c77dcf71d1"
       ]

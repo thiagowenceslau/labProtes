@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/webapp/views/logged/detalhesolicitacao.view.html" resourceType="JAVA" ruleDescription="DetalheSolicitacao" ruleName="DetalheSolicitacao" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="452.0000000000008" scrolly="21.999999999999602" target="Anb:u5+^,0vLkL9QIqn5"/>
-  <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-277" y="83">
+  <metadata scale="1" scrollx="473.0000000000009" scrolly="15.99999999999963" target="fO0=zV_!5B?AB/0ru.;U"/>
+  <block colour="#995ba5" id="fO0=zV_!5B?AB/0ru.;U" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-262" y="53">
+    <mutation>
+      <arg name="pedido&lt;app.entity.Pedido&gt;"/>
+    </mutation>
+    <field name="NAME">ObterDetalhePedido</field>
+    <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
+    <value name="RETURN">
+      <block colour="#a55b80" dependencyby="fO0=zV_!5B?AB/0ru.;U" id="s@TMot;H!Ymr;E^HBGi9" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+        <field name="VAR">pedido</field>
+      </block>
+    </value>
+  </block>
+  <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-246" y="97">
     <mutation>
       <arg name="pedido"/>
     </mutation>

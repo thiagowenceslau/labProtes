@@ -58,9 +58,9 @@ public class ItemPedido implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "grupo", nullable = true, unique = false, length=30, insertable=true, updatable=true)
+  @Column(name = "servico", nullable = true, unique = false, length=30, insertable=true, updatable=true)
   
-  private java.lang.String grupo;
+  private java.lang.String servico;
 
   /**
   * @generated
@@ -68,6 +68,20 @@ public class ItemPedido implements Serializable {
   @Column(name = "cor", nullable = true, unique = false, length=15, insertable=true, updatable=true)
   
   private java.lang.String cor;
+
+  /**
+  * @generated
+  */
+  @Column(name = "situacaoEtapa", nullable = true, unique = false, length=30, insertable=true, updatable=true)
+  
+  private java.lang.String situacaoEtapa;
+
+  /**
+  * @generated
+  */
+  @Column(name = "valorServico", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.Double valorServico;
 
   /**
    * Construtor
@@ -158,22 +172,22 @@ public class ItemPedido implements Serializable {
   }
 
   /**
-   * Obtém grupo
-   * return grupo
+   * Obtém servico
+   * return servico
    * @generated
    */
   
-  public java.lang.String getGrupo(){
-    return this.grupo;
+  public java.lang.String getServico(){
+    return this.servico;
   }
 
   /**
-   * Define grupo
-   * @param grupo grupo
+   * Define servico
+   * @param servico servico
    * @generated
    */
-  public ItemPedido setGrupo(java.lang.String grupo){
-    this.grupo = grupo;
+  public ItemPedido setServico(java.lang.String servico){
+    this.servico = servico;
     return this;
   }
 
@@ -194,6 +208,46 @@ public class ItemPedido implements Serializable {
    */
   public ItemPedido setCor(java.lang.String cor){
     this.cor = cor;
+    return this;
+  }
+
+  /**
+   * Obtém situacaoEtapa
+   * return situacaoEtapa
+   * @generated
+   */
+  
+  public java.lang.String getSituacaoEtapa(){
+    return this.situacaoEtapa;
+  }
+
+  /**
+   * Define situacaoEtapa
+   * @param situacaoEtapa situacaoEtapa
+   * @generated
+   */
+  public ItemPedido setSituacaoEtapa(java.lang.String situacaoEtapa){
+    this.situacaoEtapa = situacaoEtapa;
+    return this;
+  }
+
+  /**
+   * Obtém valorServico
+   * return valorServico
+   * @generated
+   */
+  
+  public java.lang.Double getValorServico(){
+    return this.valorServico;
+  }
+
+  /**
+   * Define valorServico
+   * @param valorServico valorServico
+   * @generated
+   */
+  public ItemPedido setValorServico(java.lang.Double valorServico){
+    this.valorServico = valorServico;
     return this;
   }
 

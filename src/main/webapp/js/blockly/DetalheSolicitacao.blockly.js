@@ -11,7 +11,5 @@ window.blockly.js.blockly.DetalheSolicitacao.obterId = function() {
 
 	var idPedido;
 	idPedido = this.cronapi.screen.getParam('pedido');
-	this.cronapi.util.callServerBlocklyNoReturn(
-			'blockly.DetalheSolicitacao:obterIdPedido', idPedido);
 	return idPedido;
 }

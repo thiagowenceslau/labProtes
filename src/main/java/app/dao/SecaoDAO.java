@@ -49,29 +49,8 @@ public interface SecaoDAO extends JpaRepository<Secao, java.lang.String> {
    * OneToMany Relation
    * @generated
    */
-  @Query("SELECT entity FROM Servico entity WHERE entity.secao.id = :id")
-  public Page<Servico> findServico(@Param(value="id") java.lang.String id, Pageable pageable);
-
-  /**
-   * OneToMany Relation
-   * @generated
-   */
   @Query("SELECT entity FROM EtapaComissao entity WHERE entity.secao.id = :id")
   public Page<EtapaComissao> findEtapaComissao(@Param(value="id") java.lang.String id, Pageable pageable);
-  /**
-   * ManyToOne Relation
-   * @generated
-   */
-  @Query("SELECT entity.grupoServicos FROM Servico entity WHERE entity.secao.id = :id")
-  public Page<GrupoServicos> listGrupoServicos(@Param(value="id") java.lang.String id, Pageable pageable);
-
-  /**
-   * ManyToOne Relation Delete
-   * @generated
-   */
-  @Modifying
-  @Query("DELETE FROM Servico entity WHERE entity.secao.id = :instanceId AND entity.grupoServicos.id = :relationId")
-  public int deleteGrupoServicos(@Param(value="instanceId") java.lang.String instanceId, @Param(value="relationId") java.lang.String relationId);
 
   
   /**

@@ -126,23 +126,7 @@
                 </div>
                     
 
-                <datasource name="Secao" entity="api/cronapi/crud/app.entity.Secao" keys="id" class="" dependent-by="{{Servico}}"></datasource><div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-secao" class="col-md-12 col-lg-12" style="width: 48%; height: 94px; margin-left:29px;">
-                    <div class="form-group">
-                        <label for="combobox-dynamic-secao" class="">Seção</label>
- <!-- else for if !model.hasCronappFramework() -->
-                                <ui-select ng-model="Servico.active.secao" crn-datasource="Secao" class="crn-select" id="combobox-dynamic-secao" ng-required="true" theme="bootstrap">
-                                    <ui-select-match class="" placeholder="Items">
-                                        {{$select.selected.descricao}}
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
-                                        <div class="" data-container="true">
-                                            {{rowData.descricao}}
-                                        </div>
-                                    </ui-select-choices>
-                                </ui-select>
-                         <!-- end if !model.hasCronappFramework() -->
-                    </div>
-                </div>
+                
                 </fieldset>
                 <fieldset style="margin:25px;" class="genClass9455"><legend class="col-md-12">Lista de Preços</legend>
                 <table>
@@ -286,7 +270,7 @@
                 <!-- seach 1toN end-->
                 <div data-component="crn-textinput" id="crn-textinput-descricao" class="col-md-1" style="width: 90%; height: 145px;">
                     <div class="form-group">
-                        <label for="textinput-descricao" class="col-md-12">EtapaComissao</label>
+                        <label for="textinput-descricao" class="col-md-12">Etapa de Comissão</label>
                         <div class="component-holder col-md-1" data-component="crn-grid" id="crn-grid-EtapaComissaoGrid" style="width: 964px; height: 120px;">
                             <div crn-datasource="EtapaComissaoGrid">
                                 <table class="table table-bordered table-hover table-striped">
@@ -298,9 +282,7 @@
                                                     </div>
                                                 </th>
                                                 <th class="">
-                                                    <div class="">
-                                                        Secao
-                                                    </div>
+                                                    <div class="">Seção</div>
                                                 </th>
                                                 <th class="">
                                                     <div class="">
@@ -308,9 +290,7 @@
                                                     </div>
                                                 </th>
                                                 <th class="">
-                                                    <div class="">
-                                                        Valor
-                                                    </div>
+                                                    <div class="">Valor R$</div>
                                                 </th>
                                                 
                                                 

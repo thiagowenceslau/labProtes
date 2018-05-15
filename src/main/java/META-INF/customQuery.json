@@ -1250,15 +1250,15 @@
 			"type": "select",
 			"rulesEntity": [
 				{
-					"entity": "GrupoPedido",
-					"namespace": "app.entity.GrupoPedido",
-					"alias": "g"
+					"entity": "Servico",
+					"namespace": "app.entity.Servico",
+					"alias": "s"
 				}
 			],
 			"rulesSelect": [
 				{
 					"func": "get",
-					"field": "g",
+					"field": "s",
 					"type": "string"
 				}
 			],
@@ -1269,8 +1269,8 @@
 				"condition": "AND",
 				"rules": [
 					{
-						"id": "g.tipoTrabalho.id",
-						"field": "g.tipoTrabalho.id",
+						"id": "s.tipoTrabalho.id",
+						"field": "s.tipoTrabalho.id",
 						"type": "string",
 						"input": "text",
 						"operator": "equal",
@@ -1313,18 +1313,8 @@
 			"onNavigate": null,
 			"onGetData": null
 		},
-		"defaultValues": {
-			"id": null,
-			"nome": null,
-			"tipoTrabalho": null,
-			"idGrupo": null
-		},
-		"security": {
-			"id": null,
-			"nome": null,
-			"tipoTrabalho": null,
-			"idGrupo": null
-		},
+		"defaultValues": {},
+		"security": {},
 		"calcFields": {},
 		"calcFieldsSecurity": {},
 		"errorHandles": {
@@ -1758,5 +1748,167 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/1jefxths35zcm/"
+	},
+	"urunfzivbub6": {
+		"customId": "EtapaEntidade",
+		"queryName": "Etapa",
+		"screen": "src/main/webapp/views/logged/etapa.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Etapa",
+		"entityFullName": "app.entity.Etapa",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Etapa",
+					"namespace": "app.entity.Etapa",
+					"alias": "e"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "e",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"descricao": null,
+			"ativo": "sim"
+		},
+		"security": {
+			"id": null,
+			"descricao": null,
+			"ativo": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/urunfzivbub6/"
+	},
+	"t4l4gdgewsom": {
+		"customId": "SecaoEntidade",
+		"queryName": "Secao",
+		"screen": "src/main/webapp/views/logged/secao.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Secao",
+		"entityFullName": "app.entity.Secao",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Secao",
+					"namespace": "app.entity.Secao",
+					"alias": "s"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "s",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"descricao": null,
+			"ativo": "sim"
+		},
+		"security": {
+			"id": null,
+			"descricao": null,
+			"ativo": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/t4l4gdgewsom/"
 	}
 }

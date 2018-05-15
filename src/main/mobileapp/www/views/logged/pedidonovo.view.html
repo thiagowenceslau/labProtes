@@ -133,9 +133,9 @@
               </table> &nbsp; 
             </div> 
             <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Grupo" ng-hide="true">
-               Grupo 
+               Serviço 
               <label class="item item-input item-select component-holder col-xs-12" data-component="crn-select" id="crn-select-438011"> 
-                <div class="input-label"></div><select ng-model="GrupoPedido.active" class="form-control" id="textinput-item" name="textinput-item" ng-options="opt as opt.nome for opt in GrupoPedido.data track by opt.id"><option value=""></option></select></label> 
+                <div class="input-label"></div><select ng-model="Servico.active" class="form-control" id="textinput-item" name="textinput-item" ng-options="opt as opt.nome for opt in Servico.data track by opt.id"><option value=""></option></select></label> 
             </ion-item> 
             <ion-item class="item dark component-holder col-xs-12" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-Cor" ng-hide="true">
                Cor 
@@ -151,9 +151,7 @@
                   <ion-item ng-repeat="rowData in datasource.data" class="item"> 
                     <div class="row"> 
                       <div class="col">{{rowData.tipoTrabalho}}</div> 
-                      <div class="col">
-                        {{rowData.grupo}}
-                      </div> 
+                      <div class="col">{{rowData.servico}}</div> 
                       <div class="col">
                         {{rowData.cor}}
                       </div> 
