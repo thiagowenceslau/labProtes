@@ -1,0 +1,364 @@
+<h3>Pedido</h3>
+
+<!-- div row para pesquisa -->
+<!--<div class="row">-->
+
+    <div ng-hide="Pedido.inserting || Pedido.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class="">
+        <div class="form-group">
+            <label for="textinput-filter" class="">{{"template.crud.search" | translate}}</label>
+            <input type="text" ng-model="vars.search" cronapp-filter="paciente;" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" crn-datasource="Pedido" class="form-control" value="" placeholder="{{'template.crud.search' | translate}}">
+        </div>
+    </div>
+
+<div data-component="crn-button" id="crn-button-564202" class="">
+    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="Pedido.startInserting()" ng-hide="Pedido.inserting || Pedido.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+</div>
+<!-- fim div row para pesquisa -->
+<!--</div>-->
+
+<datasource filter="" name="Pedido" entity="api/cronapi/crud/app.entity.Pedido" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<div class="component-holder" data-component="crn-grid" id="crn-grid-Pedido">
+    <div crn-datasource="Pedido" class="" ng-hide="Pedido.editing || Pedido.inserting">
+        <table class="table  table-bordered table-hover table-striped">
+            <thead>
+            <tr class="table-header">
+                <th class="">
+                    <div class="">Paciente</div>
+                </th>
+                <th class="">
+                    <div class="">Identificação</div>
+                </th>
+                <th class="">
+                    <div class="">Sexo</div>
+                </th>
+                <th class="">
+                    <div class="">{{"template.crud.actions" | translate}}</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-content" ng-repeat="rowData in datasource.data">
+                <td class="">
+                    <div class="">
+                                {{rowData.paciente  }}
+                    </div>
+                </td>
+                <td class="">
+                    <div class="">
+                                {{rowData.codigoPaciente  }}
+                    </div>
+                </td>
+                <td class="">
+                    <div class="">
+                                {{rowData.sexo  }}
+                    </div>
+                </td>
+                <td class="">
+                    <div class="">
+                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="table-footer-controls">
+            <button class="btn btn-default btn-block btn-clicked" data-component="crn-button" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button>
+        </div>
+    </div>
+</div>
+<div data-component="crn-form" id="crn-form-form-Pedido">
+    <div class="form" ng-show="Pedido.editing || Pedido.inserting">
+        <form crn-datasource="Pedido" class="">
+            <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting">
+                <button class="btn btn-primary" data-component="crn-button" ng-click="datasource.startInserting()"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                <button class="btn btn-success" data-component="crn-button" ng-click="datasource.startEditing()"><i class="glyphicon glyphicon-edit"></i></button>
+                <button class="btn btn-primary" data-component="crn-button" ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                <button class="btn btn-primary" data-component="crn-button" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                <button class="btn btn-primary" data-component="crn-button" ng-click="datasource.remove()"><i class="glyphicon glyphicon-trash"></i></button>
+            </div>
+            <div class="active-bar" ng-hide="!datasource.editing &amp;&amp; !datasource.inserting">
+                <button class="btn btn-success" data-component="crn-button" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
+                <button class="btn btn-danger" data-component="crn-button" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
+            </div>
+            <br/>
+            <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
+
+                <div data-component="crn-textinput" id="crn-textinput-paciente" class="">
+                    <div class="form-group">
+                        <label for="textinput-paciente" class="">Paciente</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            maxlength="120"
+                                            type="text"
+                                            ng-model="Pedido.active.paciente"
+                                            class="form-control"
+                                            id="textinput-paciente"
+                                            placeholder="Paciente"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-codigoPaciente" class="">
+                    <div class="form-group">
+                        <label for="textinput-codigoPaciente" class="">Identificação</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            maxlength="10"
+                                            type="text"
+                                            ng-model="Pedido.active.codigoPaciente"
+                                            class="form-control"
+                                            id="textinput-codigoPaciente"
+                                            placeholder="Identificação"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-sexo" class="">
+                    <div class="form-group">
+                        <label for="textinput-sexo" class="">Sexo</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            maxlength="10"
+                                            type="text"
+                                            ng-model="Pedido.active.sexo"
+                                            class="form-control"
+                                            id="textinput-sexo"
+                                            placeholder="Sexo"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-dataNascimentoPaciente" class="">
+                    <div class="form-group">
+                        <label for="textinput-dataNascimentoPaciente" class="">Data Nascimento</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            type="date"
+                                            ng-model="Pedido.active.dataNascimentoPaciente"
+                                            class="form-control"
+                                            id="textinput-dataNascimentoPaciente"
+                                            placeholder="Data Nascimento"
+                                            mask="DD/MM/YYYY"
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-idadePaciente" class="">
+                    <div class="form-group">
+                        <label for="textinput-idadePaciente" class="">Idade</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            type="integer"
+                                            ng-model="Pedido.active.idadePaciente"
+                                            class="form-control"
+                                            id="textinput-idadePaciente"
+                                            placeholder="Idade"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-dataEntregaSolicitada" class="">
+                    <div class="form-group">
+                        <label for="textinput-dataEntregaSolicitada" class="">Entrega</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            type="date"
+                                            ng-model="Pedido.active.dataEntregaSolicitada"
+                                            class="form-control"
+                                            id="textinput-dataEntregaSolicitada"
+                                            placeholder="Entrega"
+                                            mask="DD/MM/YYYY"
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-situacaoPedido" class="">
+                    <div class="form-group">
+                        <label for="textinput-situacaoPedido" class="">Situação</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            maxlength="15"
+                                            type="text"
+                                            ng-model="Pedido.active.situacaoPedido"
+                                            class="form-control"
+                                            id="textinput-situacaoPedido"
+                                            placeholder="Situação"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-ativo" class="">
+                    <div class="form-group">
+                        <label for="textinput-ativo" class="">Ativo</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            type="checkbox"
+                                            ng-model="Pedido.active.ativo"
+                                            class="form-control"
+                                            id="textinput-ativo"
+                                            placeholder="Ativo"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-dataEnvio" class="">
+                    <div class="form-group">
+                        <label for="textinput-dataEnvio" class="">Data Envio</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            type="date"
+                                            ng-model="Pedido.active.dataEnvio"
+                                            class="form-control"
+                                            id="textinput-dataEnvio"
+                                            placeholder="Data Envio"
+                                            mask="DD/MM/YYYY"
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+                    <datasource name="Cliente" entity="api/cronapi/crud/app.entity.Cliente" keys="id" class="" dependent-by="{{Pedido}}"></datasource>
+
+                <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-cliente" class="">
+                    <div class="form-group">
+                        <label for="combobox-dynamic-cliente" class="">Cliente</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <ui-select ng-model="Pedido.active.cliente" crn-datasource="Cliente" class="crn-select" id="combobox-dynamic-cliente" ng-required="true" theme="bootstrap">
+                                    <ui-select-match class="" placeholder="Select...">
+                                        {{$select.selected.nome}}
+                                    </ui-select-match>
+                                    <ui-select-choices  repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                                        <div class="" data-container="true">
+                                            {{rowData.nome}}
+                                        </div>
+                                    </ui-select-choices>
+                                </ui-select>
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-valor" class="">
+                    <div class="form-group">
+                        <label for="textinput-valor" class="">Valor</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            type="number"
+                                            ng-model="Pedido.active.valor"
+                                            class="form-control"
+                                            id="textinput-valor"
+                                            placeholder="Valor"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-dataFinalizado" class="">
+                    <div class="form-group">
+                        <label for="textinput-dataFinalizado" class="">Data Finalizado</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            type="date"
+                                            ng-model="Pedido.active.dataFinalizado"
+                                            class="form-control"
+                                            id="textinput-dataFinalizado"
+                                            placeholder="Data Finalizado"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-observacoes" class="">
+                    <div class="form-group">
+                        <label for="textinput-observacoes" class="">Observacoes</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            maxlength="150"
+                                            type="text"
+                                            ng-model="Pedido.active.observacoes"
+                                            class="form-control"
+                                            id="textinput-observacoes"
+                                            placeholder="Observacoes"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-protocolo" class="">
+                    <div class="form-group">
+                        <label for="textinput-protocolo" class="">Protocolo</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            maxlength="15"
+                                            type="text"
+                                            ng-model="Pedido.active.protocolo"
+                                            class="form-control"
+                                            id="textinput-protocolo"
+                                            placeholder="Protocolo"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-dataPrevisao" class="">
+                    <div class="form-group">
+                        <label for="textinput-dataPrevisao" class="">Data Previsão</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input
+                                            type="date"
+                                            ng-model="Pedido.active.dataPrevisao"
+                                            class="form-control"
+                                            id="textinput-dataPrevisao"
+                                            placeholder="Data Previsão"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+                <!-- NtoN  -->
+                <!-- NtoN  end-->
+            </fieldset>
+        </form>
+        <form>
+            <fieldset>
+                <!-- OneToN -->
+                <!-- OneToOne  end -->
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+<!-- OneToOne modal -->
+<!-- OneToOne modal end-->

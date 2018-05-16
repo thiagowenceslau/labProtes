@@ -14,7 +14,7 @@
       "id": "paperCell",
       "runtimeClass": "cronos.widgets.joint.uml.Paper",
       "z": 1,
-      "dataSource": "jdbc/main",
+      "dataSource": "jdbc/techprotes",
       "namespace": "app",
       "apiPath": "src/main/webapp/raml/app/api.raml",
       "restPath": "/api/rest",
@@ -26,6 +26,7 @@
         "put": "authenticated",
         "delete": "authenticated"
       },
+      "generationType": "drop-and-create-tables",
       "attrs": {}
     },
     {
@@ -709,12 +710,12 @@
       ],
       "methods": [],
       "position": {
-        "x": 73,
+        "x": 74,
         "y": 220
       },
       "size": {
-        "width": 231.484375,
-        "height": 315.6748046875
+        "width": 225,
+        "height": 318.1748046875
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -1243,7 +1244,7 @@
           "text": "id\nNome\nCRO\nEspecialidade\nRG\nCPF\nTelefone1\nTelefone2\nCEP\nEndereco\nBairro\nCidade\nEstado\nDataNascimento\nAtivo\nuser\nRazaoSocial\nCNPJ\nInscricaoEstadual\nInscricaoMunicipal\nlistaPreco\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 126.03125,
+          "ref-x": 122,
           "font-size": 11,
           "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.util.Date\njava.lang.Boolean\nUser\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\nListaPreco\n"
         },
@@ -3245,7 +3246,7 @@
       ],
       "methods": [],
       "position": {
-        "x": 38,
+        "x": 40,
         "y": 584
       },
       "size": {
@@ -3683,10 +3684,16 @@
         "pedido:Pedido",
         "tipoTrabalho:java.lang.String",
         "dente:java.lang.String",
-        "grupo:java.lang.String",
+        "nomeServico:java.lang.String",
         "cor:java.lang.String",
         "situacaoEtapa:java.lang.String",
-        "valorServico:java.lang.Double"
+        "valorServico:java.lang.Double",
+        "dataPrevisaoEntrega:java.util.Date",
+        "dataFinalizado:java.util.Date",
+        "horaFinalizado:java.sql.Time",
+        "horaPrevisaoEntrega:java.sql.Time",
+        "situacaoItemPedido:java.lang.String",
+        "servico:Servico"
       ],
       "methods": [],
       "position": {
@@ -3694,8 +3701,8 @@
         "y": 898
       },
       "size": {
-        "width": 200,
-        "height": 175.6290512084961
+        "width": 233,
+        "height": 241.34414672851562
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -3803,14 +3810,14 @@
           "isSearchable": false
         },
         {
-          "name": "grupo",
+          "name": "nomeServico",
           "type": "java.lang.String",
-          "dbName": "grupo",
+          "dbName": "servico",
           "dbLength": 30,
           "dbPrecision": "",
           "dbScale": "",
           "dbDefaultValue": "",
-          "label": "Grupo",
+          "label": "Serviço",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
@@ -3893,6 +3900,144 @@
           "isEncryption": false,
           "referencedColumnName": "",
           "isSearchable": false
+        },
+        {
+          "name": "dataPrevisaoEntrega",
+          "type": "java.util.Date",
+          "dbName": "dataPrevisaoEntrega",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Data Previsão Entrega",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "dataFinalizado",
+          "type": "java.util.Date",
+          "dbName": "dataFinalizado",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Data Finalizado",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "horaFinalizado",
+          "type": "java.sql.Time",
+          "dbName": "horaFinalizado",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Hora Finalizado",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "horaPrevisaoEntrega",
+          "type": "java.sql.Time",
+          "dbName": "horaPrevisaoEntrega",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Hora Previsão Entrega",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "situacaoItemPedido",
+          "type": "java.lang.String",
+          "dbName": "situacaoItemPedido",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Situação Serviço",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "servico",
+          "type": "Servico",
+          "dbName": "fk_servico",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Servico",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
         }
       ],
       "runtimeClass": "cronos.widgets.joint.uml.Class",
@@ -3907,12 +4052,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 190,
+          "height": 310,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,240)"
+          "transform": "translate(0,360)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -3922,12 +4067,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\npedido\ntipoTrabalho\ndente\ngrupo\ncor\nsituacaoEtapa\nvalorServico\n"
+          "text": "id\npedido\ntipoTrabalho\ndente\nnomeServico\ncor\nsituacaoEtapa\nvalorServico\ndataPrevisaoEntrega\ndataFinalizado\nhoraFinalizado\nhoraPrevisaoEntrega\nsituacaoItemPedido\nservico\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 103,
+          "ref-x": 136,
           "font-size": 11,
-          "text": "java.lang.String\nPedido\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.Double\n"
+          "text": "java.lang.String\nPedido\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.Double\njava.util.Date\njava.util.Date\njava.sql.Time\njava.sql.Time\njava.lang.String\nServico\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
@@ -4179,6 +4324,422 @@
           "fill": "#cecece"
         }
       }
+    },
+    {
+      "type": "uml.Class",
+      "name": "EtapaItemPedido",
+      "attributes": [
+        "id:java.lang.String",
+        "itemPedido:ItemPedido",
+        "etapa:Etapa",
+        "funcionario:Funcionario",
+        "dataPrevisaoEntrega:java.util.Date",
+        "horaPrevisaoEntrega:java.sql.Time",
+        "dataFinalizado:java.util.Date",
+        "horaFinalzada:java.sql.Time",
+        "situacao:java.lang.String"
+      ],
+      "methods": [],
+      "position": {
+        "x": 510,
+        "y": 1020
+      },
+      "size": {
+        "width": 232.140625,
+        "height": 184.065185546875
+      },
+      "angle": 0,
+      "multitenantContextJsonIgnore": "false",
+      "multitenantContextIgnoreEntities": "",
+      "role": "Auto",
+      "queries": [],
+      "tableName": null,
+      "realName": "",
+      "tableScheme": null,
+      "generateView": "Auto",
+      "isRest": "true",
+      "multitenantContext": "",
+      "restSecurity": null,
+      "restPath": "",
+      "id": "5938d5df-b34f-4084-9884-899268bdb120",
+      "fields": [
+        {
+          "name": "id",
+          "type": "java.lang.String",
+          "dbName": "id",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "UUID.randomUUID().toString().toUpperCase()",
+          "label": "Id",
+          "mask": "",
+          "isPrimaryKey": true,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "UUID",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "itemPedido",
+          "type": "ItemPedido",
+          "dbName": "fk_itemPedido",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Pedido",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "etapa",
+          "type": "Etapa",
+          "dbName": "fk_etapa",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Etapa",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "funcionario",
+          "type": "Funcionario",
+          "dbName": "fk_funcionario",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Funcionário",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "dataPrevisaoEntrega",
+          "type": "java.util.Date",
+          "dbName": "dataPrevisaoEntrega",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Data Previsao Entrega",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "horaPrevisaoEntrega",
+          "type": "java.sql.Time",
+          "dbName": "horaPrevisaoEntega",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Hora Previsao Entrega",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "dataFinalizado",
+          "type": "java.util.Date",
+          "dbName": "dataFinalizado",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Data Finalizado",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "horaFinalzada",
+          "type": "java.sql.Time",
+          "dbName": "horaFinalzada",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Hora Finalzada",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "situacao",
+          "type": "java.lang.String",
+          "dbName": "situacao",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Situação",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        }
+      ],
+      "runtimeClass": "cronos.widgets.joint.uml.Class",
+      "z": 36,
+      "attrs": {
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
+        },
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-attrs-rect": {
+          "height": 210,
+          "transform": "translate(0,50)"
+        },
+        ".uml-class-methods-rect": {
+          "height": 30,
+          "transform": "translate(0,260)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "text": "EtapaItemPedido",
+          "font-weight": "bold"
+        },
+        ".uml-class-attrs-text": {
+          "font-size": 11,
+          "text": "id\nitemPedido\netapa\nfuncionario\ndataPrevisaoEntrega\nhoraPrevisaoEntrega\ndataFinalizado\nhoraFinalzada\nsituacao\n"
+        },
+        ".uml-class-attrs-value": {
+          "ref-x": 138.328125,
+          "font-size": 11,
+          "text": "java.lang.String\nItemPedido\nEtapa\nFuncionario\njava.util.Date\njava.sql.Time\njava.util.Date\njava.sql.Time\njava.lang.String\n"
+        },
+        ".uml-class-methods-text": {
+          "fill": "#0066FF",
+          "font-size": 11,
+          "text": ""
+        }
+      }
+    },
+    {
+      "type": "uml.Composition",
+      "relationFields": [
+        "itemPedido:target"
+      ],
+      "associationType": "Association",
+      "name": null,
+      "id": "8a4701ff-3347-4bd5-b95e-9f4b59cdedeb",
+      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
+      "target": {
+        "id": "5938d5df-b34f-4084-9884-899268bdb120"
+      },
+      "source": {
+        "id": "3726fb12-8130-4d06-ab97-15d8ef054b7c"
+      },
+      "labels": [
+        {
+          "position": 0.9,
+          "attrs": {
+            "rect": {
+              "fill": "transparent"
+            },
+            "text": {
+              "text": "*",
+              "font-family": "Arial",
+              "font-size": "12px",
+              "fill": "#cecece"
+            }
+          }
+        }
+      ],
+      "z": 37,
+      "attrs": {
+        ".marker-target": {
+          "d": "",
+          "fill": ""
+        },
+        ".marker-source": {
+          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
+          "fill": "#cecece"
+        }
+      }
+    },
+    {
+      "type": "uml.Composition",
+      "relationFields": [
+        "etapa:target"
+      ],
+      "associationType": "Association",
+      "name": null,
+      "id": "02327dcd-5bea-42e3-ba9a-4cd9ffb906bf",
+      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
+      "target": {
+        "id": "5938d5df-b34f-4084-9884-899268bdb120"
+      },
+      "source": {
+        "id": "a4322c30-c8a7-483d-8a94-1da4e779a879"
+      },
+      "labels": [
+        {
+          "position": 0.9,
+          "attrs": {
+            "rect": {
+              "fill": "transparent"
+            },
+            "text": {
+              "text": "*",
+              "font-family": "Arial",
+              "font-size": "12px",
+              "fill": "#cecece"
+            }
+          }
+        }
+      ],
+      "z": 38,
+      "attrs": {
+        ".marker-target": {
+          "d": "",
+          "fill": ""
+        },
+        ".marker-source": {
+          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
+          "fill": "#cecece"
+        }
+      }
+    },
+    {
+      "type": "uml.Composition",
+      "relationFields": [
+        "funcionario:target"
+      ],
+      "associationType": "Association",
+      "name": null,
+      "id": "d790f052-b3bf-4f7c-9700-f8dba3de5ebb",
+      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
+      "target": {
+        "id": "5938d5df-b34f-4084-9884-899268bdb120"
+      },
+      "source": {
+        "id": "e49e7a1e-c203-4c2a-9fdc-d24745670f07"
+      },
+      "labels": [
+        {
+          "position": 0.9,
+          "attrs": {
+            "rect": {
+              "fill": "transparent"
+            },
+            "text": {
+              "text": "*",
+              "font-family": "Arial",
+              "font-size": "12px",
+              "fill": "#cecece"
+            }
+          }
+        }
+      ],
+      "z": 39,
+      "attrs": {
+        ".marker-target": {
+          "d": "",
+          "fill": ""
+        },
+        ".marker-source": {
+          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
+          "fill": "#cecece"
+        }
+      }
     }
   ],
   "selectedGroup": "1d7f906f-a526-482d-aaf4-08d227ae8c18",
@@ -4207,6 +4768,7 @@
         "a4322c30-c8a7-483d-8a94-1da4e779a879",
         "1027a35f-f03c-402a-a435-3c7a31d8f3e6",
         "d92238a3-a37d-4cc6-a543-d0687dc207cd",
+        "5938d5df-b34f-4084-9884-899268bdb120",
         "8b8d8efb-f826-400c-a8ca-33c77dcf71d1"
       ]
     }

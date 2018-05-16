@@ -2,12 +2,13 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
     <persistence-unit name="app" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <non-jta-data-source>java:comp/env/jdbc/main</non-jta-data-source>
+        <non-jta-data-source>java:comp/env/jdbc/techprotes</non-jta-data-source>
+        <class>app.entity.ItemPedido</class>
+        <class>app.entity.EtapaItemPedido</class>
         <class>app.entity.Servico</class>
         <class>app.entity.Etapa</class>
         <class>app.entity.Secao</class>
         <class>app.entity.User</class>
-        <class>app.entity.ItemPedido</class>
         <class>app.entity.ListaPreco</class>
         <class>app.entity.TipoTrabalho</class>
         <class>app.entity.Cliente</class>
@@ -17,7 +18,7 @@
         <class>app.entity.Device</class>
         <class>app.entity.Pedido</class>
         <properties>
-            <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
         </properties>
     </persistence-unit>
 </persistence>

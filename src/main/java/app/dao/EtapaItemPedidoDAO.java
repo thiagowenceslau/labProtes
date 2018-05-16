@@ -16,23 +16,23 @@ import org.springframework.transaction.annotation.*;
  * 
  * @generated
  */
-@Repository("ItemPedidoDAO")
+@Repository("EtapaItemPedidoDAO")
 @Transactional(transactionManager="app-TransactionManager")
-public interface ItemPedidoDAO extends JpaRepository<ItemPedido, java.lang.String> {
+public interface EtapaItemPedidoDAO extends JpaRepository<EtapaItemPedido, java.lang.String> {
 
   /**
-   * Obtém a instância de ItemPedido utilizando os identificadores
+   * Obtém a instância de EtapaItemPedido utilizando os identificadores
    * 
    * @param id
    *          Identificador 
    * @return Instância relacionada com o filtro indicado
    * @generated
    */    
-  @Query("SELECT entity FROM ItemPedido entity WHERE entity.id = :id")
-  public ItemPedido findOne(@Param(value="id") java.lang.String id);
+  @Query("SELECT entity FROM EtapaItemPedido entity WHERE entity.id = :id")
+  public EtapaItemPedido findOne(@Param(value="id") java.lang.String id);
 
   /**
-   * Remove a instância de ItemPedido utilizando os identificadores
+   * Remove a instância de EtapaItemPedido utilizando os identificadores
    * 
    * @param id
    *          Identificador 
@@ -40,30 +40,30 @@ public interface ItemPedidoDAO extends JpaRepository<ItemPedido, java.lang.Strin
    * @generated
    */    
   @Modifying
-  @Query("DELETE FROM ItemPedido entity WHERE entity.id = :id")
+  @Query("DELETE FROM EtapaItemPedido entity WHERE entity.id = :id")
   public void delete(@Param(value="id") java.lang.String id);
 
 
 
   /**
-   * OneToMany Relation
+   * Foreign Key itemPedido
    * @generated
    */
   @Query("SELECT entity FROM EtapaItemPedido entity WHERE entity.itemPedido.id = :id")
-  public Page<EtapaItemPedido> findEtapaItemPedido(@Param(value="id") java.lang.String id, Pageable pageable);
+  public Page<EtapaItemPedido> findEtapaItemPedidosByItemPedido(@Param(value="id") java.lang.String id, Pageable pageable);
 
   /**
-   * Foreign Key pedido
+   * Foreign Key etapa
    * @generated
    */
-  @Query("SELECT entity FROM ItemPedido entity WHERE entity.pedido.id = :id")
-  public Page<ItemPedido> findItemPedidosByPedido(@Param(value="id") java.lang.String id, Pageable pageable);
+  @Query("SELECT entity FROM EtapaItemPedido entity WHERE entity.etapa.id = :id")
+  public Page<EtapaItemPedido> findEtapaItemPedidosByEtapa(@Param(value="id") java.lang.String id, Pageable pageable);
 
   /**
-   * Foreign Key servico
+   * Foreign Key funcionario
    * @generated
    */
-  @Query("SELECT entity FROM ItemPedido entity WHERE entity.servico.id = :id")
-  public Page<ItemPedido> findItemPedidosByServico(@Param(value="id") java.lang.String id, Pageable pageable);
+  @Query("SELECT entity FROM EtapaItemPedido entity WHERE entity.funcionario.id = :id")
+  public Page<EtapaItemPedido> findEtapaItemPedidosByFuncionario(@Param(value="id") java.lang.String id, Pageable pageable);
 
 }

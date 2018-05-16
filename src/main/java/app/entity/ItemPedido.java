@@ -58,9 +58,9 @@ public class ItemPedido implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "grupo", nullable = true, unique = false, length=30, insertable=true, updatable=true)
+  @Column(name = "servico", nullable = true, unique = false, length=30, insertable=true, updatable=true)
   
-  private java.lang.String grupo;
+  private java.lang.String nomeServico;
 
   /**
   * @generated
@@ -82,6 +82,53 @@ public class ItemPedido implements Serializable {
   @Column(name = "valorServico", nullable = true, unique = false, insertable=true, updatable=true)
   
   private java.lang.Double valorServico;
+
+  /**
+  * @generated
+  */
+  @Temporal(TemporalType.DATE)
+  @Column(name = "dataPrevisaoEntrega", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.util.Date dataPrevisaoEntrega;
+
+  /**
+  * @generated
+  */
+  @Temporal(TemporalType.DATE)
+  @Column(name = "dataFinalizado", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.util.Date dataFinalizado;
+
+  /**
+  * @generated
+  */
+  @Temporal(TemporalType.TIME)
+  @Column(name = "horaFinalizado", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.util.Date horaFinalizado;
+
+  /**
+  * @generated
+  */
+  @Temporal(TemporalType.TIME)
+  @Column(name = "horaPrevisaoEntrega", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.util.Date horaPrevisaoEntrega;
+
+  /**
+  * @generated
+  */
+  @Column(name = "situacaoItemPedido", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.String situacaoItemPedido;
+
+  /**
+  * @generated
+  */
+  @ManyToOne
+  @JoinColumn(name="fk_servico", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+  
+  private Servico servico;
 
   /**
    * Construtor
@@ -172,22 +219,22 @@ public class ItemPedido implements Serializable {
   }
 
   /**
-   * Obtém grupo
-   * return grupo
+   * Obtém nomeServico
+   * return nomeServico
    * @generated
    */
   
-  public java.lang.String getGrupo(){
-    return this.grupo;
+  public java.lang.String getNomeServico(){
+    return this.nomeServico;
   }
 
   /**
-   * Define grupo
-   * @param grupo grupo
+   * Define nomeServico
+   * @param nomeServico nomeServico
    * @generated
    */
-  public ItemPedido setGrupo(java.lang.String grupo){
-    this.grupo = grupo;
+  public ItemPedido setNomeServico(java.lang.String nomeServico){
+    this.nomeServico = nomeServico;
     return this;
   }
 
@@ -248,6 +295,126 @@ public class ItemPedido implements Serializable {
    */
   public ItemPedido setValorServico(java.lang.Double valorServico){
     this.valorServico = valorServico;
+    return this;
+  }
+
+  /**
+   * Obtém dataPrevisaoEntrega
+   * return dataPrevisaoEntrega
+   * @generated
+   */
+  
+  public java.util.Date getDataPrevisaoEntrega(){
+    return this.dataPrevisaoEntrega;
+  }
+
+  /**
+   * Define dataPrevisaoEntrega
+   * @param dataPrevisaoEntrega dataPrevisaoEntrega
+   * @generated
+   */
+  public ItemPedido setDataPrevisaoEntrega(java.util.Date dataPrevisaoEntrega){
+    this.dataPrevisaoEntrega = dataPrevisaoEntrega;
+    return this;
+  }
+
+  /**
+   * Obtém dataFinalizado
+   * return dataFinalizado
+   * @generated
+   */
+  
+  public java.util.Date getDataFinalizado(){
+    return this.dataFinalizado;
+  }
+
+  /**
+   * Define dataFinalizado
+   * @param dataFinalizado dataFinalizado
+   * @generated
+   */
+  public ItemPedido setDataFinalizado(java.util.Date dataFinalizado){
+    this.dataFinalizado = dataFinalizado;
+    return this;
+  }
+
+  /**
+   * Obtém horaFinalizado
+   * return horaFinalizado
+   * @generated
+   */
+  
+  public java.util.Date getHoraFinalizado(){
+    return this.horaFinalizado;
+  }
+
+  /**
+   * Define horaFinalizado
+   * @param horaFinalizado horaFinalizado
+   * @generated
+   */
+  public ItemPedido setHoraFinalizado(java.util.Date horaFinalizado){
+    this.horaFinalizado = horaFinalizado;
+    return this;
+  }
+
+  /**
+   * Obtém horaPrevisaoEntrega
+   * return horaPrevisaoEntrega
+   * @generated
+   */
+  
+  public java.util.Date getHoraPrevisaoEntrega(){
+    return this.horaPrevisaoEntrega;
+  }
+
+  /**
+   * Define horaPrevisaoEntrega
+   * @param horaPrevisaoEntrega horaPrevisaoEntrega
+   * @generated
+   */
+  public ItemPedido setHoraPrevisaoEntrega(java.util.Date horaPrevisaoEntrega){
+    this.horaPrevisaoEntrega = horaPrevisaoEntrega;
+    return this;
+  }
+
+  /**
+   * Obtém situacaoItemPedido
+   * return situacaoItemPedido
+   * @generated
+   */
+  
+  public java.lang.String getSituacaoItemPedido(){
+    return this.situacaoItemPedido;
+  }
+
+  /**
+   * Define situacaoItemPedido
+   * @param situacaoItemPedido situacaoItemPedido
+   * @generated
+   */
+  public ItemPedido setSituacaoItemPedido(java.lang.String situacaoItemPedido){
+    this.situacaoItemPedido = situacaoItemPedido;
+    return this;
+  }
+
+  /**
+   * Obtém servico
+   * return servico
+   * @generated
+   */
+  
+  public Servico getServico(){
+    return this.servico;
+  }
+
+  /**
+   * Define servico
+   * @param servico servico
+   * @generated
+   */
+  public ItemPedido setServico(Servico servico){
+    this.servico = servico;
     return this;
   }
 

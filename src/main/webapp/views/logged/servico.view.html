@@ -23,13 +23,11 @@
             <thead>
             <tr class="table-header">
                 <th class="active">
-                    <div class="">Grupo </div>
+                    <div class="">Tipo Trabalho</div>
                 </th><th class="">
                     <div class="">Descrição</div>
                 </th>
-                <th class="">
-                    <div class="">Seção</div>
-                </th>
+                
                 
                 
                 
@@ -41,19 +39,13 @@
             <tbody>
             <tr class="table-content" ng-repeat="rowData in datasource.data">
                 <td class="active">
-                    <div class="">
-                            {{rowData.grupoServicos.nome}}
-                    </div>
+                    <div class="">{{rowData.tipoTrabalho.nome}}</div>
                 </td><td class="">
                     <div class="">
                                 {{rowData.descricao  }}
                     </div>
                 </td>
-                <td class="">
-                    <div class="">
-                            {{rowData.secao.descricao}}
-                    </div>
-                </td>
+                
                 
                 
                 
@@ -107,11 +99,11 @@
                 </div>
                     
 
-                <datasource name="Gruposervicos" entity="api/cronapi/crud/app.entity.GrupoServicos" keys="id" class="" dependent-by="{{Servico}}"></datasource><div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-grupoServicos" class="col-md-12 col-lg-12" style="width: 48%; height: 94px; margin-left:10px;">
+                <datasource name="TipoTrabalho" entity="api/cronapi/crud/app.entity.TipoTrabalho" keys="id" class="" dependent-by="{{Servico}}"></datasource><div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-tipoTrabalho" class="col-md-12 col-lg-12" style="width: 48%; height: 94px; margin-left:10px;">
                     <div class="form-group">
-                        <label for="combobox-dynamic-grupoServicos" class="">Grupo de Serviços</label>
+                        <label for="combobox-dynamic-tipoTrabalho" class="">Tipo Trabalho</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <ui-select ng-model="Servico.active.grupoServicos" crn-datasource="Gruposervicos" class="crn-select" id="combobox-dynamic-grupoServicos" ng-required="true" theme="bootstrap">
+                                <ui-select ng-model="Servico.active.tipoTrabalho" crn-datasource="TipoTrabalho" class="crn-select" id="combobox-dynamic-tipoTrabalho" ng-required="true" theme="bootstrap">
                                     <ui-select-match class="" placeholder="Items">
                                         {{$select.selected.nome}}
                                     </ui-select-match>
