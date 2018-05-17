@@ -34,43 +34,6 @@ public class PedidoNovoMobile {
 
 	/**
 	 *
-	 * @param pedidoId
-	 */
-	// Descreva esta função...
-	public static void adicionarNovoItem(Var pedidoId) throws Exception {
-		new Callable<Var>() {
-
-			private Var i = Var.VAR_NULL;
-			private Var dente = Var.VAR_NULL;
-			private Var tipoItem = Var.VAR_NULL;
-			private Var corItem = Var.VAR_NULL;
-			private Var grupoItem = Var.VAR_NULL;
-
-			public Var call() throws Exception {
-				for (Iterator it_i = Var.valueOf(retornarListaDentes()).iterator(); it_i.hasNext();) {
-					i = Var.valueOf(it_i.next());
-					if (cronapi.logic.Operations.isNullOrEmpty(i).negate().getObjectAsBoolean()) {
-						dente = i;
-						tipoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("TipoTrabalho.active.nome"));
-						corItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor"));
-						grupoItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("GrupoPedido.active.nome"));
-						cronapi.database.Operations.insert(Var.valueOf("app.entity.ItemPedido"),
-								Var.valueOf("cor", corItem), Var.valueOf("grupo", grupoItem),
-								Var.valueOf("pedido", pedidoId),
-								Var.valueOf("id", cronapi.util.Operations.generateUUID()), Var.valueOf("dente", dente),
-								Var.valueOf("tipoTrabalho", tipoItem));
-					}
-				} // end for
-				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.refreshDatasource"),
-						Var.valueOf("ItemPedido"), Var.valueOf("true"));
-				limparOdontograma();
-				return Var.VAR_NULL;
-			}
-		}.call();
-	}
-
-	/**
-	 *
 	 * @return Var
 	 */
 	// Descreva esta função...
@@ -136,7 +99,7 @@ public class PedidoNovoMobile {
 			private Var dente = Var.VAR_NULL;
 			private Var tipoItem = Var.VAR_NULL;
 			private Var corItem = Var.VAR_NULL;
-			private Var grupoItem = Var.VAR_NULL;
+			private Var servicoItem = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				idPedido = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.idPedido"));
@@ -190,12 +153,17 @@ public class PedidoNovoMobile {
 							tipoItem = cronapi.screen.Operations
 									.getValueOfField(Var.valueOf("TipoTrabalho.active.nome"));
 							corItem = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCor"));
-							grupoItem = cronapi.screen.Operations
-									.getValueOfField(Var.valueOf("GrupoPedido.active.nome"));
+							servicoItem = cronapi.screen.Operations
+									.getValueOfField(Var.valueOf("Servico.active.descricao"));
 							cronapi.database.Operations.insert(Var.valueOf("app.entity.ItemPedido"),
-									Var.valueOf("cor", corItem), Var.valueOf("grupo", grupoItem),
+									Var.valueOf("nomeServico", servicoItem), Var.valueOf("cor", corItem),
 									Var.valueOf("pedido", idPedido),
 									Var.valueOf("id", cronapi.util.Operations.generateUUID()),
+									Var.valueOf("servico",
+											cronapi.database.Operations.newEntity(Var.valueOf("app.entity.Servico"),
+													Var.valueOf("id",
+															cronapi.screen.Operations.getValueOfField(
+																	Var.valueOf("Servico.active.id"))))),
 									Var.valueOf("dente", dente), Var.valueOf("tipoTrabalho", tipoItem));
 						}
 					} // end for
@@ -203,7 +171,7 @@ public class PedidoNovoMobile {
 					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
 							Var.valueOf("TipoTrabalho.active"), Var.valueOf("0"));
 					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
-							Var.valueOf("GrupoPedido.active"), Var.valueOf("0"));
+							Var.valueOf("Servico.active"), Var.valueOf("0"));
 					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
 							Var.valueOf("vars.txtCor"), Var.VAR_NULL);
 					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.showComponent"),
@@ -340,26 +308,6 @@ public class PedidoNovoMobile {
 	 * @return Var
 	 */
 	// Descreva esta função...
-	public static Var popularCombogrupo() throws Exception {
-		return new Callable<Var>() {
-
-			private Var consultaGrupo = Var.VAR_NULL;
-
-			public Var call() throws Exception {
-				System.out.println(Var.valueOf(retornarIdJson()).getObjectAsString());
-				consultaGrupo = cronapi.database.Operations.query(Var.valueOf("app.entity.GrupoPedido"),
-						Var.valueOf("select g from GrupoPedido g where g.tipoTrabalho.id = :tipoTrabalhoId"),
-						Var.valueOf("tipoTrabalhoId", Var.valueOf(retornarIdJson())));
-				return consultaGrupo;
-			}
-		}.call();
-	}
-
-	/**
-	 *
-	 * @return Var
-	 */
-	// Descreva esta função...
 	public static Var retornarIdClienteLogado() throws Exception {
 		return new Callable<Var>() {
 
@@ -372,26 +320,6 @@ public class PedidoNovoMobile {
 						Var.valueOf("userId", blockly.UsuarioEntidade.obterIdUsuarioLogado()));
 				idCliente = cronapi.database.Operations.getField(cliente, Var.valueOf("this[0].id"));
 				return idCliente;
-			}
-		}.call();
-	}
-
-	/**
-	 *
-	 * @return Var
-	 */
-	// Descreva esta função...
-	public static Var retornarIdJson() throws Exception {
-		return new Callable<Var>() {
-
-			private Var tipo = Var.VAR_NULL;
-			private Var idJson = Var.VAR_NULL;
-
-			public Var call() throws Exception {
-				tipo = cronapi.screen.Operations.getValueOfField(Var.valueOf("TipoTrabalho.active"));
-				idJson = cronapi.json.Operations.getJsonOrMapField(tipo, Var.valueOf("id"));
-				System.out.println(idJson.getObjectAsString());
-				return idJson;
 			}
 		}.call();
 	}

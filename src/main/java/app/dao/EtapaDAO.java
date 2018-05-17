@@ -52,4 +52,11 @@ public interface EtapaDAO extends JpaRepository<Etapa, java.lang.String> {
   @Query("SELECT entity FROM EtapaComissao entity WHERE entity.etapa.id = :id")
   public Page<EtapaComissao> findEtapaComissao(@Param(value="id") java.lang.String id, Pageable pageable);
 
+  /**
+   * OneToMany Relation
+   * @generated
+   */
+  @Query("SELECT entity FROM EtapaItemPedido entity WHERE entity.etapa.id = :id")
+  public Page<EtapaItemPedido> findEtapaItemPedido(@Param(value="id") java.lang.String id, Pageable pageable);
+
 }

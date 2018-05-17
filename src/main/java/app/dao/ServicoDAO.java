@@ -53,6 +53,27 @@ public interface ServicoDAO extends JpaRepository<Servico, java.lang.String> {
   public Page<EtapaComissao> findEtapaComissao(@Param(value="id") java.lang.String id, Pageable pageable);
 
   /**
+   * OneToMany Relation
+   * @generated
+   */
+  @Query("SELECT entity FROM ItemPedido entity WHERE entity.servico.id = :id")
+  public Page<ItemPedido> findItemPedido(@Param(value="id") java.lang.String id, Pageable pageable);
+  /**
+   * ManyToOne Relation
+   * @generated
+   */
+  @Query("SELECT entity.pedido FROM ItemPedido entity WHERE entity.servico.id = :id")
+  public Page<Pedido> listPedido(@Param(value="id") java.lang.String id, Pageable pageable);
+
+  /**
+   * ManyToOne Relation Delete
+   * @generated
+   */
+  @Modifying
+  @Query("DELETE FROM ItemPedido entity WHERE entity.servico.id = :instanceId AND entity.pedido.id = :relationId")
+  public int deletePedido(@Param(value="instanceId") java.lang.String instanceId, @Param(value="relationId") java.lang.String relationId);
+
+  /**
    * Foreign Key tipoTrabalho
    * @generated
    */

@@ -51,6 +51,20 @@ public interface PedidoDAO extends JpaRepository<Pedido, java.lang.String> {
    */
   @Query("SELECT entity FROM ItemPedido entity WHERE entity.pedido.id = :id")
   public Page<ItemPedido> findItemPedido(@Param(value="id") java.lang.String id, Pageable pageable);
+  /**
+   * ManyToOne Relation
+   * @generated
+   */
+  @Query("SELECT entity.servico FROM ItemPedido entity WHERE entity.pedido.id = :id")
+  public Page<Servico> listServico(@Param(value="id") java.lang.String id, Pageable pageable);
+
+  /**
+   * ManyToOne Relation Delete
+   * @generated
+   */
+  @Modifying
+  @Query("DELETE FROM ItemPedido entity WHERE entity.pedido.id = :instanceId AND entity.servico.id = :relationId")
+  public int deleteServico(@Param(value="instanceId") java.lang.String instanceId, @Param(value="relationId") java.lang.String relationId);
 
   /**
    * Foreign Key cliente

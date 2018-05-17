@@ -1241,8 +1241,8 @@
 		"screen": "src/main/mobileapp/www/views/logged/pedidonovo.view.html",
 		"sourceType": "entityFullName",
 		"blockly": null,
-		"entitySimpleName": "GrupoPedido",
-		"entityFullName": "app.entity.GrupoPedido",
+		"entitySimpleName": "Servico",
+		"entityFullName": "app.entity.Servico",
 		"query": {
 			"isValid": true,
 			"isEmpty": false,
@@ -1313,8 +1313,44 @@
 			"onNavigate": null,
 			"onGetData": null
 		},
-		"defaultValues": {},
-		"security": {},
+		"defaultValues": {
+			"id": null,
+			"descricao": null,
+			"diasUteis": null,
+			"preco1": null,
+			"preco2": null,
+			"preco3": null,
+			"preco4": null,
+			"preco5": null,
+			"preco6": null,
+			"preco7": null,
+			"preco8": null,
+			"preco9": null,
+			"preco10": null,
+			"preco11": null,
+			"preco12": null,
+			"ativo": null,
+			"tipoTrabalho": null
+		},
+		"security": {
+			"id": null,
+			"descricao": null,
+			"diasUteis": null,
+			"preco1": null,
+			"preco2": null,
+			"preco3": null,
+			"preco4": null,
+			"preco5": null,
+			"preco6": null,
+			"preco7": null,
+			"preco8": null,
+			"preco9": null,
+			"preco10": null,
+			"preco11": null,
+			"preco12": null,
+			"ativo": null,
+			"tipoTrabalho": null
+		},
 		"calcFields": {},
 		"calcFieldsSecurity": {},
 		"errorHandles": {
@@ -1406,16 +1442,32 @@
 			"pedido": null,
 			"tipoTrabalho": null,
 			"dente": null,
-			"grupo": null,
-			"cor": null
+			"nomeServico": null,
+			"cor": null,
+			"situacaoEtapa": null,
+			"valorServico": null,
+			"dataPrevisaoEntrega": null,
+			"dataFinalizado": null,
+			"horaFinalizado": null,
+			"horaPrevisaoEntrega": null,
+			"situacaoItemPedido": null,
+			"servico": null
 		},
 		"security": {
 			"id": null,
 			"pedido": null,
 			"tipoTrabalho": null,
 			"dente": null,
-			"grupo": null,
-			"cor": null
+			"nomeServico": null,
+			"cor": null,
+			"situacaoEtapa": null,
+			"valorServico": null,
+			"dataPrevisaoEntrega": null,
+			"dataFinalizado": null,
+			"horaFinalizado": null,
+			"horaPrevisaoEntrega": null,
+			"situacaoItemPedido": null,
+			"servico": null
 		},
 		"calcFields": {},
 		"calcFieldsSecurity": {},
@@ -1424,186 +1476,6 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/1hrmhql8ryd69/{{vars.idPedido}}/"
-	},
-	"qe9f73ao1buf": {
-		"customId": "dsSolicitacoesPedidos",
-		"queryName": "SolicitacoesPedidos",
-		"screen": "src/main/webapp/views/logged/solicitacoespedidos.view.html",
-		"sourceType": "entityFullName",
-		"blockly": null,
-		"entitySimpleName": "Pedido",
-		"entityFullName": "app.entity.Pedido",
-		"query": {
-			"isValid": true,
-			"isEmpty": false,
-			"operationType": "object",
-			"type": "select",
-			"rulesEntity": [
-				{
-					"entity": "Pedido",
-					"namespace": "app.entity.Pedido",
-					"alias": "p"
-				}
-			],
-			"rulesSelect": [
-				{
-					"func": "get",
-					"field": "p",
-					"type": "string"
-				}
-			],
-			"rulesGroupBy": [],
-			"rulesHaving": [],
-			"rulesOrderBy": [],
-			"rules": {
-				"condition": "AND",
-				"rules": [
-					{
-						"id": "p.situacaoPedido",
-						"field": "p.situacaoPedido",
-						"type": "string",
-						"input": "text",
-						"operator": "equal",
-						"value": ":situacaoPedido",
-						"valueIsField": false
-					}
-				],
-				"not": false,
-				"valid": true
-			},
-			"isRawSql": false,
-			"multiTenant": true,
-			"paginatorAutomatic": false
-		},
-		"queryParamsValues": [
-			{
-				"fieldName": "situacaoPedido",
-				"fieldValue": {
-					"blocklyClass": "blockly.SolicitacoesPedidos",
-					"blocklyMethod": "retornarCondicao",
-					"blocklyLanguage": "java",
-					"blocklyJson": {
-						"namespace": "blockly.SolicitacoesPedidos",
-						"classNameNew": "SolicitacoesPedidos",
-						"classNameOld": "SolicitacoesPedidos",
-						"sourcePath": "src/main/java/blockly/SolicitacoesPedidos.blockly",
-						"language": "java",
-						"class": "blockly.SolicitacoesPedidos",
-						"methods": [
-							{
-								"name": "calcularItens",
-								"hasReturn": "true",
-								"params": [
-									"Entidade<app.entity.Pedido>"
-								]
-							},
-							{
-								"name": "retornarCondicao",
-								"hasReturn": "true",
-								"params": []
-							}
-						]
-					},
-					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.SolicitacoesPedidos:retornarCondicao', null, null)"
-				}
-			}
-		],
-		"verbs": {
-			"GET": true,
-			"GETAuthorities": null,
-			"POST": true,
-			"POSTAuthorities": null,
-			"PUT": true,
-			"PUTAuthorities": null,
-			"DELETE": true,
-			"DELETEAuthorities": null,
-			"FILTER": true,
-			"FILTERAuthorities": null
-		},
-		"events": {
-			"beforeInsert": null,
-			"beforeUpdate": null,
-			"beforeDelete": null,
-			"afterInsert": null,
-			"afterUpdate": null,
-			"afterDelete": null,
-			"onNavigate": null,
-			"onGetData": null
-		},
-		"defaultValues": {
-			"id": null,
-			"paciente": null,
-			"codigoPaciente": null,
-			"sexo": null,
-			"dataNascimentoPaciente": null,
-			"idadePaciente": null,
-			"dataEntregaSolicitada": null,
-			"situacaoPedido": null,
-			"ativo": null,
-			"dataEnvio": null,
-			"cliente": null,
-			"valor": null,
-			"dataFinalizado": null,
-			"observacoes": null,
-			"protocolo": null,
-			"dataPrevisao": null
-		},
-		"security": {
-			"id": null,
-			"paciente": null,
-			"codigoPaciente": null,
-			"sexo": null,
-			"dataNascimentoPaciente": null,
-			"idadePaciente": null,
-			"dataEntregaSolicitada": null,
-			"situacaoPedido": null,
-			"ativo": null,
-			"dataEnvio": null,
-			"cliente": null,
-			"valor": null,
-			"dataFinalizado": null,
-			"observacoes": null,
-			"protocolo": null,
-			"dataPrevisao": null
-		},
-		"calcFields": {
-			"itens": {
-				"blocklyClass": "blockly.SolicitacoesPedidos",
-				"blocklyMethod": "calcularItens",
-				"blocklyLanguage": "java",
-				"blocklyJson": {
-					"namespace": "blockly.SolicitacoesPedidos",
-					"classNameNew": "SolicitacoesPedidos",
-					"classNameOld": "SolicitacoesPedidos",
-					"sourcePath": "src/main/java/blockly/SolicitacoesPedidos.blockly",
-					"language": "java",
-					"class": "blockly.SolicitacoesPedidos",
-					"methods": [
-						{
-							"name": "calcularItens",
-							"hasReturn": "true",
-							"params": [
-								"Entidade<app.entity.Pedido>"
-							]
-						}
-					]
-				},
-				"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.SolicitacoesPedidos:calcularItens', null, null)",
-				"blocklyGETMethod": null,
-				"blocklyPOSTMethod": null,
-				"blocklyPUTMethod": null,
-				"blocklyDELETEMethod": null,
-				"blocklyFILTERMethod": null
-			}
-		},
-		"calcFieldsSecurity": {
-			"itens": null
-		},
-		"errorHandles": {
-			"primaryKey": null,
-			"foreignKey": null
-		},
-		"serviceUrl": "api/cronapi/query/qe9f73ao1buf/"
 	},
 	"1jefxths35zcm": {
 		"customId": "dsDetalheSolicitacao",
@@ -1923,12 +1795,12 @@
 				"condition": "AND",
 				"rules": [
 					{
-						"id": "e.servico.id",
-						"field": "e.servico.id",
+						"id": "e.servico.descricao",
+						"field": "e.servico.descricao",
 						"type": "string",
 						"input": "text",
 						"operator": "equal",
-						"value": ":servicoId",
+						"value": ":servicoDescricao",
 						"valueIsField": false
 					}
 				],
@@ -1941,8 +1813,8 @@
 		},
 		"queryParamsValues": [
 			{
-				"fieldName": "servicoId",
-				"fieldValue": "ItemPedidoGrid.active.servico.id"
+				"fieldName": "servicoDescricao",
+				"fieldValue": "{{ItemPedido.active.nomeServico}}"
 			}
 		],
 		"verbs": {
@@ -1997,6 +1869,309 @@
 			"primaryKey": null,
 			"foreignKey": null
 		},
-		"serviceUrl": "api/cronapi/query/u804bf1sbm92/ItemPedidoGrid.active.servico.id/"
+		"serviceUrl": "api/cronapi/query/u804bf1sbm92/{{ItemPedido.active.nomeServico}}/"
+	},
+	"rhlmtzewq8mo": {
+		"customId": "dsItemPedido",
+		"queryName": "ItemPedido",
+		"screen": "src/main/webapp/views/logged/solicitacoes.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "ItemPedido",
+		"entityFullName": "app.entity.ItemPedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "ItemPedido",
+					"namespace": "app.entity.ItemPedido",
+					"alias": "i"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "i",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "i.pedido.id",
+						"field": "i.pedido.id",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":pedidoId",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "pedidoId",
+				"fieldValue": "{{Pedido.active.id}}"
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"pedido": null,
+			"tipoTrabalho": null,
+			"dente": null,
+			"nomeServico": null,
+			"cor": null,
+			"situacaoEtapa": null,
+			"valorServico": null,
+			"dataPrevisaoEntrega": null,
+			"dataFinalizado": null,
+			"horaFinalizado": null,
+			"horaPrevisaoEntrega": null,
+			"situacaoItemPedido": null,
+			"servico": null
+		},
+		"security": {
+			"id": null,
+			"pedido": null,
+			"tipoTrabalho": null,
+			"dente": null,
+			"nomeServico": null,
+			"cor": null,
+			"situacaoEtapa": null,
+			"valorServico": null,
+			"dataPrevisaoEntrega": null,
+			"dataFinalizado": null,
+			"horaFinalizado": null,
+			"horaPrevisaoEntrega": null,
+			"situacaoItemPedido": null,
+			"servico": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/rhlmtzewq8mo/{{Pedido.active.id}}/"
+	},
+	"qe9f73ao1buf": {
+		"customId": "dsSolicitacoes",
+		"queryName": "Solicitacoes",
+		"screen": "src/main/webapp/views/logged/solicitacoes.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Pedido",
+		"entityFullName": "app.entity.Pedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Pedido",
+					"namespace": "app.entity.Pedido",
+					"alias": "p"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "p",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "p.situacaoPedido",
+						"field": "p.situacaoPedido",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":situacaoPedido",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "situacaoPedido",
+				"fieldValue": {
+					"blocklyClass": "blockly.SolicitacoesPedidos",
+					"blocklyMethod": "retornarCondicao",
+					"blocklyLanguage": "java",
+					"blocklyJson": {
+						"namespace": "blockly.SolicitacoesPedidos",
+						"classNameNew": "SolicitacoesPedidos",
+						"classNameOld": "SolicitacoesPedidos",
+						"sourcePath": "src/main/java/blockly/SolicitacoesPedidos.blockly",
+						"language": "java",
+						"class": "blockly.SolicitacoesPedidos",
+						"methods": [
+							{
+								"name": "calcularItens",
+								"hasReturn": "true",
+								"params": [
+									"Entidade<app.entity.Pedido>"
+								]
+							},
+							{
+								"name": "retornarCondicao",
+								"hasReturn": "true",
+								"params": []
+							}
+						]
+					},
+					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.SolicitacoesPedidos:retornarCondicao', null, null)"
+				}
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"paciente": null,
+			"codigoPaciente": null,
+			"sexo": null,
+			"dataNascimentoPaciente": null,
+			"idadePaciente": null,
+			"dataEntregaSolicitada": null,
+			"situacaoPedido": null,
+			"ativo": null,
+			"dataEnvio": null,
+			"cliente": null,
+			"valor": null,
+			"dataFinalizado": null,
+			"observacoes": null,
+			"protocolo": null,
+			"dataPrevisao": null
+		},
+		"security": {
+			"id": null,
+			"paciente": null,
+			"codigoPaciente": null,
+			"sexo": null,
+			"dataNascimentoPaciente": null,
+			"idadePaciente": null,
+			"dataEntregaSolicitada": null,
+			"situacaoPedido": null,
+			"ativo": null,
+			"dataEnvio": null,
+			"cliente": null,
+			"valor": null,
+			"dataFinalizado": null,
+			"observacoes": null,
+			"protocolo": null,
+			"dataPrevisao": null
+		},
+		"calcFields": {
+			"itens": {
+				"blocklyClass": "blockly.SolicitacoesPedidos",
+				"blocklyMethod": "calcularItens",
+				"blocklyLanguage": "java",
+				"blocklyJson": {
+					"namespace": "blockly.SolicitacoesPedidos",
+					"classNameNew": "SolicitacoesPedidos",
+					"classNameOld": "SolicitacoesPedidos",
+					"sourcePath": "src/main/java/blockly/SolicitacoesPedidos.blockly",
+					"language": "java",
+					"class": "blockly.SolicitacoesPedidos",
+					"methods": [
+						{
+							"name": "calcularItens",
+							"hasReturn": "true",
+							"params": [
+								"Entidade<app.entity.Pedido>"
+							]
+						},
+						{
+							"name": "retornarCondicao",
+							"hasReturn": "true",
+							"params": []
+						}
+					]
+				},
+				"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.SolicitacoesPedidos:calcularItens', null, null)",
+				"blocklyGETMethod": null,
+				"blocklyPOSTMethod": null,
+				"blocklyPUTMethod": null,
+				"blocklyDELETEMethod": null,
+				"blocklyFILTERMethod": null
+			}
+		},
+		"calcFieldsSecurity": {
+			"itens": null
+		},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/qe9f73ao1buf/"
 	}
 }

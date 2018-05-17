@@ -26,6 +26,8 @@ public class EtapaItensPedido {
 		return new Callable<Var>() {
 
 			public Var call() throws Exception {
+				System.out.println(etapa.getObjectAsString());
+				System.out.println(funcionario.getObjectAsString());
 				System.out.println(idItemPedido.getObjectAsString());
 				cronapi.database.Operations.insert(Var.valueOf("app.entity.EtapaItemPedido"),
 						Var.valueOf("dataPrevisaoEntrega", data), Var.valueOf("situacao", Var.valueOf("aguardando")),

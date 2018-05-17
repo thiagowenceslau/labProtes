@@ -21,6 +21,22 @@
         </resources>
         <plugins>
             <plugin>
+                <groupId>org.cloudfoundry</groupId>
+                <artifactId>cf-maven-plugin</artifactId>
+                <version>1.1.3</version>
+                <configuration>
+                    <target>https://api.cronapp.io</target>
+                    <org>techdes.solucoes@gmail.com</org>
+                    <space>develop</space>
+                    <appname>techprotes</appname>
+                    <url>techprotes.cronapp.io</url>
+                    <instances>1</instances>
+                    <memory>512</memory>
+                    <username/>
+                    <password/>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>

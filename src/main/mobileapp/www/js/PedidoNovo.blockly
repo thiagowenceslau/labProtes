@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/mobileapp/www/views/logged/pedidonovo.view.html" resourceType="JS" ruleDescription="PedidoNovo" ruleName="PedidoNovo" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="795.160224618365" scrolly="955.9999999999998" target="taj/Qq/u$e*`3hKTfJ;="/>
+  <metadata scale="1" scrollx="795.160224618365" scrolly="985.5000000000002" target="taj/Qq/u$e*`3hKTfJ;="/>
   <block colour="#995ba5" id="/,/PtP^oI54]j2{#r+Jt" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-607" y="-937">
     <field name="NAME">adicionar</field>
     <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
