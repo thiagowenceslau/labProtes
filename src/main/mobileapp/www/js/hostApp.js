@@ -1,1 +1,1 @@
-window.hostApp = '';
+window.hostApp = 'https://techprotes.cronapp.io/';

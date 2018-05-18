@@ -8,14 +8,17 @@ window.blockly.js.blockly.ModalServico = window.blockly.js.blockly.ModalServico
  * Descreva esta função...
  */
 window.blockly.js.blockly.ModalServico.adicionar = function() {
-	window.alert(this.cronapi.screen
-			.getValueOfField('EtapaComissao.active.etapa.id'));
-	window.alert(this.cronapi.screen.getValueOfField("Funcionario.active.id"));
+
+	var itemPedido, etapa, funcionario;
+	etapa = this.cronapi.object.getProperty(this.cronapi.screen
+			.getValueOfField("vars.txtEtapa"), 'id');
+	funcionario = this.cronapi.object.getProperty(this.cronapi.screen
+			.getValueOfField("vars.txtFuncionario"), 'id');
+	itemPedido = this.cronapi.screen.getValueOfField("ItemPedido.active");
+	window.alert(itemPedido);
 	this.cronapi.util.callServerBlocklyNoReturn(
 			'blockly.EtapaItensPedido:adicionar', this.cronapi.screen
-					.getValueOfField("vars.dtPrevisao"), this.cronapi.screen
-					.getValueOfField('EtapaComissao.active.etapa.id'),
-			this.cronapi.screen.getValueOfField("Funcionario.active.id"),
+					.getValueOfField("vars.dtPrevisao"), etapa, funcionario,
 			this.cronapi.screen.getValueOfField("ItemPedido.active.id"),
 			this.cronapi.screen.getValueOfField("vars.data"),
 			this.cronapi.screen.getValueOfField("vars.hrPrevisao"));
@@ -26,6 +29,8 @@ window.blockly.js.blockly.ModalServico.adicionar = function() {
  * Descreva esta função...
  */
 window.blockly.js.blockly.ModalServico.fechar = function() {
+
+	var itemPedido, etapa, funcionario;
 	this.cronapi.screen.hideModal("modalServico");
 }
 
@@ -33,5 +38,7 @@ window.blockly.js.blockly.ModalServico.fechar = function() {
  * Descreva esta função...
  */
 window.blockly.js.blockly.ModalServico.exibir = function() {
+
+	var itemPedido, etapa, funcionario;
 	this.cronapi.screen.showModal("modalServico");
 }
