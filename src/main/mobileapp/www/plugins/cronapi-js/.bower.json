@@ -1,6 +1,6 @@
 {
   "name": "cronapi-js",
-  "version": "0.0.116-d-s-b",
+  "version": "0.0.118-d-s-b",
   "homepage": "https://github.com/technecloud/cronapi-js",
   "authors": [
     "Cronapp <suporte@cronapp.io>"
@@ -15,13 +15,13 @@
     "test",
     "tests"
   ],
-  "_release": "0.0.116-d-s-b",
+  "_release": "0.0.118-d-s-b",
   "_resolution": {
     "type": "version",
-    "tag": "0.0.116-d-s-b",
-    "commit": "aa1c936a3d1db310d869b99d602594c6403a2b1c"
+    "tag": "0.0.118-d-s-b",
+    "commit": "b1acd241f4c86ad27204fd28214fa12b6ff58ef6"
   },
   "_source": "https://github.com/technecloud/cronapi-js.git",
-  "_target": "0.0.116-d-s-b",
+  "_target": "0.0.118-d-s-b",
   "_originalSource": "cronapi-js"
 }

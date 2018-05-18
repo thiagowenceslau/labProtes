@@ -310,7 +310,7 @@
               <div class="component-holder ng-binding ng-scope  col-md-6" data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-741079">
                 <div class="form-group">
                   <label for="">Etapa</label>
-                  <ui-select crn-datasource="EtapaComissao" ng-model="EtapaComissao.active.id" ng-disabled="disabled" theme="bootstrap" class="crn-select" ng-required="false">
+                  <ui-select crn-datasource="EtapaComissao" ng-model="EtapaComissao.active.etapa.id" ng-disabled="disabled" theme="bootstrap" class="crn-select" ng-required="false">
                     <ui-select-match placeholder="Select..." class="">{{$select.selected.etapa.descricao}}</ui-select-match>
                     <ui-select-choices repeat="rowData as rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
                       <div class="">{{rowData.etapa.descricao}}</div>

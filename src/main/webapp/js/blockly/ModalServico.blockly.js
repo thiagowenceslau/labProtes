@@ -9,12 +9,12 @@ window.blockly.js.blockly.ModalServico = window.blockly.js.blockly.ModalServico
  */
 window.blockly.js.blockly.ModalServico.adicionar = function() {
 	window.alert(this.cronapi.screen
-			.getValueOfField("EtapaComissao.active.etapa"));
+			.getValueOfField('EtapaComissao.active.etapa.id'));
 	window.alert(this.cronapi.screen.getValueOfField("Funcionario.active.id"));
 	this.cronapi.util.callServerBlocklyNoReturn(
 			'blockly.EtapaItensPedido:adicionar', this.cronapi.screen
 					.getValueOfField("vars.dtPrevisao"), this.cronapi.screen
-					.getValueOfField("EtapaComissao.active.etapa"),
+					.getValueOfField('EtapaComissao.active.etapa.id'),
 			this.cronapi.screen.getValueOfField("Funcionario.active.id"),
 			this.cronapi.screen.getValueOfField("ItemPedido.active.id"),
 			this.cronapi.screen.getValueOfField("vars.data"),
