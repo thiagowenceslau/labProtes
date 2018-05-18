@@ -7,22 +7,71 @@ window.blockly.js.blockly.ModalServico = window.blockly.js.blockly.ModalServico
 /**
  * Descreva esta função...
  */
+window.blockly.js.blockly.ModalServico.recusarPedido = function() {
+
+	var item, confirma, dados, dadosPedido, etapa, funcionario, itemPedido, pedido, pedidoId;
+	this.cronapi.util.callServerBlocklyNoReturn(
+			'blockly.EtapaItensPedido:recusarPedido', this.cronapi.object
+					.getProperty(
+							this.cronapi.screen.getScopeVariable('pedido'),
+							'id'));
+	this.cronapi.screen.refreshDatasource("Pedido", 'true');
+}
+
+/**
+ * Descreva esta função...
+ */
+window.blockly.js.blockly.ModalServico.pegarIdPedido = function(dadosPedido) {
+
+	var item, confirma, dados, dadosPedido, etapa, funcionario, itemPedido, pedido, pedidoId;
+	this.cronapi.screen.createScopeVariable('pedido', dadosPedido);
+	this.cronapi.screen.showComponent("crn-button-brnRecusa");
+	this.cronapi.screen.showComponent("crn-button-btnEfetiva");
+}
+
+/**
+ * Descreva esta função...
+ */
+window.blockly.js.blockly.ModalServico.efetivarPedido = function() {
+
+	var item, confirma, dados, dadosPedido, etapa, funcionario, itemPedido, pedido, pedidoId;
+	this.cronapi.util.callServerBlocklyNoReturn(
+			'blockly.EtapaItensPedido:efetivar', this.cronapi.screen
+					.getValueOfField("Pedido.active.id"), this.cronapi.screen
+					.getValueOfField("vars.dtPrev"));
+	this.cronapi.screen.refreshDatasource("Pedido", 'true');
+}
+
+/**
+ * Descreva esta função...
+ */
 window.blockly.js.blockly.ModalServico.adicionar = function() {
 
-	var itemPedido, etapa, funcionario;
+	var item, confirma, dados, dadosPedido, etapa, funcionario, itemPedido, pedido, pedidoId;
 	etapa = this.cronapi.object.getProperty(this.cronapi.screen
-			.getValueOfField("vars.txtEtapa"), 'id');
+			.getValueOfField("vars.txtEtapa"), 'etapa.id');
 	funcionario = this.cronapi.object.getProperty(this.cronapi.screen
 			.getValueOfField("vars.txtFuncionario"), 'id');
-	itemPedido = this.cronapi.screen.getValueOfField("ItemPedido.active");
-	window.alert(itemPedido);
+	itemPedido = this.cronapi.object.getProperty(this.cronapi.screen
+			.getScopeVariable('itemPedido'), 'id');
 	this.cronapi.util.callServerBlocklyNoReturn(
 			'blockly.EtapaItensPedido:adicionar', this.cronapi.screen
 					.getValueOfField("vars.dtPrevisao"), etapa, funcionario,
-			this.cronapi.screen.getValueOfField("ItemPedido.active.id"),
-			this.cronapi.screen.getValueOfField("vars.data"),
+			itemPedido, this.cronapi.screen.getValueOfField("vars.data"),
 			this.cronapi.screen.getValueOfField("vars.hrPrevisao"));
+	this.cronapi.screen.changeValueOfField("vars.txtEtapa", '0');
+	this.cronapi.screen.changeValueOfField("vars.txtFuncionario", '0');
 	this.cronapi.screen.refreshDatasource("EtapaItemPedido", 'true');
+}
+
+/**
+ * Descreva esta função...
+ */
+window.blockly.js.blockly.ModalServico.exibir = function(dados) {
+
+	var item, confirma, dados, dadosPedido, etapa, funcionario, itemPedido, pedido, pedidoId;
+	this.cronapi.screen.createScopeVariable('itemPedido', dados);
+	this.cronapi.screen.showIonicModal("modalServico");
 }
 
 /**
@@ -30,15 +79,6 @@ window.blockly.js.blockly.ModalServico.adicionar = function() {
  */
 window.blockly.js.blockly.ModalServico.fechar = function() {
 
-	var itemPedido, etapa, funcionario;
+	var item, confirma, dados, dadosPedido, etapa, funcionario, itemPedido, pedido, pedidoId;
 	this.cronapi.screen.hideModal("modalServico");
-}
-
-/**
- * Descreva esta função...
- */
-window.blockly.js.blockly.ModalServico.exibir = function() {
-
-	var itemPedido, etapa, funcionario;
-	this.cronapi.screen.showModal("modalServico");
 }

@@ -36,7 +36,7 @@
                 </td>
                 <td><div data-container="true">{{rowData.dataPrevisao | mask:'date'}}</div></td><td><div data-container="true">{{rowData.itens}}</div></td><td class="">
                     <div class="">
-                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="glyphicon glyphicon-list-alt"></i></button>
+                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)" ng-mouseup="blockly.js.blockly.ModalServico.pegarIdPedido(rowData)"><i class="glyphicon glyphicon-list-alt"></i></button>
                     </div>
                 </td>
             </tr>
@@ -73,11 +73,11 @@
             <!-- end if !model.hasCronappFramework() --> 
           </div> 
         </div>
-        <div data-component="crn-textinput" id="crn-textinput-dataPrevisao" class="col-md-3"> 
+        <div data-component="crn-textinput" id="crn-textinput-dataPrev" class="col-md-3"> 
           <div class="form-group"> 
-            <label for="textinput-dataPrevisao" class="">Data Previsão</label> 
+            <label for="textinput-dataPrev" class="">Data Previsão</label> 
             <!-- else for if !model.hasCronappFramework() --> 
-            <input type="date" ng-model="Pedido.active.dataPrevisao | mask:'date'" class="form-control" id="textinput-dataPrevisao" placeholder="" mask="" mask-placeholder="" ng-required="false"> 
+            <input type="date" ng-model="vars.dtPrev" class="form-control" id="textinput-dataPrev" placeholder="" mask="" mask-placeholder="" ng-required="false"> 
             <!-- end if !model.hasCronappFramework() --> 
           </div> 
         </div>
@@ -174,7 +174,7 @@
                       <td class="active"> 
                         <div> 
                           
-                        <button class="btn component-holder btn-link" type="submit" ng-model="ItemPedido.active" ng-click="blockly.js.blockly.ModalServico.exibir()" xattr-size="" xattr-fullsize="" xattr-theme="btn-link" data-component="crn-button" id="crn-button-353099"><i class="glyphicon glyphicon-pencil"></i> <span>Editar</span></button></div> </td> 
+                        <button class="btn component-holder btn-link" type="submit" ng-model="ItemPedido.active" ng-click="blockly.js.blockly.ModalServico.exibir(rowData)" xattr-size="" xattr-fullsize="" xattr-theme="btn-link" data-component="crn-button" id="crn-button-353099"><i class="glyphicon glyphicon-pencil"></i> <span>Editar</span></button></div> </td> 
                     
                     </tr> 
                   </tbody> 
@@ -192,8 +192,8 @@
   </div> 
 </div>
 <h2 class="lead component-holder text-right" xattr-position="text-right" data-component="crn-subtitle" id="crn-subtitle-866529">Valor Total: R$ {{Pedido.active.valor}}</h2>
-<button class="btn component-holder genClass9672 btn-primary" type="submit" ng-click="" xattr-size="" xattr-fullsize="" xattr-theme="btn-primary" data-component="crn-button" id="crn-button-842824"><i class="glyphicon glyphicon-ok"></i> <span>Efetivar Pedido</span></button>
-<button class="btn component-holder genClass9672 btn-danger" type="submit" ng-click="" xattr-size="" xattr-fullsize="" xattr-theme="btn-danger" data-component="crn-button" id="crn-button-163382"><i class="glyphicon glyphicon-remove"></i> <span>Recusar Pedido</span></button> 
+<button class="btn component-holder genClass9672 btn-primary" type="submit" ng-click="blockly.js.blockly.ModalServico.efetivarPedido()" xattr-size="" xattr-fullsize="" xattr-theme="btn-primary" data-component="crn-button" id="crn-button-btnEfetiva" ng-hide="true"><i class="glyphicon glyphicon-ok"></i> <span>Efetivar Pedido</span></button>
+<button class="btn component-holder genClass9672 btn-danger" type="submit" ng-click="blockly.js.blockly.ModalServico.recusarPedido()" xattr-size="" xattr-fullsize="" xattr-theme="btn-danger" data-component="crn-button" id="crn-button-brnRecusa" ng-hide="true"><i class="glyphicon glyphicon-remove"></i> <span>Recusar Pedido</span></button> 
 <!-- OneToOne modal --> 
 <div class="modal fade" id="modalItemPedidoGrid"> 
   <div class="modal-dialog"> 
@@ -337,13 +337,15 @@
               </div>
               <div class="component-holder ng-binding ng-scope  col-md-6 genClass9856" data-component="crn-button" id="crn-button-724798">
                   
-                  <button class="btn genClass8701 btn-block btn-info" type="submit" ng-click="blockly.js.blockly.ModalServico.adicionar()" xattr-size="" xattr-fullsize="btn-block" xattr-theme="btn-info" data-component="crn-button"><i class="glyphicon glyphicon-plus"></i> <span>Adicionar</span></button></div><div class="component-holder ng-binding ng-scope col-md-12" data-component="crn-button" id="crn-button-95543"><button class="btn btn-default" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.EfetivarSolicitacaoPedido:InserirEtapaFuncionario', null, null)" xattr-size="" xattr-fullsize="" xattr-theme="btn-default" data-component="crn-button"><i class="glyphicon glyphicon-home"></i> <span>Button </span></button></div><div class="adjust-icon mdi mdi-stop component-icon"></div><div class="component-holder ng-binding ng-scope col-md-12" data-component="crn-datasource" id="crn-datasource-253408"><datasource name="EtapaItemPedido" entity="api/cronapi/crud/app.entity.EtapaItemPedido" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill="" data-component="crn-datasource" filter=""></datasource></div><div class="component-holder ng-binding ng-scope col-md-12" data-component="crn-grid" id="crn-grid-1001080"><div crn-datasource="EtapaItemPedido"><table class="table table-bordered table-hover"><thead style=""><tr class="table-header" style=""><th class="active"><div data-container="true">Data</div></th><th><div data-container="true">Etapa</div></th><th><div data-container="true">Funcionário</div></th></tr></thead><tbody style=""><tr class="table-content" ng-repeat="rowData in datasource.data" style=""><td class="active"><div data-container="true">{{rowData.dataPrevisaoEntrega | mask:'date'}}</div></td><td><div data-container="true">{{rowData.etapa.descricao}}</div></td><td><div data-container="true">{{rowData.funcionario.nome}}</div></td></tr></tbody></table><div class="table-footer-controls"><button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">Load more...</button></div></div></div> 
-            </fieldset> 
+                  <button class="btn genClass8701 btn-block btn-info" type="submit" ng-click="blockly.js.blockly.ModalServico.adicionar()" xattr-size="" xattr-fullsize="btn-block" xattr-theme="btn-info" data-component="crn-button"><i class="glyphicon glyphicon-plus"></i> <span>Adicionar</span></button></div><div class="adjust-icon mdi mdi-stop component-icon"></div><div class="component-holder ng-binding ng-scope col-md-12" data-component="crn-datasource" id="crn-datasource-253408"><datasource name="EtapaItemPedido" entity="api/cronapi/crud/app.entity.EtapaItemPedido" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill="" data-component="crn-datasource" filter=""></datasource></div><div class="component-holder ng-binding ng-scope col-md-12" data-component="crn-grid" id="crn-grid-1001080"><div crn-datasource="EtapaItemPedido"><table class="table table-bordered table-hover"><thead style=""><tr class="table-header" style=""><th class="active"><div data-container="true">Data</div></th><th><div data-container="true">Etapa</div></th><th><div data-container="true">Funcionário</div></th></tr></thead><tbody style=""><tr class="table-content" ng-repeat="rowData in datasource.data" style=""><td class="active"><div data-container="true">{{rowData.dataPrevisaoEntrega | mask:'date'}}</div></td><td><div data-container="true">{{rowData.etapa.descricao}}</div></td><td><div data-container="true">{{rowData.funcionario.nome}}</div></td></tr></tbody></table><div class="table-footer-controls"><button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">Load more...</button></div></div></div> 
+            </fieldset>
+            
+            
           </div> 
           <div class="panel-footer" data-container="true"> 
             <div class="genClass1158"> 
                
-              <button class="btn component-holder btn-success" type="submit" ng-click="blockly.js.blockly.ModalEtapa.inserir()" xattr-size="" xattr-fullsize="" xattr-theme="btn-success" data-component="crn-button" id="crn-button-745155"><i class="glyphicon glyphicon-ok"></i> <span>Salvar</span></button>
+              <button class="btn component-holder btn-success" type="submit" ng-click="blockly.js.blockly.ModalServico.fechar()" xattr-size="" xattr-fullsize="" xattr-theme="btn-success" data-component="crn-button" id="crn-button-745155"><i class="glyphicon glyphicon-ok"></i> <span>Salvar</span></button>
             </div> 
           </div> 
         </form> 
