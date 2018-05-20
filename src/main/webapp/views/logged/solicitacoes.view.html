@@ -188,12 +188,15 @@
         </div> 
         <!-- OneToOne  end --> 
       </fieldset> 
+      
+      <h2 class="lead component-holder text-right" xattr-position="text-right" data-component="crn-subtitle" id="crn-subtitle-866529">Valor Total: R$ {{Pedido.active.valor}}</h2>
+<button class="btn component-holder genClass9672 btn-primary" type="submit" ng-click="blockly.js.blockly.ModalServico.efetivarPedido()" xattr-size="" xattr-fullsize="" xattr-theme="btn-primary" data-component="crn-button" id="crn-button-btnEfetiva" ><i class="glyphicon glyphicon-ok"></i> <span>Efetivar Pedido</span></button>
+<button class="btn component-holder genClass9672 btn-danger" type="submit" ng-click="blockly.js.blockly.ModalServico.recusarPedido()" xattr-size="" xattr-fullsize="" xattr-theme="btn-danger" data-component="crn-button" id="crn-button-brnRecusa" ><i class="glyphicon glyphicon-remove"></i> <span>Recusar Pedido</span></button> 
+
+      
     </form> 
   </div> 
 </div>
-<h2 class="lead component-holder text-right" xattr-position="text-right" data-component="crn-subtitle" id="crn-subtitle-866529">Valor Total: R$ {{Pedido.active.valor}}</h2>
-<button class="btn component-holder genClass9672 btn-primary" type="submit" ng-click="blockly.js.blockly.ModalServico.efetivarPedido()" xattr-size="" xattr-fullsize="" xattr-theme="btn-primary" data-component="crn-button" id="crn-button-btnEfetiva" ng-hide="true"><i class="glyphicon glyphicon-ok"></i> <span>Efetivar Pedido</span></button>
-<button class="btn component-holder genClass9672 btn-danger" type="submit" ng-click="blockly.js.blockly.ModalServico.recusarPedido()" xattr-size="" xattr-fullsize="" xattr-theme="btn-danger" data-component="crn-button" id="crn-button-brnRecusa" ng-hide="true"><i class="glyphicon glyphicon-remove"></i> <span>Recusar Pedido</span></button> 
 <!-- OneToOne modal --> 
 <div class="modal fade" id="modalItemPedidoGrid"> 
   <div class="modal-dialog"> 

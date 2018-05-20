@@ -113,6 +113,7 @@ public class EtapaItensPedido {
 				cronapi.database.Operations.execute(Var.valueOf("app.entity.Pedido"),
 						Var.valueOf("update Pedido set situacaoPedido = :situacaoPedido where id = :id"),
 						Var.valueOf("situacaoPedido", Var.valueOf("recusado")), Var.valueOf("id", idPedido));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.post"), Var.valueOf("Pedido"));
 				return Var.VAR_NULL;
 			}
 		}.call();

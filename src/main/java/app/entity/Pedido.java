@@ -145,6 +145,13 @@ public class Pedido implements Serializable {
   private java.util.Date dataPrevisao;
 
   /**
+  * @generated
+  */
+  @Column(name = "foto", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.String foto;
+
+  /**
    * Construtor
    * @generated
    */
@@ -469,6 +476,26 @@ public class Pedido implements Serializable {
    */
   public Pedido setDataPrevisao(java.util.Date dataPrevisao){
     this.dataPrevisao = dataPrevisao;
+    return this;
+  }
+
+  /**
+   * Obtém foto
+   * return foto
+   * @generated
+   */
+  
+  public java.lang.String getFoto(){
+    return this.foto;
+  }
+
+  /**
+   * Define foto
+   * @param foto foto
+   * @generated
+   */
+  public Pedido setFoto(java.lang.String foto){
+    this.foto = foto;
     return this;
   }
 

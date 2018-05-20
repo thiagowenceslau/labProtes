@@ -43,6 +43,18 @@
             <field name="VAR">idPedido</field>
           </block>
         </value>
+        <next>
+          <block colour="#934848" dependencyby="GGQ9JRGb#1v.66Hz$)q6" id=")-UO|wP~{5o{Zv.d$vkw" multilayer="true" namespace="cronapi.screen.post" origintype="procedures_callnoreturn" output="false" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EEnviar%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20chama%20o%20m%C3%A9todo%20enviar%20da%20fonte%20de%20dados%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Fonte%20de%20dados%20:%20Objeto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.screen.post%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.screen.post%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callnoreturn">
+            <mutation name="{{cronapi.screen.post}}" return-raw-type="undefined">
+              <arg cronapi-raw-type="undefined" cronapi-type="ObjectType.OBJECT" name="Fonte de dados"/>
+            </mutation>
+            <value name="ARG0">
+              <block colour="#934848" dependencyby="GGQ9JRGb#1v.66Hz$)q6" id="F1V7]##/l6NjEV-KPj*E" origintype="datasource_from_screen" output="true" type="datasource_from_screen">
+                <field name="SELECT">Pedido</field>
+              </block>
+            </value>
+          </block>
+        </next>
       </block>
     </statement>
   </block>
