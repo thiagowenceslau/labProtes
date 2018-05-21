@@ -2173,5 +2173,123 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/qe9f73ao1buf/"
+	},
+	"1jylmdphpqmhw": {
+		"customId": "dsItensMeuPedido",
+		"queryName": "ItensMeuPedido",
+		"screen": "src/main/mobileapp/www/views/logged/pedidos.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "ItemPedido",
+		"entityFullName": "app.entity.ItemPedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "ItemPedido",
+					"namespace": "app.entity.ItemPedido",
+					"alias": "i"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "i",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "i.pedido.protocolo",
+						"field": "i.pedido.protocolo",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":pedidoProtocolo",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "pedidoProtocolo",
+				"fieldValue": "{{Pedido.active.protocolo}}"
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"pedido": null,
+			"tipoTrabalho": null,
+			"dente": null,
+			"nomeServico": null,
+			"cor": null,
+			"situacaoEtapa": null,
+			"valorServico": null,
+			"dataPrevisaoEntrega": null,
+			"dataFinalizado": null,
+			"horaFinalizado": null,
+			"horaPrevisaoEntrega": null,
+			"situacaoItemPedido": null,
+			"servico": null
+		},
+		"security": {
+			"id": null,
+			"pedido": null,
+			"tipoTrabalho": null,
+			"dente": null,
+			"nomeServico": null,
+			"cor": null,
+			"situacaoEtapa": null,
+			"valorServico": null,
+			"dataPrevisaoEntrega": null,
+			"dataFinalizado": null,
+			"horaFinalizado": null,
+			"horaPrevisaoEntrega": null,
+			"situacaoItemPedido": null,
+			"servico": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/1jylmdphpqmhw/{{Pedido.active.protocolo}}/"
 	}
 }
