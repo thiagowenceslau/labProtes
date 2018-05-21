@@ -6,7 +6,7 @@ window.blockly.js.ModalPedidoNovo = window.blockly.js.ModalPedidoNovo || {};
  * ModalPedidoNovo
  */
 window.blockly.js.ModalPedidoNovo.exibir = function() {
-	this.cronapi.screen.showModal("modalAdicionar");
+	this.cronapi.screen.showIonicModal("modalAdicionar");
 }
 
 /**

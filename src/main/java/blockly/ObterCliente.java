@@ -27,7 +27,7 @@ public class ObterCliente {
 				cliente = cronapi.database.Operations.query(Var.valueOf("app.entity.Cliente"),
 						Var.valueOf("select c from Cliente c where c.user.id = :userId"), Var.valueOf("userId", user));
 				idCliente = cronapi.database.Operations.getField(cliente, Var.valueOf("this[0].id"));
-				return idCliente;
+				return cliente;
 			}
 		}.call();
 	}

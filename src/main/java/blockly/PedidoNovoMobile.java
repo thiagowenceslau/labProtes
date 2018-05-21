@@ -37,6 +37,35 @@ public class PedidoNovoMobile {
 	 * @return Var
 	 */
 	// Descreva esta função...
+	public static Var CalcularTotal() throws Exception {
+		return new Callable<Var>() {
+
+			private Var idPedido = Var.VAR_NULL;
+			private Var i = Var.VAR_NULL;
+			private Var valorPedido = Var.VAR_NULL;
+			private Var consultaItens = Var.VAR_NULL;
+			private Var servicos = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				idPedido = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.idPedido"));
+				consultaItens = cronapi.database.Operations.query(Var.valueOf("app.entity.ItemPedido"),
+						Var.valueOf("select i from ItemPedido i where i.pedido.id = :pedidoId"),
+						Var.valueOf("pedidoId", idPedido));
+				servicos = cronapi.list.Operations.newList(
+						cronapi.database.Operations.getField(consultaItens, Var.valueOf("this[0].servico.preco1")));
+				valorPedido = cronapi.math.Operations.listSum(servicos);
+				System.out.println(valorPedido.getObjectAsString());
+				System.out.println(idPedido.getObjectAsString());
+				return valorPedido;
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Descreva esta função...
 	public static Var criarPedido() throws Exception {
 		return new Callable<Var>() {
 
@@ -93,6 +122,7 @@ public class PedidoNovoMobile {
 			private Var dataNascimento = Var.VAR_NULL;
 			private Var idadePaciente = Var.VAR_NULL;
 			private Var sexoPaciente = Var.VAR_NULL;
+			private Var foto = Var.VAR_NULL;
 			private Var protocolo = Var.VAR_NULL;
 			private Var validador = Var.VAR_NULL;
 			private Var i = Var.VAR_NULL;
@@ -100,6 +130,7 @@ public class PedidoNovoMobile {
 			private Var tipoItem = Var.VAR_NULL;
 			private Var corItem = Var.VAR_NULL;
 			private Var servicoItem = Var.VAR_NULL;
+			private Var valorPedido = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				idPedido = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.idPedido"));
@@ -109,8 +140,8 @@ public class PedidoNovoMobile {
 				dataNascimento = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dtNasc"));
 				idadePaciente = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtIdade"));
 				sexoPaciente = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtSexo"));
+				foto = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.foto"));
 				protocolo = Var.valueOf(retornarProcolo());
-				System.out.println(protocolo.getObjectAsString());
 				validador = Var.VAR_TRUE;
 				if (cronapi.logic.Operations.isNullOrEmpty(nomePaciente).getObjectAsBoolean()) {
 					validador = Var.VAR_FALSE;
@@ -134,17 +165,19 @@ public class PedidoNovoMobile {
 						idPedido = cronapi.util.Operations.generateUUID();
 						cronapi.database.Operations.insert(Var.valueOf("app.entity.Pedido"),
 								Var.valueOf("ativo", Var.valueOf("true")), Var.valueOf("idadePaciente", idadePaciente),
-								Var.valueOf("codigoPaciente", codigoPaciente),
+								Var.valueOf("valor", Var.valueOf(0)), Var.valueOf("codigoPaciente", codigoPaciente),
 								Var.valueOf("dataEntregaSolicitada", dataEntrega),
 								Var.valueOf("dataEnvio", cronapi.dateTime.Operations.getNowNoHour()),
 								Var.valueOf("protocolo", protocolo),
 								Var.valueOf("cliente", Var.valueOf(retornarIdClienteLogado())),
 								Var.valueOf("observacoes",
 										cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtObs"))),
-								Var.valueOf("paciente", nomePaciente),
+								Var.valueOf("foto", foto), Var.valueOf("paciente", nomePaciente),
 								Var.valueOf("situacaoPedido", Var.valueOf("aguardando")), Var.valueOf("id", idPedido),
 								Var.valueOf("sexo", sexoPaciente),
 								Var.valueOf("dataNascimentoPaciente", dataNascimento));
+						cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+								Var.valueOf("vars.idPedido"), idPedido);
 					}
 					for (Iterator it_i = Var.valueOf(retornarListaDentes()).iterator(); it_i.hasNext();) {
 						i = Var.valueOf(it_i.next());
@@ -176,6 +209,9 @@ public class PedidoNovoMobile {
 							Var.valueOf("vars.txtCor"), Var.VAR_NULL);
 					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.showComponent"),
 							Var.valueOf("crn-button-btnFinalizar"));
+					valorPedido = Var.valueOf(CalcularTotal());
+					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+							Var.valueOf("vars.txtTotal"), valorPedido);
 				} else {
 					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.notify"),
 							Var.valueOf("warning"), Var.valueOf("Preencha os campos obrigatórios"));
@@ -191,7 +227,29 @@ public class PedidoNovoMobile {
 	public static void finalizarPedido() throws Exception {
 		new Callable<Var>() {
 
+			private Var codigoPaciente = Var.VAR_NULL;
+			private Var idadePaciente = Var.VAR_NULL;
+			private Var foto = Var.VAR_NULL;
+
 			public Var call() throws Exception {
+				cronapi.database.Operations.execute(Var.valueOf("app.entity.Pedido"),
+						Var.valueOf(
+								"update Pedido set observacoes = :observacoes, foto = :foto, idadePaciente = :idadePaciente, paciente = :paciente, dataNascimentoPaciente = :dataNascimentoPaciente, codigoPaciente = :codigoPaciente, dataEntregaSolicitada = :dataEntregaSolicitada, valor = :valor where id = :id"),
+						Var.valueOf("observacoes",
+								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtObs"))),
+						Var.valueOf("foto", cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.foto"))),
+						Var.valueOf("idadePaciente",
+								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtIdade"))),
+						Var.valueOf("paciente",
+								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtPaciente"))),
+						Var.valueOf("dataNascimentoPaciente",
+								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dtNasc"))),
+						Var.valueOf("codigoPaciente",
+								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtCodPaciente"))),
+						Var.valueOf("dataEntregaSolicitada",
+								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.dtEntrega"))),
+						Var.valueOf("valor", cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.txtTotal"))),
+						Var.valueOf("id", cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.idPedido"))));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
 						Var.valueOf("crn-container-Odontograma"));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.hideComponent"),
@@ -208,6 +266,8 @@ public class PedidoNovoMobile {
 						Var.valueOf("vars.txtPaciente"), Var.valueOf(" "));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
 						Var.valueOf("vars.txtObs"), Var.valueOf(" "));
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
+						Var.valueOf("vars.foto"), Var.valueOf(" "));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
 						Var.valueOf("vars.txtIdade"), Var.valueOf(" "));
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
