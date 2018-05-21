@@ -54,7 +54,6 @@ public class PedidoNovoMobile {
 				servicos = cronapi.list.Operations.newList(
 						cronapi.database.Operations.getField(consultaItens, Var.valueOf("this[0].servico.preco1")));
 				valorPedido = cronapi.math.Operations.listSum(servicos);
-				System.out.println(valorPedido.getObjectAsString());
 				System.out.println(idPedido.getObjectAsString());
 				return valorPedido;
 			}
@@ -210,6 +209,7 @@ public class PedidoNovoMobile {
 					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.showComponent"),
 							Var.valueOf("crn-button-btnFinalizar"));
 					valorPedido = Var.valueOf(CalcularTotal());
+					System.out.println(Var.valueOf(somar()).getObjectAsString());
 					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
 							Var.valueOf("vars.txtTotal"), valorPedido);
 				} else {
@@ -485,6 +485,32 @@ public class PedidoNovoMobile {
 								.getLettersFromStartToFromStart(anoAtual, Var.valueOf(3), Var.valueOf(4)).toString()
 						+ horaAtual.toString() + minutoAtual.toString());
 				return protocolo;
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Descreva esta função...
+	public static Var somar() throws Exception {
+		return new Callable<Var>() {
+
+			private Var i = Var.VAR_NULL;
+			private Var consultaItens = Var.VAR_NULL;
+			private Var tipos = Var.VAR_NULL;
+			private Var consultaServico = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				consultaItens = cronapi.database.Operations.query(Var.valueOf("app.entity.ItemPedido"),
+						Var.valueOf("select i from ItemPedido i where i.pedido.id = :pedidoId"), Var.valueOf("pedidoId",
+								cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.idPedido"))));
+				tipos = cronapi.database.Operations.getField(consultaItens, Var.valueOf("this[0].tipoTrabalho"));
+				consultaServico = cronapi.database.Operations.query(Var.valueOf("app.entity.Servico"),
+						Var.valueOf("select s from Servico s where s.tipoTrabalho.id = :tipoTrabalhoId"),
+						Var.valueOf("tipoTrabalhoId", Var.VAR_NULL));
+				return tipos;
 			}
 		}.call();
 	}
