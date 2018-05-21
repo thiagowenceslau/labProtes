@@ -7,10 +7,13 @@ window.blockly.js.PedidoNovo = window.blockly.js.PedidoNovo || {};
  */
 window.blockly.js.PedidoNovo.adicionar = function() {
 
-	var idPedido, datEntrega, sexo, idade, paciente, tipoTrabalho, comboTipo, item;
+	var item, comboTipo, datEntrega, idade, idPedido, paciente, sexo, tipoTrabalho, totalPedido;
 	idPedido = this.cronapi.util
 			.callServerBlockly('blockly.PedidoNovoMobile:criarPedidoCompleto');
 	this.cronapi.screen.changeValueOfField("vars.idPedido", idPedido);
+	totalPedido = this.cronapi.util.callServerBlockly(
+			'blockly.PedidoNovoMobile:CalcularTotal', idPedido);
+	this.cronapi.screen.changeValueOfField("vars.txtTotal", totalPedido);
 	this.cronapi.screen.refreshDatasource("ItemPedido", 'true');
 }
 
@@ -19,7 +22,7 @@ window.blockly.js.PedidoNovo.adicionar = function() {
  */
 window.blockly.js.PedidoNovo.finalizar = function() {
 
-	var idPedido, datEntrega, sexo, idade, paciente, tipoTrabalho, comboTipo, item;
+	var item, comboTipo, datEntrega, idade, idPedido, paciente, sexo, tipoTrabalho, totalPedido;
 	paciente = this.cronapi.screen.getValueOfField("vars.txtPaciente");
 	idade = this.cronapi.screen.getValueOfField("vars.txtIdade");
 	datEntrega = this.cronapi.screen.getValueOfField("vars.dtEntrega");
@@ -49,7 +52,7 @@ window.blockly.js.PedidoNovo.finalizar = function() {
  */
 window.blockly.js.PedidoNovo.Executar = function(comboTipo) {
 
-	var idPedido, datEntrega, sexo, idade, paciente, tipoTrabalho, comboTipo, item;
+	var item, comboTipo, datEntrega, idade, idPedido, paciente, sexo, tipoTrabalho, totalPedido;
 	tipoTrabalho = this.cronapi.util.callServerBlockly(
 			'blockly.PedidoNovoMobile:retornarNomeTipoTrabalho', comboTipo);
 	if (tipoTrabalho == 'Contenção' || tipoTrabalho == 'Placa') {
@@ -81,7 +84,7 @@ window.blockly.js.PedidoNovo.Executar = function(comboTipo) {
  */
 window.blockly.js.PedidoNovo.ExcluirFoto = function() {
 
-	var idPedido, datEntrega, sexo, idade, paciente, tipoTrabalho, comboTipo, item;
+	var item, comboTipo, datEntrega, idade, idPedido, paciente, sexo, tipoTrabalho, totalPedido;
 	this.cronapi.screen.hideComponent("btnExcluir");
 	this.cronapi.screen.changeValueOfField("vars.foto", '');
 }
@@ -91,7 +94,7 @@ window.blockly.js.PedidoNovo.ExcluirFoto = function() {
  */
 window.blockly.js.PedidoNovo.ObterFotoBiblioteca = function() {
 
-	var idPedido, datEntrega, sexo, idade, paciente, tipoTrabalho, comboTipo, item;
+	var item, comboTipo, datEntrega, idade, idPedido, paciente, sexo, tipoTrabalho, totalPedido;
 	this.cronapi.cordova.camera
 			.getPicture(
 					function(sender_item) {
@@ -117,7 +120,7 @@ window.blockly.js.PedidoNovo.ObterFotoBiblioteca = function() {
  */
 window.blockly.js.PedidoNovo.ObterFotoCamera = function() {
 
-	var idPedido, datEntrega, sexo, idade, paciente, tipoTrabalho, comboTipo, item;
+	var item, comboTipo, datEntrega, idade, idPedido, paciente, sexo, tipoTrabalho, totalPedido;
 	this.cronapi.cordova.camera
 			.getPicture(
 					function(sender_item) {

@@ -34,34 +34,20 @@ public class PedidoNovoMobile {
 
 	/**
 	 *
+	 * @param id_pedido
 	 * @return Var
 	 */
 	// Descreva esta função...
-	public static Var CalcularTotal() throws Exception {
+	public static Var CalcularTotal(Var id_pedido) throws Exception {
 		return new Callable<Var>() {
 
-			private Var idPedido = Var.VAR_NULL;
 			private Var i = Var.VAR_NULL;
-			private Var servicos = Var.VAR_NULL;
 			private Var valorPedido = Var.VAR_NULL;
-			private Var consultaItens = Var.VAR_NULL;
-			private Var j = Var.VAR_NULL;
 
 			public Var call() throws Exception {
-				idPedido = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.idPedido"));
-				consultaItens = cronapi.list.Operations
-						.newList(cronapi.database.Operations.query(Var.valueOf("app.entity.ItemPedido"),
-								Var.valueOf("select i from ItemPedido i where i.pedido.id = :pedidoId"),
-								Var.valueOf("pedidoId", idPedido)));
-				valorPedido = Var.valueOf(0);
-				for (Iterator it_j = consultaItens.iterator(); it_j.hasNext();) {
-					j = Var.valueOf(it_j.next());
-					servicos = cronapi.database.Operations.getField(consultaItens, Var.valueOf("this[0].valorServico"));
-					valorPedido = cronapi.math.Operations.sum(valorPedido, servicos);
-					System.out.println(valorPedido.getObjectAsString());
-					System.out.println(servicos.getObjectAsString());
-				} // end for
-				System.out.println(valorPedido.getObjectAsString());
+				valorPedido = cronapi.database.Operations.query(Var.valueOf("app.entity.ItemPedido"),
+						Var.valueOf("select SUM(i.valorServico) from ItemPedido i where i.pedido.id = :pedidoId"),
+						Var.valueOf("pedidoId", id_pedido));
 				return valorPedido;
 			}
 		}.call();
@@ -138,7 +124,6 @@ public class PedidoNovoMobile {
 			private Var servicoItem = Var.VAR_NULL;
 			private Var servicos = Var.VAR_NULL;
 			private Var valorServico = Var.VAR_NULL;
-			private Var valorPedido = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				idPedido = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.idPedido"));
@@ -224,9 +209,6 @@ public class PedidoNovoMobile {
 							Var.valueOf("vars.txtCor"), Var.VAR_NULL);
 					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.showComponent"),
 							Var.valueOf("crn-button-btnFinalizar"));
-					valorPedido = Var.valueOf(CalcularTotal());
-					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
-							Var.valueOf("vars.txtTotal"), valorPedido);
 				} else {
 					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.notify"),
 							Var.valueOf("warning"), Var.valueOf("Preencha os campos obrigatórios"));
