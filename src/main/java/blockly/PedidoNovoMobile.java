@@ -49,15 +49,17 @@ public class PedidoNovoMobile {
 
 			public Var call() throws Exception {
 				idPedido = cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.idPedido"));
-				consultaItens = cronapi.database.Operations.query(Var.valueOf("app.entity.ItemPedido"),
-						Var.valueOf("select i from ItemPedido i where i.pedido.id = :pedidoId"),
-						Var.valueOf("pedidoId", idPedido));
-				servicos = cronapi.list.Operations.newList(
-						cronapi.database.Operations.getField(consultaItens, Var.valueOf("this[0].valorServico")));
+				consultaItens = cronapi.list.Operations
+						.newList(cronapi.database.Operations.query(Var.valueOf("app.entity.ItemPedido"),
+								Var.valueOf("select i from ItemPedido i where i.pedido.id = :pedidoId"),
+								Var.valueOf("pedidoId", idPedido)));
 				valorPedido = Var.valueOf(0);
-				for (Iterator it_j = servicos.iterator(); it_j.hasNext();) {
+				for (Iterator it_j = consultaItens.iterator(); it_j.hasNext();) {
 					j = Var.valueOf(it_j.next());
-					valorPedido = cronapi.math.Operations.sum(valorPedido, j);
+					servicos = cronapi.database.Operations.getField(consultaItens, Var.valueOf("this[0].valorServico"));
+					valorPedido = cronapi.math.Operations.sum(valorPedido, servicos);
+					System.out.println(valorPedido.getObjectAsString());
+					System.out.println(servicos.getObjectAsString());
 				} // end for
 				System.out.println(valorPedido.getObjectAsString());
 				return valorPedido;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/mobileapp/www/views/logged/pedidonovo.view.html" resourceType="JAVA" ruleDescription="PedidoNovoMobile" ruleName="PedidoNovoMobile" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="212.28250917734943" scrolly="-2062.4999999999927" target="ouvS-sDZ*J-/]J,dMOPU"/>
+  <metadata scale="1" scrollx="290.35863874345443" scrolly="36.50000000000216" target="Xn)BcCrs?*`J40uKUh4B"/>
   <block colour="#995ba5" id="grOM$x(;UJAzN`isbu=." origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-131" y="32">
     <field name="NAME">retornarProcolo</field>
     <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
@@ -2931,7 +2931,7 @@
       </block>
     </statement>
   </block>
-  <block colour="#995ba5" id="-K0d;.wk}7.],#?H6{g[" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="8" y="2093">
+  <block colour="#995ba5" id="-K0d;.wk}7.],#?H6{g[" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="39" y="2122">
     <field name="NAME">somar</field>
     <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
     <statement name="STACK">
@@ -3084,7 +3084,7 @@
       </block>
     </value>
   </block>
-  <block colour="#995ba5" id="ouvS-sDZ*J-/]J,dMOPU" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-48" y="2140">
+  <block colour="#995ba5" id="ouvS-sDZ*J-/]J,dMOPU" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-41" y="2156">
     <field name="NAME">CalcularTotal</field>
     <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
     <statement name="STACK">
@@ -3106,145 +3106,145 @@
           <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="vl7Q`1=7%{GhCe/dwDz(" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
             <field name="VAR">consultaItens</field>
             <value name="VALUE">
-              <block colour="#db802b" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="97D3?H`hpu|toe(t*pZ{" multilayer="false" namespace="cronapi.database.Operations.query" origintype="procedures_sql_callreturn" output="true" returntype="ObjectType.DATASET" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EAbrir%20consulta%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20realizar%20consultas%20no%20banco%20de%20dados%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Entidade%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Consulta%20SQL%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Par%C3%A2metros%20para%20consulta%20:%20Lista%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Tabela%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.query%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.query%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_sql_callreturn">
-                <mutation data="%7B%22queryBuilderJson%22:%7B%22isValid%22:true,%22isEmpty%22:false,%22operationType%22:%22object%22,%22type%22:%22select%22,%22rulesEntity%22:%5B%7B%22entity%22:%22ItemPedido%22,%22namespace%22:%22app.entity.ItemPedido%22,%22alias%22:%22i%22%7D%5D,%22rulesSelect%22:%5B%7B%22func%22:%22get%22,%22field%22:%22i%22,%22type%22:%22string%22%7D%5D,%22rulesGroupBy%22:%5B%5D,%22rulesHaving%22:%5B%5D,%22rulesOrderBy%22:%5B%5D,%22rules%22:%7B%22condition%22:%22AND%22,%22rules%22:%5B%7B%22id%22:%22i.pedido.id%22,%22field%22:%22i.pedido.id%22,%22type%22:%22string%22,%22input%22:%22text%22,%22operator%22:%22equal%22,%22value%22:%22:pedidoId%22,%22valueIsField%22:false%7D%5D,%22not%22:false,%22valid%22:true%7D,%22isRawSql%22:false,%22multiTenant%22:true,%22paginatorAutomatic%22:false%7D,%22entity%22:%22ItemPedido%22,%22entityFullName%22:%22app.entity.ItemPedido%22,%22filter%22:%22select%20i%20from%20ItemPedido%20i%20where%20i.pedido.id%20=%20:pedidoId%22,%22params%22:%22%5B%5C%22pedidoId%5C%22%5D%22%7D" name="{{cronapi.database.Operations.query}}">
-                  <arg name="pedidoId"/>
-                </mutation>
-                <value name="ARG0">
-                  <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="!UGjt.NPq~8$-^lt5JQb" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                    <field name="VAR">idPedido</field>
+              <block colour="#745ba5" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="M)tlJgj~(,pAsc,tS=O5" origintype="lists_create_with" output="true" tooltip="Cria uma lista com a quantidade de itens informada." type="lists_create_with">
+                <mutation items="1"/>
+                <value name="ADD0">
+                  <block colour="#db802b" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="97D3?H`hpu|toe(t*pZ{" multilayer="false" namespace="cronapi.database.Operations.query" origintype="procedures_sql_callreturn" output="true" returntype="ObjectType.DATASET" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EAbrir%20consulta%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20realizar%20consultas%20no%20banco%20de%20dados%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Entidade%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Consulta%20SQL%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Par%C3%A2metros%20para%20consulta%20:%20Lista%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Tabela%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.query%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.query%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_sql_callreturn">
+                    <mutation data="%7B%22queryBuilderJson%22:%7B%22isValid%22:true,%22isEmpty%22:false,%22operationType%22:%22object%22,%22type%22:%22select%22,%22rulesEntity%22:%5B%7B%22entity%22:%22ItemPedido%22,%22namespace%22:%22app.entity.ItemPedido%22,%22alias%22:%22i%22%7D%5D,%22rulesSelect%22:%5B%7B%22func%22:%22get%22,%22field%22:%22i%22,%22type%22:%22string%22%7D%5D,%22rulesGroupBy%22:%5B%5D,%22rulesHaving%22:%5B%5D,%22rulesOrderBy%22:%5B%5D,%22rules%22:%7B%22condition%22:%22AND%22,%22rules%22:%5B%7B%22id%22:%22i.pedido.id%22,%22field%22:%22i.pedido.id%22,%22type%22:%22string%22,%22input%22:%22text%22,%22operator%22:%22equal%22,%22value%22:%22:pedidoId%22,%22valueIsField%22:false%7D%5D,%22not%22:false,%22valid%22:true%7D,%22isRawSql%22:false,%22multiTenant%22:true,%22paginatorAutomatic%22:false%7D,%22entity%22:%22ItemPedido%22,%22entityFullName%22:%22app.entity.ItemPedido%22,%22filter%22:%22select%20i%20from%20ItemPedido%20i%20where%20i.pedido.id%20=%20:pedidoId%22,%22params%22:%22%5B%5C%22pedidoId%5C%22%5D%22,%22wizardType%22:%22SELECT%22%7D" name="{{cronapi.database.Operations.query}}">
+                      <arg name="pedidoId"/>
+                    </mutation>
+                    <value name="ARG0">
+                      <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="!UGjt.NPq~8$-^lt5JQb" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                        <field name="VAR">idPedido</field>
+                      </block>
+                    </value>
                   </block>
                 </value>
               </block>
             </value>
             <next>
-              <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="S!oaRlEw8z={UHQ]`fIW" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
-                <field name="VAR">servicos</field>
+              <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="|#Ex`bUAP4O3IG^#Khdp" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                <field name="VAR">valorPedido</field>
                 <value name="VALUE">
-                  <block colour="#745ba5" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="p_;;C`i*9h(lA|QWWwH]" origintype="lists_create_with" output="true" tooltip="Cria uma lista com a quantidade de itens informada." type="lists_create_with">
-                    <mutation items="1"/>
-                    <value name="ADD0">
-                      <block colour="#db802b" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="Y[FL_lUK;_1_#H@Nm)Um" multilayer="false" namespace="cronapi.database.Operations.getField" origintype="procedures_get_field" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20campo%20do%20registro%20do%20cursor%20atual%20da%20fonte%20de%20dados%20%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Fonte%20de%20dados%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Nome%20do%20campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_get_field">
-                        <mutation name="{{cronapi.database.Operations.getField}}">
-                          <arg name="Fonte de dados"/>
-                          <arg name="Nome do campo"/>
-                        </mutation>
-                        <value name="PARAM0">
-                          <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="`*+XHc$,eM4Gthcxm6}`" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                            <field name="VAR">consultaItens</field>
-                          </block>
-                        </value>
-                        <value name="PARAM1">
-                          <block colour="#db802b" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="Yo^!+v:k0-IHD6U|NUsk" origintype="procedures_get_field_datasource" output="true" type="procedures_get_field_datasource">
-                            <mutation name="">
-                              <arg label="i" value="this[0]"/>
-                              <arg label="i.id" value="this[0].id"/>
-                              <arg label="i.pedido" value="this[0].pedido"/>
-                              <arg label="i.tipoTrabalho" value="this[0].tipoTrabalho"/>
-                              <arg label="i.dente" value="this[0].dente"/>
-                              <arg label="i.nomeServico" value="this[0].nomeServico"/>
-                              <arg label="i.cor" value="this[0].cor"/>
-                              <arg label="i.situacaoEtapa" value="this[0].situacaoEtapa"/>
-                              <arg label="i.valorServico" value="this[0].valorServico"/>
-                              <arg label="i.dataPrevisaoEntrega" value="this[0].dataPrevisaoEntrega"/>
-                              <arg label="i.dataFinalizado" value="this[0].dataFinalizado"/>
-                              <arg label="i.horaFinalizado" value="this[0].horaFinalizado"/>
-                              <arg label="i.horaPrevisaoEntrega" value="this[0].horaPrevisaoEntrega"/>
-                              <arg label="i.situacaoItemPedido" value="this[0].situacaoItemPedido"/>
-                              <arg label="i.servico" value="this[0].servico"/>
-                              <arg label="i.pedido.id" value="this[0].pedido.id"/>
-                              <arg label="i.pedido.paciente" value="this[0].pedido.paciente"/>
-                              <arg label="i.pedido.codigoPaciente" value="this[0].pedido.codigoPaciente"/>
-                              <arg label="i.pedido.sexo" value="this[0].pedido.sexo"/>
-                              <arg label="i.pedido.dataNascimentoPaciente" value="this[0].pedido.dataNascimentoPaciente"/>
-                              <arg label="i.pedido.idadePaciente" value="this[0].pedido.idadePaciente"/>
-                              <arg label="i.pedido.dataEntregaSolicitada" value="this[0].pedido.dataEntregaSolicitada"/>
-                              <arg label="i.pedido.situacaoPedido" value="this[0].pedido.situacaoPedido"/>
-                              <arg label="i.pedido.ativo" value="this[0].pedido.ativo"/>
-                              <arg label="i.pedido.dataEnvio" value="this[0].pedido.dataEnvio"/>
-                              <arg label="i.pedido.cliente" value="this[0].pedido.cliente"/>
-                              <arg label="i.pedido.valor" value="this[0].pedido.valor"/>
-                              <arg label="i.pedido.dataFinalizado" value="this[0].pedido.dataFinalizado"/>
-                              <arg label="i.pedido.observacoes" value="this[0].pedido.observacoes"/>
-                              <arg label="i.pedido.protocolo" value="this[0].pedido.protocolo"/>
-                              <arg label="i.pedido.dataPrevisao" value="this[0].pedido.dataPrevisao"/>
-                              <arg label="i.pedido.foto" value="this[0].pedido.foto"/>
-                              <arg label="i.servico.id" value="this[0].servico.id"/>
-                              <arg label="i.servico.descricao" value="this[0].servico.descricao"/>
-                              <arg label="i.servico.diasUteis" value="this[0].servico.diasUteis"/>
-                              <arg label="i.servico.preco1" value="this[0].servico.preco1"/>
-                              <arg label="i.servico.preco2" value="this[0].servico.preco2"/>
-                              <arg label="i.servico.preco3" value="this[0].servico.preco3"/>
-                              <arg label="i.servico.preco4" value="this[0].servico.preco4"/>
-                              <arg label="i.servico.preco5" value="this[0].servico.preco5"/>
-                              <arg label="i.servico.preco6" value="this[0].servico.preco6"/>
-                              <arg label="i.servico.preco7" value="this[0].servico.preco7"/>
-                              <arg label="i.servico.preco8" value="this[0].servico.preco8"/>
-                              <arg label="i.servico.preco9" value="this[0].servico.preco9"/>
-                              <arg label="i.servico.preco10" value="this[0].servico.preco10"/>
-                              <arg label="i.servico.preco11" value="this[0].servico.preco11"/>
-                              <arg label="i.servico.preco12" value="this[0].servico.preco12"/>
-                              <arg label="i.servico.ativo" value="this[0].servico.ativo"/>
-                              <arg label="i.servico.tipoTrabalho" value="this[0].servico.tipoTrabalho"/>
-                              <arg label="i.pedido.cliente.id" value="this[0].pedido.cliente.id"/>
-                              <arg label="i.pedido.cliente.nome" value="this[0].pedido.cliente.nome"/>
-                              <arg label="i.pedido.cliente.crO" value="this[0].pedido.cliente.crO"/>
-                              <arg label="i.pedido.cliente.especialidade" value="this[0].pedido.cliente.especialidade"/>
-                              <arg label="i.pedido.cliente.rg" value="this[0].pedido.cliente.rg"/>
-                              <arg label="i.pedido.cliente.cpF" value="this[0].pedido.cliente.cpF"/>
-                              <arg label="i.pedido.cliente.telefone1" value="this[0].pedido.cliente.telefone1"/>
-                              <arg label="i.pedido.cliente.telefone2" value="this[0].pedido.cliente.telefone2"/>
-                              <arg label="i.pedido.cliente.ceP" value="this[0].pedido.cliente.ceP"/>
-                              <arg label="i.pedido.cliente.endereco" value="this[0].pedido.cliente.endereco"/>
-                              <arg label="i.pedido.cliente.bairro" value="this[0].pedido.cliente.bairro"/>
-                              <arg label="i.pedido.cliente.cidade" value="this[0].pedido.cliente.cidade"/>
-                              <arg label="i.pedido.cliente.estado" value="this[0].pedido.cliente.estado"/>
-                              <arg label="i.pedido.cliente.dataNascimento" value="this[0].pedido.cliente.dataNascimento"/>
-                              <arg label="i.pedido.cliente.ativo" value="this[0].pedido.cliente.ativo"/>
-                              <arg label="i.pedido.cliente.user" value="this[0].pedido.cliente.user"/>
-                              <arg label="i.pedido.cliente.razaoSocial" value="this[0].pedido.cliente.razaoSocial"/>
-                              <arg label="i.pedido.cliente.cnPJ" value="this[0].pedido.cliente.cnPJ"/>
-                              <arg label="i.pedido.cliente.inscricaoEstadual" value="this[0].pedido.cliente.inscricaoEstadual"/>
-                              <arg label="i.pedido.cliente.inscricaoMunicipal" value="this[0].pedido.cliente.inscricaoMunicipal"/>
-                              <arg label="i.pedido.cliente.listaPreco" value="this[0].pedido.cliente.listaPreco"/>
-                              <arg label="i.servico.tipoTrabalho.id" value="this[0].servico.tipoTrabalho.id"/>
-                              <arg label="i.servico.tipoTrabalho.nome" value="this[0].servico.tipoTrabalho.nome"/>
-                              <arg label="i.pedido.cliente.user.id" value="this[0].pedido.cliente.user.id"/>
-                              <arg label="i.pedido.cliente.user.email" value="this[0].pedido.cliente.user.email"/>
-                              <arg label="i.pedido.cliente.user.name" value="this[0].pedido.cliente.user.name"/>
-                              <arg label="i.pedido.cliente.user.login" value="this[0].pedido.cliente.user.login"/>
-                              <arg label="i.pedido.cliente.user.picture" value="this[0].pedido.cliente.user.picture"/>
-                              <arg label="i.pedido.cliente.user.password" value="this[0].pedido.cliente.user.password"/>
-                              <arg label="i.pedido.cliente.user.theme" value="this[0].pedido.cliente.user.theme"/>
-                              <arg label="i.pedido.cliente.listaPreco.id" value="this[0].pedido.cliente.listaPreco.id"/>
-                              <arg label="i.pedido.cliente.listaPreco.nome" value="this[0].pedido.cliente.listaPreco.nome"/>
-                              <arg label="i.pedido.cliente.listaPreco.ativo" value="this[0].pedido.cliente.listaPreco.ativo"/>
-                              <arg label="i.pedido.cliente.listaPreco.ordem" value="this[0].pedido.cliente.listaPreco.ordem"/>
-                            </mutation>
-                            <field name="SELECT">this[0].valorServico</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
+                  <block colour="#5b67a5" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="IQNW?A(V#=nOp3oU4|!9" origintype="math_number" output="true" tooltip="function () { [native code] }" type="math_number">
+                    <field name="NUM">0</field>
                   </block>
                 </value>
                 <next>
-                  <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="|#Ex`bUAP4O3IG^#Khdp" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
-                    <field name="VAR">valorPedido</field>
-                    <value name="VALUE">
-                      <block colour="#5b67a5" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="IQNW?A(V#=nOp3oU4|!9" origintype="math_number" output="true" tooltip="function () { [native code] }" type="math_number">
-                        <field name="NUM">0</field>
+                  <block colour="#5ba55b" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="uu,oa9:W-CyGD-D8C_57" origintype="controls_forEach" output="false" tooltip="Faça algumas instruções várias vezes." type="controls_forEach">
+                    <field name="VAR">j</field>
+                    <value name="LIST">
+                      <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="vnX4nr184~9p@X;I4nti" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                        <field name="VAR">consultaItens</field>
                       </block>
                     </value>
-                    <next>
-                      <block colour="#5ba55b" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="!`IC`Nq@`}~!hDbaU%6z" origintype="controls_forEach" output="false" tooltip="Faça algumas instruções várias vezes." type="controls_forEach">
-                        <field name="VAR">j</field>
-                        <value name="LIST">
-                          <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="j]I5cpU+qf:O;gyYG9:y" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                            <field name="VAR">servicos</field>
+                    <statement name="DO">
+                      <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="S!oaRlEw8z={UHQ]`fIW" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                        <field name="VAR">servicos</field>
+                        <value name="VALUE">
+                          <block colour="#db802b" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="Y[FL_lUK;_1_#H@Nm)Um" multilayer="false" namespace="cronapi.database.Operations.getField" origintype="procedures_get_field" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20campo%20do%20registro%20do%20cursor%20atual%20da%20fonte%20de%20dados%20%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Fonte%20de%20dados%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Nome%20do%20campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_get_field">
+                            <mutation name="{{cronapi.database.Operations.getField}}">
+                              <arg name="Fonte de dados"/>
+                              <arg name="Nome do campo"/>
+                            </mutation>
+                            <value name="PARAM0">
+                              <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="`*+XHc$,eM4Gthcxm6}`" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                <field name="VAR">consultaItens</field>
+                              </block>
+                            </value>
+                            <value name="PARAM1">
+                              <block colour="#db802b" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="Yo^!+v:k0-IHD6U|NUsk" origintype="procedures_get_field_datasource" output="true" type="procedures_get_field_datasource">
+                                <mutation name="">
+                                  <arg label="i" value="this[0]"/>
+                                  <arg label="i.id" value="this[0].id"/>
+                                  <arg label="i.pedido" value="this[0].pedido"/>
+                                  <arg label="i.tipoTrabalho" value="this[0].tipoTrabalho"/>
+                                  <arg label="i.dente" value="this[0].dente"/>
+                                  <arg label="i.nomeServico" value="this[0].nomeServico"/>
+                                  <arg label="i.cor" value="this[0].cor"/>
+                                  <arg label="i.situacaoEtapa" value="this[0].situacaoEtapa"/>
+                                  <arg label="i.valorServico" value="this[0].valorServico"/>
+                                  <arg label="i.dataPrevisaoEntrega" value="this[0].dataPrevisaoEntrega"/>
+                                  <arg label="i.dataFinalizado" value="this[0].dataFinalizado"/>
+                                  <arg label="i.horaFinalizado" value="this[0].horaFinalizado"/>
+                                  <arg label="i.horaPrevisaoEntrega" value="this[0].horaPrevisaoEntrega"/>
+                                  <arg label="i.situacaoItemPedido" value="this[0].situacaoItemPedido"/>
+                                  <arg label="i.servico" value="this[0].servico"/>
+                                  <arg label="i.pedido.id" value="this[0].pedido.id"/>
+                                  <arg label="i.pedido.paciente" value="this[0].pedido.paciente"/>
+                                  <arg label="i.pedido.codigoPaciente" value="this[0].pedido.codigoPaciente"/>
+                                  <arg label="i.pedido.sexo" value="this[0].pedido.sexo"/>
+                                  <arg label="i.pedido.dataNascimentoPaciente" value="this[0].pedido.dataNascimentoPaciente"/>
+                                  <arg label="i.pedido.idadePaciente" value="this[0].pedido.idadePaciente"/>
+                                  <arg label="i.pedido.dataEntregaSolicitada" value="this[0].pedido.dataEntregaSolicitada"/>
+                                  <arg label="i.pedido.situacaoPedido" value="this[0].pedido.situacaoPedido"/>
+                                  <arg label="i.pedido.ativo" value="this[0].pedido.ativo"/>
+                                  <arg label="i.pedido.dataEnvio" value="this[0].pedido.dataEnvio"/>
+                                  <arg label="i.pedido.cliente" value="this[0].pedido.cliente"/>
+                                  <arg label="i.pedido.valor" value="this[0].pedido.valor"/>
+                                  <arg label="i.pedido.dataFinalizado" value="this[0].pedido.dataFinalizado"/>
+                                  <arg label="i.pedido.observacoes" value="this[0].pedido.observacoes"/>
+                                  <arg label="i.pedido.protocolo" value="this[0].pedido.protocolo"/>
+                                  <arg label="i.pedido.dataPrevisao" value="this[0].pedido.dataPrevisao"/>
+                                  <arg label="i.pedido.foto" value="this[0].pedido.foto"/>
+                                  <arg label="i.servico.id" value="this[0].servico.id"/>
+                                  <arg label="i.servico.descricao" value="this[0].servico.descricao"/>
+                                  <arg label="i.servico.diasUteis" value="this[0].servico.diasUteis"/>
+                                  <arg label="i.servico.preco1" value="this[0].servico.preco1"/>
+                                  <arg label="i.servico.preco2" value="this[0].servico.preco2"/>
+                                  <arg label="i.servico.preco3" value="this[0].servico.preco3"/>
+                                  <arg label="i.servico.preco4" value="this[0].servico.preco4"/>
+                                  <arg label="i.servico.preco5" value="this[0].servico.preco5"/>
+                                  <arg label="i.servico.preco6" value="this[0].servico.preco6"/>
+                                  <arg label="i.servico.preco7" value="this[0].servico.preco7"/>
+                                  <arg label="i.servico.preco8" value="this[0].servico.preco8"/>
+                                  <arg label="i.servico.preco9" value="this[0].servico.preco9"/>
+                                  <arg label="i.servico.preco10" value="this[0].servico.preco10"/>
+                                  <arg label="i.servico.preco11" value="this[0].servico.preco11"/>
+                                  <arg label="i.servico.preco12" value="this[0].servico.preco12"/>
+                                  <arg label="i.servico.ativo" value="this[0].servico.ativo"/>
+                                  <arg label="i.servico.tipoTrabalho" value="this[0].servico.tipoTrabalho"/>
+                                  <arg label="i.pedido.cliente.id" value="this[0].pedido.cliente.id"/>
+                                  <arg label="i.pedido.cliente.nome" value="this[0].pedido.cliente.nome"/>
+                                  <arg label="i.pedido.cliente.crO" value="this[0].pedido.cliente.crO"/>
+                                  <arg label="i.pedido.cliente.especialidade" value="this[0].pedido.cliente.especialidade"/>
+                                  <arg label="i.pedido.cliente.rg" value="this[0].pedido.cliente.rg"/>
+                                  <arg label="i.pedido.cliente.cpF" value="this[0].pedido.cliente.cpF"/>
+                                  <arg label="i.pedido.cliente.telefone1" value="this[0].pedido.cliente.telefone1"/>
+                                  <arg label="i.pedido.cliente.telefone2" value="this[0].pedido.cliente.telefone2"/>
+                                  <arg label="i.pedido.cliente.ceP" value="this[0].pedido.cliente.ceP"/>
+                                  <arg label="i.pedido.cliente.endereco" value="this[0].pedido.cliente.endereco"/>
+                                  <arg label="i.pedido.cliente.bairro" value="this[0].pedido.cliente.bairro"/>
+                                  <arg label="i.pedido.cliente.cidade" value="this[0].pedido.cliente.cidade"/>
+                                  <arg label="i.pedido.cliente.estado" value="this[0].pedido.cliente.estado"/>
+                                  <arg label="i.pedido.cliente.dataNascimento" value="this[0].pedido.cliente.dataNascimento"/>
+                                  <arg label="i.pedido.cliente.ativo" value="this[0].pedido.cliente.ativo"/>
+                                  <arg label="i.pedido.cliente.user" value="this[0].pedido.cliente.user"/>
+                                  <arg label="i.pedido.cliente.razaoSocial" value="this[0].pedido.cliente.razaoSocial"/>
+                                  <arg label="i.pedido.cliente.cnPJ" value="this[0].pedido.cliente.cnPJ"/>
+                                  <arg label="i.pedido.cliente.inscricaoEstadual" value="this[0].pedido.cliente.inscricaoEstadual"/>
+                                  <arg label="i.pedido.cliente.inscricaoMunicipal" value="this[0].pedido.cliente.inscricaoMunicipal"/>
+                                  <arg label="i.pedido.cliente.listaPreco" value="this[0].pedido.cliente.listaPreco"/>
+                                  <arg label="i.servico.tipoTrabalho.id" value="this[0].servico.tipoTrabalho.id"/>
+                                  <arg label="i.servico.tipoTrabalho.nome" value="this[0].servico.tipoTrabalho.nome"/>
+                                  <arg label="i.pedido.cliente.user.id" value="this[0].pedido.cliente.user.id"/>
+                                  <arg label="i.pedido.cliente.user.email" value="this[0].pedido.cliente.user.email"/>
+                                  <arg label="i.pedido.cliente.user.name" value="this[0].pedido.cliente.user.name"/>
+                                  <arg label="i.pedido.cliente.user.login" value="this[0].pedido.cliente.user.login"/>
+                                  <arg label="i.pedido.cliente.user.picture" value="this[0].pedido.cliente.user.picture"/>
+                                  <arg label="i.pedido.cliente.user.password" value="this[0].pedido.cliente.user.password"/>
+                                  <arg label="i.pedido.cliente.user.theme" value="this[0].pedido.cliente.user.theme"/>
+                                  <arg label="i.pedido.cliente.listaPreco.id" value="this[0].pedido.cliente.listaPreco.id"/>
+                                  <arg label="i.pedido.cliente.listaPreco.nome" value="this[0].pedido.cliente.listaPreco.nome"/>
+                                  <arg label="i.pedido.cliente.listaPreco.ativo" value="this[0].pedido.cliente.listaPreco.ativo"/>
+                                  <arg label="i.pedido.cliente.listaPreco.ordem" value="this[0].pedido.cliente.listaPreco.ordem"/>
+                                </mutation>
+                                <field name="SELECT">this[0].valorServico</field>
+                              </block>
+                            </value>
                           </block>
                         </value>
-                        <statement name="DO">
+                        <next>
                           <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="j;N.2jlF*b?SKlu(YriW" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
                             <field name="VAR">valorPedido</field>
                             <value name="VALUE">
@@ -3258,25 +3258,49 @@
                                 </value>
                                 <value name="ARG1">
                                   <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="b38:Joc9Mw0OQ3F*(q*e" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                                    <field name="VAR">j</field>
+                                    <field name="VAR">servicos</field>
                                   </block>
                                 </value>
                               </block>
                             </value>
-                          </block>
-                        </statement>
-                        <next>
-                          <block colour="#5ba58c" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id=":vkYH6eo5:LTVQs;aIs/" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
-                            <value name="TEXT">
-                              <shadow colour="#5ba593" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="Kz?uk0k)=7DR{Sul-k}f" origintype="text" output="true" tooltip="function () { [native code] }" type="text" xmlns="">
-                                <field name="TEXT">abc</field>
-                              </shadow>
-                              <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="R.a}5lA@QT7U6Sxm%`_F" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                                <field name="VAR">valorPedido</field>
+                            <next>
+                              <block colour="#5ba58c" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="s|X_!-g#9.%x$[5S0#Bw" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
+                                <value name="TEXT">
+                                  <shadow colour="#5ba593" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="B-8~{P?;TYUsvkq=_YEr" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                                    <field name="TEXT">abc</field>
+                                  </shadow>
+                                  <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="!P+W.fOXzGuxIUmWXuk." origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                    <field name="VAR">valorPedido</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block colour="#5ba58c" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="%77j`cy2xl`yIlk;$hdW" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
+                                    <value name="TEXT">
+                                      <shadow colour="#5ba593" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="g4[B}!#M7:P*)TEa4yWR" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                                        <field name="TEXT">abc</field>
+                                      </shadow>
+                                      <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="*.2T7hh69-=j#1=5NET2" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                        <field name="VAR">servicos</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
                               </block>
-                            </value>
+                            </next>
                           </block>
                         </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block colour="#5ba58c" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id=":vkYH6eo5:LTVQs;aIs/" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
+                        <value name="TEXT">
+                          <shadow colour="#5ba593" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="Kz?uk0k)=7DR{Sul-k}f" origintype="text" output="true" tooltip="function () { [native code] }" type="text" xmlns="">
+                            <field name="TEXT">abc</field>
+                          </shadow>
+                          <block colour="#a55b80" dependencyby="ouvS-sDZ*J-/]J,dMOPU" id="R.a}5lA@QT7U6Sxm%`_F" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                            <field name="VAR">valorPedido</field>
+                          </block>
+                        </value>
                       </block>
                     </next>
                   </block>
